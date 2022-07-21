@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const LeftBarStyled = styled.section`
     width:100px;
-    height:100vh;
+    height:100vh;   
     display: flex;
     flex-direction: row;
 
     .accent-color-bar{
-        width:13px;
+        width:10px;
         height:100vh;
         background: #c84e89;
         background: -webkit-linear-gradient(to left, #c84e89, #F15F79 ); 
@@ -16,7 +16,8 @@ export const LeftBarStyled = styled.section`
 
     .icons{
         display: flex;
-        flex-direction: column;   
+        flex-direction: column; 
+          
     }
 
     .logo-name{

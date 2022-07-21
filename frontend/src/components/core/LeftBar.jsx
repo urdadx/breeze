@@ -43,7 +43,7 @@ const LeftBar = () => {
         },
     
         {
-          name: "images",
+          name: "code",
           icon: <BiImageAdd style={{fontSize:"20px"}} />,
         },
         {

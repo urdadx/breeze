@@ -4,7 +4,7 @@ const Label = ({ name }) => {
     return (  
         <>
             <Box sx={{display:"flex", m:2}}>
-                <Typography>{name}</Typography>
+                <Typography fontWeight="bold" >{name}</Typography>
             </Box>
         </>
     );
