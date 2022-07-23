@@ -14,6 +14,7 @@ export const HomeStyled = styled.section`
     
     .customize-area{
         flex-basis:27%;
+        width:370px;
         height:100vh;
     }
 

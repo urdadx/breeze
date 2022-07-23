@@ -12,9 +12,9 @@ const Home = () => {
             <div className="left-bar">
                 <LeftBar />
             </div>
-            <div className="customize-area">
+            {/* <div className="customize-area">
                 <CustomArea />
-            </div>
+            </div> */}
             <div className="editor">
                 <Editor/>
             </div>

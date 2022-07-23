@@ -1,11 +1,12 @@
 import { LeftBarStyled } from "../../styles/LeftBarStyled";
 import { FiEdit, FiFolder, FiUploadCloud } from "react-icons/fi";
-import { BiImageAdd } from "react-icons/bi";
 import { IoShapesOutline } from "react-icons/io5";
 import { useState } from "react";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Typography } from "@mui/material";
+import CustomArea from "./CustomArea"
+import { AiOutlineCode } from "react-icons/ai";
 
 
 const TabItem = ({ tab }) => {
@@ -38,13 +39,12 @@ const LeftBar = () => {
           icon: <IoShapesOutline style={{fontSize:"20px"}} />,
         },
         {
+          name: "code",
+          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
+        },
+        {
           name: "uploads",
           icon: <FiUploadCloud style={{fontSize:"20px"}} />,
-        },
-    
-        {
-          name: "code",
-          icon: <BiImageAdd style={{fontSize:"20px"}} />,
         },
         {
           name: "saved",
@@ -58,7 +58,7 @@ const LeftBar = () => {
             <div className="accent-color-bar"></div>
                 <div className="icons">
                     <div className="logo">
-                        <Typography className="logo-name">breeze</Typography>
+                        <Typography className="logo-name">breeze </Typography>
                     </div>
                     <Tabs
                         value={value}
@@ -79,6 +79,8 @@ const LeftBar = () => {
                     </Tabs>
                    
                 </div>
+
+                { value === "home" && <CustomArea /> }
         </LeftBarStyled>
         </>
      );
