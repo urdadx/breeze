@@ -18,7 +18,6 @@ export const ShotEditorStyled = styled.section`
         height:100%;
         height:235px;
         z-index: 1000;
-        overflow-y: scroll;
-    }
+        }
 
 `

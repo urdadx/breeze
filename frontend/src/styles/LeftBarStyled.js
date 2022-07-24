@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const LeftBarStyled = styled.section`
-    width:468px;
+    width:465px;
     height:100vh;   
     display: flex;
     flex-direction: row;
+    border-right: 1px solid #eee;
 
     .accent-color-bar{
         width:10px;
@@ -17,7 +18,7 @@ export const LeftBarStyled = styled.section`
     .icons{
         display: flex;
         flex-direction: column; 
-          
+        border-right:0.2px solid #eee;
     }
 
     .logo-name{
@@ -26,21 +27,29 @@ export const LeftBarStyled = styled.section`
     }
 
     .logo{
-        width:50px;
-        margin:1.5em auto;
-        margin-bottom: 2.5rem;
-        border:3px solid #c84e89;
-        padding:20px 5px 20px 5px;
+        width:45px;
+        margin:1.2rem auto;
+        margin-bottom: 0.2rem;
+    }
+
+    .logo-title{
+        font-family: "Epilogue",sans-serif;
+        color:#c84e89;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .title-wrapper{
+        margin-bottom: 1rem;
     }
 
     .tab{
         height:75px;
     }
 
-
     .tab-name{
         color:grey;
-        font-size:14px;
+        font-size:12px;
         text-transform: lowercase;
     }
 

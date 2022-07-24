@@ -13,9 +13,9 @@ const GradientsPicker = () => {
         setGradients(colorGradients)
     },[])
 
-    return ( 
+    return (    
         <>
-        <Box m={2} className="gradients-div">
+        <Box className="gradients-div">
         {
             gradients && gradients.map((gradient) => {
                 return <>

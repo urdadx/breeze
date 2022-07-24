@@ -13,7 +13,7 @@ const SolidPicker = () => {
 
     return ( 
         <>
-        <Box m={2} className="gradients-div">
+        <Box className="gradients-div">
         {
             solids && solids.map((solid) => {
                 return <>

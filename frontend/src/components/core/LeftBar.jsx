@@ -7,6 +7,7 @@ import Tab from '@mui/material/Tab';
 import { Typography } from "@mui/material";
 import CustomArea from "./CustomArea"
 import { AiOutlineCode } from "react-icons/ai";
+import { LOGO_IMG } from "../../assets/images/imageURL";
 
 
 const TabItem = ({ tab }) => {
@@ -35,12 +36,12 @@ const LeftBar = () => {
           icon: <FiEdit style={{fontSize:"20px"}} />
         },
         {
-          name: "assets",
-          icon: <IoShapesOutline style={{fontSize:"20px"}} />,
+          name: "codesnap",
+          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
         },
         {
-          name: "code",
-          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
+          name: "assets",
+          icon: <IoShapesOutline style={{fontSize:"20px"}} />,
         },
         {
           name: "uploads",
@@ -58,7 +59,10 @@ const LeftBar = () => {
             <div className="accent-color-bar"></div>
                 <div className="icons">
                     <div className="logo">
-                        <Typography className="logo-name">breeze </Typography>
+                      <img src={LOGO_IMG}/>
+                    </div>
+                    <div className="title-wrapper">
+                      <Typography className="logo-title">breeze.</Typography>
                     </div>
                     <Tabs
                         value={value}
@@ -66,15 +70,14 @@ const LeftBar = () => {
                         indicatorColor="primary"
                         orientation="vertical"
                         variant="scrollable"
-
                     >
                      {allTabs.map((tab, key) => (
                     <Tab
-                            label={<TabItem tab={tab} />}
-                            value={tab.name}
-                            key={key}
-                            className="tab"
-                        />
+                        label={<TabItem tab={tab} />}
+                        value={tab.name}
+                        key={key}
+                        className="tab"
+                    />
                         ))}
                     </Tabs>
                    

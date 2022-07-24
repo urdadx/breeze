@@ -1,4 +1,3 @@
-
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -32,7 +31,7 @@ const ShotsEditor = () => {
     return ( 
         <>
     <ShotEditorStyled>
-        // Select background type and frame
+
         <div className="orientation">
         <FormControl sx={{ p:2, minWidth: 120, maxWidth:120 }} size="small" >
  
@@ -64,7 +63,6 @@ const ShotsEditor = () => {
             </FormControl>
             </div>
         <div>
-            // Set item position on screen
             <Label name="Position" />
             <Box m={2} width={300}>
                 <InputLabel>Position X</InputLabel>
@@ -100,7 +98,6 @@ const ShotsEditor = () => {
             </Box>
         </div>
 
-        // Set item styling
         <Label name="Styling"  />
         <Box m={2} className="gradients-area">
             {
@@ -108,7 +105,6 @@ const ShotsEditor = () => {
             }
         </Box>
         
-        // Set item border radius
         <Label name="Rounded Corners" />
         <Box m={2} width={300}>
             <InputLabel>Border Radius</InputLabel>
