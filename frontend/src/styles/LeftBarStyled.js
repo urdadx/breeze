@@ -11,8 +11,8 @@ export const LeftBarStyled = styled.section`
         width:10px;
         height:100vh;
         background: #c84e89;
-        background: -webkit-linear-gradient(to left, #c84e89, #F15F79 ); 
-        background: linear-gradient(to left, #c84e89, #F15F79 );
+        background: -webkit-linear-gradient(to bottom, #c84e89, #F15F79 ); 
+        background: linear-gradient(to bottom, #c84e89, #F15F79 );
     }
 
     .icons{

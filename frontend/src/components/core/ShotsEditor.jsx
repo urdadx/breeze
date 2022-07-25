@@ -60,7 +60,7 @@ const ShotsEditor = () => {
                     })
                 }
                 </Select>
-            </FormControl>
+            </FormControl>  
             </div>
         <div>
             <Label name="Position" />

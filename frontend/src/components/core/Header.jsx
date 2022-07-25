@@ -6,12 +6,21 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import FormControl from "@mui/material/FormControl";
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
+import { useState } from "react";
+import { options } from "../../utils";
 
 const Header = ({
-    darkMode,
-    setDarkMode,
-    downloadPng
-}) => {
+        darkMode,
+        setDarkMode,
+        downloadPng
+    }) => {
+    
+    const [format, setFormat] = useState(options[0].name)
+
+    const handleChange = (event) => {
+        setFormat(event.target.value);
+    };
+    
     return ( 
         <>
         <EditorStyled>
@@ -19,10 +28,13 @@ const Header = ({
                 <div className="header-items">
                 <div className="file-formats">
                 <FormControl sx={{ p:1.5, minWidth: 250, maxWidth:250 }} size="small" >
-                    <Select value="LinkedIn Image">
-                        <MenuItem value="LinkedIn Image">Twitter Image</MenuItem>
-                        <MenuItem >LinkedIn Image</MenuItem>
-                        <MenuItem>Instagram Image</MenuItem>
+                    <Select onChange={handleChange} value={format}>
+                        {
+                            options && options.map((option) => {
+                                return <MenuItem value={option.name}>{option.name}</MenuItem>
+                                
+                            })
+                        }
 
                     </Select>
                 </FormControl>
@@ -34,16 +46,16 @@ const Header = ({
                         <div className="templates-btn">
                             <Button 
                                 endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}
-                                className="action-btn"
-                                variant="contained">
+                                className="action-btn templates"
+                                variant="text">
                                 Templates
                             </Button>
                         </div>
-                        <div className="download-btn">
+                        <div className="download-wrapper">
                             <Button 
                                 endIcon={<FileDownloadOutlinedIcon style={{fontSize:"27px"}} />}
-                                className="action-btn"
-                                variant="outlined">
+                                className="action-btn download"
+                                variant="contained">
                                 Download
                             </Button>
                         </div>

@@ -37,10 +37,24 @@ export const EditorStyled = styled.section`
         font-size:15px;
         font-family:"Epilogue",sans-serif;
         font-weight: bold;
-        padding:7px 7px;
+        padding:9px;
         display: flex;
         align-items: center;
-        
+        outline:2px solid #c84e89;
+        height:40px;
+    }
+
+    .templates{
+        color:#494949;
+        outline:2px solid #c84e89;
+    }
+
+    .download{
+        color:white;
+        padding:9px;
+        background: #c84e89;
+        background: -webkit-linear-gradient(to left, #c84e89, #F15F79 ); 
+        background: linear-gradient(to left, #c84e89, #F15F79 );
     }
 
 

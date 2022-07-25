@@ -17,3 +17,16 @@ export const backgrounds = [
         name:"Solid"
     }
 ]
+
+
+export const options = [
+    {
+        name:"Twitter Image"
+    },
+    {
+        name:"LinkedIn Image"
+    },
+    {
+        name:"Instagram Image"
+    }
+]

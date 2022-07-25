@@ -19,7 +19,7 @@ const TabItem = ({ tab }) => {
     );
 };
 
-const LeftBar = () => {
+const LeftBar = ({ data, setData, children, setChildren}) => {
 
     const [value, setValue] = useState("home");
 
@@ -29,6 +29,12 @@ const LeftBar = () => {
       setValue(newValue);
     };
 
+    const props = {
+      data: data,
+      setData: setData,
+      children: children,
+      setChildren: setChildren,
+    };
 
     const allTabs = [
         {
@@ -83,7 +89,7 @@ const LeftBar = () => {
                    
                 </div>
 
-                { value === "home" && <CustomArea /> }
+                { value === "home" && <CustomArea data={data} {...props} /> }
         </LeftBarStyled>
         </>
      );
