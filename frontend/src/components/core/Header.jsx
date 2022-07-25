@@ -30,8 +30,8 @@ const Header = ({
                 <FormControl sx={{ p:1.5, minWidth: 250, maxWidth:250 }} size="small" >
                     <Select onChange={handleChange} value={format}>
                         {
-                            options && options.map((option) => {
-                                return <MenuItem value={option.name}>{option.name}</MenuItem>
+                            options && options.map((option,key) => {
+                                return <MenuItem key={key} value={option.name}>{option.name}</MenuItem>
                                 
                             })
                         }

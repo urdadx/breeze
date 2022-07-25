@@ -5,7 +5,7 @@ export const CoverStyled = styled.section`
 
 
     .wrapper{
-        margin-top:2.5rem;
+        margin-top:2rem;
         width:100%;
         height: 100%;
         display: flex;

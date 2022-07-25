@@ -2,12 +2,12 @@ import { CustomAreaStyled } from "../../styles/CustomAreaStyled";
 import Watermark from "../atoms/Watermark";
 import ShotsEditor from "./ShotsEditor";
 
-const CustomArea = () => {
+const CustomArea = ({ data, setData }) => {
     return (  
         <>
             <CustomAreaStyled>
                 <Watermark/>
-                <ShotsEditor />
+                <ShotsEditor data={data} setData={setData} />
             </CustomAreaStyled>
         </>
     );

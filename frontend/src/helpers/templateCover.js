@@ -2,14 +2,14 @@ export const getTemplate = (id) => {
     const template = {
 
     background: {
-        type: "gradient",
+        type: "Gradient",
         color1: "#ec008c",
         color2: "#fc6767",
         direction: 105,
     },
     frame:{
-       type1:"MacOS",
-       type2:"Chrome"
+       
+       type:"Chrome",
     },
     position:{
         x: 50,

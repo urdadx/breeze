@@ -1,5 +1,7 @@
 export const frames = [
-
+    {
+        name:"None"
+    },
     {
         name:"MacOS"
     },

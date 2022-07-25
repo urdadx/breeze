@@ -10,10 +10,10 @@ const Editor = ({ data, setData, children, setChildren}) => {
         const coverImagePreview = document.querySelector(".cover-image-preview");
         const coverImageDownload = document.querySelector(".cover-image-download");
     
-        if (data.background.type === "solid") {
+        if (data.background.type === "Solid") {
           coverImagePreview.style.background = data.background.color;
           coverImageDownload.style.background = data.background.color;
-        } else if (data.background.type === "gradient") {
+        } else if (data.background.type === "Gradient") {
           coverImagePreview.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
           coverImageDownload.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
         }

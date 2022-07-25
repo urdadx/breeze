@@ -14,16 +14,16 @@ import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
 
 
-const ShotsEditor = () => {
+const ShotsEditor = ({ data, setData}) => {
 
-    const [frame, setFrame] = useState(frames[0].name)
+    const [frame, setFrame] = useState(data.frame.type)
 
     const handleChange = (event) => {
         setFrame(event.target.value);
     };
 
-    const [bg, setBg] = useState(backgrounds[0].name)
-
+    const [bg, setBg] = useState(data.background.type)
+    
     const handleBgChange = (event) => {
         setBg(event.target.value);
     };
@@ -41,26 +41,26 @@ const ShotsEditor = () => {
                 onChange={handleChange}
             >
             {
-                frames && frames.map((frame) => {
-                    return <MenuItem value={frame.name}>{frame.name}</MenuItem>
+                frames && frames.map((frame,key) => {
+                    return <MenuItem key={key} value={frame.name}>{frame.name}</MenuItem>
                 })
             }
             </Select>
         </FormControl>
 
-            <FormControl sx={{ p:2, minWidth: 170, maxWidth:170 }} size="small" >
-                <InputLabel sx={{fontSize:"20px"}} >Background</InputLabel>
-                <Select
-                    value={bg}
-                    onChange={handleBgChange}
-                >
-                {
-                    backgrounds && backgrounds.map((bg) => {
-                        return <MenuItem value={bg.name}>{bg.name}</MenuItem>
-                    })
-                }
-                </Select>
-            </FormControl>  
+        <FormControl sx={{ p: 2, minWidth: 170, maxWidth: 170 }} size="small" >
+            <InputLabel sx={{fontSize:"20px"}} >Background</InputLabel>
+            <Select
+                value={bg}
+                onChange={handleBgChange}
+            >
+            {
+                backgrounds && backgrounds.map((bg,key) => {
+                    return <MenuItem key={key} value={bg.name}>{bg.name}</MenuItem>
+                })
+            }
+            </Select>
+        </FormControl>  
             </div>
         <div>
             <Label name="Position" />
@@ -101,7 +101,7 @@ const ShotsEditor = () => {
         <Label name="Styling"  />
         <Box m={2} className="gradients-area">
             {
-                bg === "Solid" ? <SolidPicker /> : <GradientsPicker /> 
+                bg === "Solid" ? <SolidPicker /> : <GradientsPicker data={data} setData={setData} /> 
             }
         </Box>
         
