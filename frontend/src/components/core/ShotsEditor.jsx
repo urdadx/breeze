@@ -35,7 +35,7 @@ const ShotsEditor = ({ data, setData}) => {
         <div className="orientation">
         <FormControl sx={{ p:2, minWidth: 120, maxWidth:120 }} size="small" >
  
-            <InputLabel sx={{fontSize:"20px"}} >Frame</InputLabel>
+            <InputLabel sx={{fontSize:"20px"}}>Frame</InputLabel>
             <Select
                 value={frame}
                 onChange={handleChange}
@@ -101,7 +101,8 @@ const ShotsEditor = ({ data, setData}) => {
         <Label name="Styling"  />
         <Box m={2} className="gradients-area">
             {
-                bg === "Solid" ? <SolidPicker /> : <GradientsPicker data={data} setData={setData} /> 
+                bg === "Solid" ? <SolidPicker data={data} setData={setData} />
+                : <GradientsPicker data={data} setData={setData} /> 
             }
         </Box>
         

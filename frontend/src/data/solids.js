@@ -29,6 +29,16 @@ export const solidColors = [
     {
         color:"#22c1c3"
     },
+    {
+        color:"#FEAC5E"
+    },
+    {
+        color:"#fc00ff"
+    },
+    
+    {
+        color:"#93F9B9"
+    },
     
   
 ]

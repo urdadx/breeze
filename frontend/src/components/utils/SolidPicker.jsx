@@ -3,9 +3,13 @@ import Box from "@mui/material/Box";
 import { ShotEditorStyled } from "../../styles/ShotEditorStyled";
 import { solidColors } from "../../data/solids";
 
-const SolidPicker = () => {
+const SolidPicker = ({ data, setData }) => {
     
     const [solids, setSolid] = useState([]);
+
+    const [colors, setColors] = useState({
+        color: data.background.color1 ? data.background.color1 : "#ec008c",
+    });
 
     useEffect(() => {
         setSolid(solidColors)
@@ -19,12 +23,24 @@ const SolidPicker = () => {
                 return <>
                     <ShotEditorStyled>
                         <div 
+                            className="single-div"
+                            onClick={() => {
+                                setColors({
+                                    color:solid.color,
+                                })
+                                setData({
+                                    ...data,
+                                    background: {
+                                        type:"Solid",
+                                        color1:solid.color,
+                                        color2: "#fc6767",
+                                        direction: 0
+                                    }
+                                })
+                            }}
+
                             style={{
                                 background: `${solid.color}`,
-                                width:"90px",
-                                height:"60px",
-                                borderRadius:"10px",
-                                cursor: "pointer",
                             }} > 
                         </div>
                     </ShotEditorStyled>

@@ -47,12 +47,9 @@ const GradientsPicker = ({ data, setData }) => {
 
                             } }
                             key={key}
+                            className="single-div"
                             style={{
                                 background: `linear-gradient(to left, ${gradient.colors[0]}, ${gradient.colors[1]})`,
-                                width:"90px",
-                                height:"60px",
-                                borderRadius:"10px",
-                                cursor: "pointer",
                             }} > 
                         </div>
                     </ShotEditorStyled>

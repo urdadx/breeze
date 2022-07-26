@@ -3,13 +3,14 @@ export const getTemplate = (id) => {
 
     background: {
         type: "Gradient",
-        color1: "#ec008c",
-        color2: "#fc6767",
+        color1: "#cc2b5e",
+        color2: "#753a88",
         direction: 105,
+
     },
     frame:{
        
-       type:"Chrome",
+       type:"None",
     },
     position:{
         x: 50,

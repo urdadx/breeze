@@ -9,9 +9,10 @@ export const colorGradients  = [
         "colors": ["#56CCF2", "#2F80ED"]
     },
     {
-        "name": "Mojito",
-        "colors": ["#1D976C", "#93F9B9"]
+        "name": "Purple Love",
+        "colors": ["#f7ff00", "#db36a4"]
     },
+   
     {
         "name": "Sunrise",
         "colors": ["#FF512F", "#F09819"]
@@ -22,7 +23,7 @@ export const colorGradients  = [
     },
     {
         "name": "Purple Love",
-        "colors": ["#cc2b5e", "#753a88"]
+        "colors": ["#ec008c", "#fc6767"]
     },
     {
         "name": "Martini",
@@ -36,4 +37,17 @@ export const colorGradients  = [
         "name": "Summer",
         "colors": ["#22c1c3", "#fdbb2d"]
     },
+    {
+        "name": "Purple",
+        "colors": ["#FEAC5E", "#C779D0"]
+    },
+    {
+        "name": "Martini",
+        "colors": ["#fc00ff", "#00dbde"]
+    },
+    {
+        "name": "Mojito",
+        "colors": ["#1D976C", "#93F9B9"]
+    },
+ 
 ]
