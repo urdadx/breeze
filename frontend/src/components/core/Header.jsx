@@ -1,18 +1,21 @@
 import { EditorStyled } from "../../styles/EditorStyled";
 import Button from '@mui/material/Button';
 import { Select } from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import FormControl from "@mui/material/FormControl";
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { useState } from "react";
 import { options } from "../../utils";
+import MenuItem from '@mui/material/MenuItem';
 
 const Header = ({
+        fileName,
+        setFileName,
         darkMode,
         setDarkMode,
-        downloadPng
+        downloadAsPng,
+        downloadAsJpg,
     }) => {
     
     const [format, setFormat] = useState(options[0].name)
@@ -53,12 +56,14 @@ const Header = ({
                         </div>
                         <div className="download-wrapper">
                             <Button 
+                                onClick={downloadAsPng}
                                 endIcon={<FileDownloadOutlinedIcon style={{fontSize:"27px"}} />}
                                 className="action-btn download"
                                 variant="contained">
                                 Download
                             </Button>
                         </div>
+                       
                     </div>
                 </div>
                 

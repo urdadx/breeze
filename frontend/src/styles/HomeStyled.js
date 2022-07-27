@@ -20,6 +20,7 @@ export const HomeStyled = styled.section`
 
     .editor{
         flex-grow: 3;
+        position: relative;
     }
 
 

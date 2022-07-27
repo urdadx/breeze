@@ -68,7 +68,7 @@ const LeftBar = ({ data, setData, children, setChildren}) => {
                       <img src={LOGO_IMG}/>
                     </div>
                     <div className="title-wrapper">
-                      <Typography className="logo-title">breeze.</Typography>
+                      <Typography className="logo-title ">breeze.</Typography>
                     </div>
                     <Tabs
                         value={value}

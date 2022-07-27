@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 export const EditorStyled = styled.section`
 
+    position:relative;
+
     nav{
         width:100%;
         height:70px;
@@ -15,7 +17,7 @@ export const EditorStyled = styled.section`
         justify-content: space-between;
     }
 
-    .file-formats{
+    .file-formats{  
         padding:5px;
     }
 
@@ -56,6 +58,28 @@ export const EditorStyled = styled.section`
         background: -webkit-linear-gradient(to left, #c84e89, #F15F79 ); 
         background: linear-gradient(to left, #c84e89, #F15F79 );
     }
+
+    .download-formats{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+
+    .spacer{
+        width:90%;
+        height:1px;
+        background-color: #eee;
+    }
+
+    .menu{
+        width:250px;
+    }
+
+    .info{
+        display: flex;
+    }
+
+
 
 
 
