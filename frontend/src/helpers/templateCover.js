@@ -14,7 +14,8 @@ export const getTemplate = (id) => {
     },
     position:{
         x: 50,
-        y:50
+        y:50,
+        scale:0.8
     },
     size:{
         width:125,

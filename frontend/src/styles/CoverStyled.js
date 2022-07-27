@@ -12,14 +12,13 @@ export const CoverStyled = styled.section`
         justify-content: center;
     }
 
-
-    .cover-image-preview{
-        position: relative;
-        width: 800px;
-        height: 500px;
+    .image-icon{
+        width: 50px;
+        margin:auto;
     }
 
-    .upload-space{
+    .field-label{
+        cursor: pointer;
         display: flex;
         justify-content: center;
         margin:9rem auto;
@@ -27,12 +26,35 @@ export const CoverStyled = styled.section`
         padding:30px 20px;
         border:1px solid white;
         border-radius: 7px;
+    }
+
+    .file-input{
         cursor: pointer;
     }
 
-    .image-icon{
-        width: 50px;
-        margin:auto;
+    .cover-image-preview{
+        position: relative;
+        width: 800px;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        transform: scale(1);
+    }
+
+
+    .screenshot_wrapper{
+        padding:0px;
+        margin:0px;
+        overflow: hidden;
+        transform: translateX(0%) translateY(0%) scale(0.8);
+    }
+
+    .screenshot{
+        width:100%;
+        height: 100%;
+        max-width:100%;
+        z-index: -1;
     }
 
     p{

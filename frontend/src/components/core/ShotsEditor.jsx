@@ -27,6 +27,7 @@ const ShotsEditor = ({ data, setData}) => {
     const handleBgChange = (event) => {
         setBg(event.target.value);
     };
+
     
     return ( 
         <>
@@ -63,8 +64,11 @@ const ShotsEditor = ({ data, setData}) => {
         </FormControl>  
             </div>
         <div>
+
             <Label name="Position" />
+
             <Box m={2} width={300}>
+
                 <InputLabel>Position X</InputLabel>
                 <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto"/>
 
@@ -105,6 +109,12 @@ const ShotsEditor = ({ data, setData}) => {
                 : <GradientsPicker data={data} setData={setData} /> 
             }
         </Box>
+
+        <Label name="Orientation" />
+            <Box m={2} width={300}>
+                <InputLabel>Scale</InputLabel>
+                <Slider defaultValue={data.position.scale * 100} aria-label="Default" valueLabelDisplay="auto"/>
+            </Box>
         
         <Label name="Rounded Corners" />
         <Box m={2} width={300}>

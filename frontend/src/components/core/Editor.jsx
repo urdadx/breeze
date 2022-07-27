@@ -1,10 +1,18 @@
 import { CoverStyled } from "../../styles/CoverStyled";
 import { EditorStyled } from "../../styles/EditorStyled";
 import Header from "./Header";
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import UploadMsg from "../atoms/UploadMsg";
+import { useFileUpload } from 'use-file-upload'
+
 
 const Editor = ({ data, setData, children, setChildren }) => {
+
+    const [files, selectFiles] = useFileUpload();
+    const [isReady, setIsReady] = useState(false);
+    
+
+
 
 
     useEffect(() => {
@@ -23,25 +31,27 @@ const Editor = ({ data, setData, children, setChildren }) => {
     return (
         <>
         <EditorStyled>
-            {/* set the dark mode and download stuff here */}
             <Header  />
             <CoverStyled>
                 <div className="cover-image-download"></div>
                 <div className="wrapper">
                     <div className="cover-image-preview">
-                        <div className="upload-space">
-                            <div className="file-area">
-                                <div className="image-icon">
-                                    <AddPhotoAlternateIcon style={{
-                                        color: "white",
-                                        fontSize:"40px"
-                                    }} />
-                                </div>
-                                <p>Click here to upload an image</p>
-                                <p>Or simply <b>Drag</b> and <b>Drop</b> the file</p>
-                            </div>
-                        </div>
-
+                        {
+                            !isReady &&
+                            <label onClick={() =>
+                                selectFiles({ accept: "image/*" }, ({ name, size, source, file }) => {
+                                  setIsReady(true)
+                                })
+                              } className="field-label"> 
+                                <UploadMsg />
+                            </label>
+                        }
+                        {
+                          isReady && 
+                          <div className="screenshot_wrapper">
+                                <img src={files?.source} alt="Screenshot"className="screenshot" />
+                          </div>
+                        }
                     </div>
                 </div>
             </CoverStyled>

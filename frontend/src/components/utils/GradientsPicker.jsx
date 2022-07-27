@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CircularSlider from "@fseehawer/react-circular-slider"; // angle picker
+import CircularSlider from "@fseehawer/react-circular-slider";
 import { colorGradients } from "../../data/gradients";
 import Box from "@mui/material/Box";
 import { ShotEditorStyled } from "../../styles/ShotEditorStyled";

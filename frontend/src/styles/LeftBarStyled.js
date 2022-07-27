@@ -55,5 +55,4 @@ export const LeftBarStyled = styled.section`
 
 
 
-
 `

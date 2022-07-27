@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@fseehawer/react-circular-slider": "^2.5.9",
     "@headlessui/react": "^1.6.6",
     "@mui/icons-material": "^5.8.4",
@@ -19,7 +20,8 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-simple-code-editor": "^0.11.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "use-file-upload": "^1.0.11"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
