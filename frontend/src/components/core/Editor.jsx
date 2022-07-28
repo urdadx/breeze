@@ -7,6 +7,7 @@ import { useFileUpload } from 'use-file-upload';
 import toast from "react-hot-toast";
 import html2canvas from "html2canvas";
 
+
 const Editor = ({ data, darkMode, setDarkMode}) => {
 
     const [files, selectFiles] = useFileUpload();
@@ -35,7 +36,7 @@ const Editor = ({ data, darkMode, setDarkMode}) => {
       }
   
       // scale = Math.min(width / maxWidth, height / maxHeight); 
-      scale = 1
+      scale = window.devicePixelRatio;
       console.log(scale)
       cover_image.style.transform = `scale(${scale})`; // transform scale applied
     };
@@ -60,10 +61,12 @@ const Editor = ({ data, darkMode, setDarkMode}) => {
 
       const downloadImage = html2canvas(coverImage, {
         useCORS: true,
+     
       }).then((canvas) => {
           const a = document.createElement("a");
 
           a.href = canvas.toDataURL("image/png"); // convert to dataURL
+       
           a.download = fileName + ".png";
           a.click();
       });
@@ -106,7 +109,7 @@ const Editor = ({ data, darkMode, setDarkMode}) => {
             <CoverStyled>
                 <div className="wrapper">
                   <div className="wrapper-two">
-                      <div  className="cover-image-preview">
+                      <div id="cover_image"  className="cover-image-preview">
                           {
                               !isReady &&
                               <label onClick={() =>

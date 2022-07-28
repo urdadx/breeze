@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 export const CoverStyled = styled.section`
 
-     #cover_image {
-        width: 1200px;
-        height: 800px;
+    #cover_image {
+        width: 810px;
+        height: 510px;
+        max-width:1200px;
+        max-height:630px;
         transform: scale(0.55);
     } 
 
@@ -15,7 +17,7 @@ export const CoverStyled = styled.section`
     } 
 
      .wrapper{
-        margin-top:2.0rem;
+        margin-top:1.5rem;
         width:100%;
         height: 100%;
         display: flex;
@@ -44,8 +46,8 @@ export const CoverStyled = styled.section`
 
     .cover-image-preview{
         position: relative;
-        width: 800px;
-        height: 500px;
+        width: 825px;
+        height: 510px;
         display: flex;
         justify-content: center;
         overflow: hidden;
@@ -56,7 +58,7 @@ export const CoverStyled = styled.section`
         padding:0px;
         margin:0px;
         overflow: hidden;
-        transform: translateX(0%) translateY(0%) scale(0.8);
+        transform: translateX(0%) translateY(0%) scaleX(0.8) scaleY(0.8);
     }
 
     .screenshot{
@@ -78,8 +80,10 @@ export const CoverStyled = styled.section`
     }
 
     .wrapper-two{
-       
+
     } 
+
+
     /* .container{
         width:100%;
         height:100%;
