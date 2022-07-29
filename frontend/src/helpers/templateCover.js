@@ -9,17 +9,16 @@ export const getTemplate = (id) => {
 
     },
     frame:{
-       
        type:"None",
     },
     position:{
-        x: 50,
-        y:50,
+        x: 0,
+        y:0,
         scale:0.8
     },
     size:{
-        width:125,
-        height:368
+        width:100,
+        height:100
     },
     icon:{
         name:"emoji",

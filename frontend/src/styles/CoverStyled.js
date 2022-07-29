@@ -17,7 +17,7 @@ export const CoverStyled = styled.section`
     } 
 
      .wrapper{
-        margin-top:1.5rem;
+        margin-top:2rem;
         width:100%;
         height: 100%;
         display: flex;
@@ -58,7 +58,6 @@ export const CoverStyled = styled.section`
         padding:0px;
         margin:0px;
         overflow: hidden;
-        transform: translateX(0%) translateY(0%) scaleX(0.8) scaleY(0.8);
     }
 
     .screenshot{

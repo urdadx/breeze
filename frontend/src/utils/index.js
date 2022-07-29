@@ -12,11 +12,15 @@ export const frames = [
 ]
 
 export const backgrounds = [
+
     {
         name:"Gradient"
     },
     {
         name:"Solid"
+    },
+    {
+        name:"None"
     }
 ]
 

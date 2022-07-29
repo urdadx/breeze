@@ -19,7 +19,7 @@ export const EditorStyled = styled.section`
 
     .file-formats{  
         padding:5px;
-    }
+    }   
 
     .dark-mode{
         cursor: pointer;
@@ -49,6 +49,15 @@ export const EditorStyled = styled.section`
     .templates{
         color:#494949;
         outline:2px solid #c84e89;
+    }
+
+    .coffee{
+        width:200px;
+        color:white;
+        padding:9px;
+        background: #c84e89;
+        background: -webkit-linear-gradient(to left, #c84e89, #F15F79 ); 
+        background: linear-gradient(to left, #c84e89, #F15F79 );
     }
 
     .download{

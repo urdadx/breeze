@@ -14,7 +14,7 @@ import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
 
 
-const ShotsEditor = ({ data, setData}) => {
+const ShotsEditor = ({ data, setData }) => {
 
     const [frame, setFrame] = useState(data.frame.type)
 
@@ -27,6 +27,24 @@ const ShotsEditor = ({ data, setData}) => {
     const handleBgChange = (event) => {
         setBg(event.target.value);
     };
+
+    const handleChangeScale = (e, newValue) => {
+        setScale(newValue);
+        setData({
+            ...data,
+            position: {
+                x: 50,
+                y: 50,
+                scale: scale,
+            },
+        })
+    }
+
+    const [scale, setScale] = useState(
+        data.position.scale  ? data.position.scale : 0.8 
+    );
+
+    console.log(scale)
 
     
     return ( 
@@ -74,6 +92,7 @@ const ShotsEditor = ({ data, setData}) => {
 
                 <InputLabel>Position Y</InputLabel>
                 <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto"/>
+
             </Box>
 
             <Box sx={{m:2, spacing:2, display:"flex", justifyContent:"space-between"}}
@@ -113,7 +132,13 @@ const ShotsEditor = ({ data, setData}) => {
         <Label name="Orientation" />
             <Box m={2} width={300}>
                 <InputLabel>Scale</InputLabel>
-                <Slider defaultValue={data.position.scale * 100} aria-label="Default" valueLabelDisplay="auto"/>
+                <Slider value={scale}
+                    min={0}
+                    max={1}
+                    step={0.00001}
+                    onChange={handleChangeScale} 
+                    aria-label="Default" valueLabelDisplay="auto"
+                />
             </Box>
         
         <Label name="Rounded Corners" />

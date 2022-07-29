@@ -15,7 +15,6 @@ const Header = ({
         darkMode,
         setDarkMode,
         downloadAsPng,
-        downloadAsJpg,
     }) => {
     
     const [format, setFormat] = useState(options[0].name)

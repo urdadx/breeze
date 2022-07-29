@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import html2canvas from "html2canvas";
 
 
-const Editor = ({ data, darkMode, setDarkMode}) => {
+const Editor = ({ data, darkMode, setDarkMode }) => {
 
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);
@@ -16,29 +16,11 @@ const Editor = ({ data, darkMode, setDarkMode}) => {
 
     // Resize cover image
     const resizeCoverImage = () => {
+
       const cover_image = document.querySelector(".cover-image-preview");
-      const container = document.querySelector(".wrapper");
-  
-      // get width and height of cover_image
-      const maxWidth = cover_image.offsetWidth;
-      const maxHeight = cover_image.offsetHeight;
-  
-      // get width and height of window
-      const width = container.offsetWidth;
-      const height = container.offsetHeight;
-  
-      let scale; // scale to be used
-  
-      // early exit
-      if (width >= maxWidth && height >= maxHeight) {
-        cover_image.style.transform = "";
-        return;
-      }
-  
-      // scale = Math.min(width / maxWidth, height / maxHeight); 
-      scale = window.devicePixelRatio;
-      console.log(scale)
-      cover_image.style.transform = `scale(${scale})`; // transform scale applied
+      let scale = window.devicePixelRatio;
+      cover_image.style.transform = `scale(${scale})`; 
+
     };
   
     // useEffect to control window resize and all
@@ -88,17 +70,23 @@ const Editor = ({ data, darkMode, setDarkMode}) => {
     };
 
 
+
     useEffect(() => {
       const coverImagePreview = document.querySelector(".cover-image-preview");
       const coverImageDownload = document.querySelector(".cover-image-download");
-  
+
       if (data.background.type === "Solid") { 
         coverImagePreview.style.background = data.background.color1;
         coverImageDownload.style.background = data.background.color1;
-      } else if (data.background.type === "Gradient") {
-        coverImagePreview.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
-        coverImageDownload.style.background = `linear-gradient(${data.background.direction}deg, ${data.background.color1}, ${data.background.color2})`;
+      } 
+      else if (data.background.type === "Gradient") {
+        coverImagePreview.style.background = `linear-gradient(${data.background.direction}deg, 
+        ${data.background.color1}, ${data.background.color2})`;
+        coverImageDownload.style.background = `linear-gradient(${data.background.direction}deg,
+        ${data.background.color1}, ${data.background.color2})`;
       }
+   
+      
   })
 
     return (
@@ -122,8 +110,19 @@ const Editor = ({ data, darkMode, setDarkMode}) => {
                           }
                           {
                             isReady && 
-                            <div className="screenshot_wrapper">
-                                  <img src={files?.source} alt="Screenshot"className="screenshot" />
+                            <div 
+                            style={{
+                              transform: `scale(${data.position.scale})`
+                            }}
+                            className="screenshot_wrapper">
+                                  <img
+                                    style={{
+                                      width:`${data.size.width}%`,
+                                      height:`${data.size.height}%`,
+                                    }}
+                                    src={files?.source} alt="Screenshot"
+                                    className="" 
+                                  />
                             </div>
                           }
                       </div>

@@ -7,7 +7,7 @@ const SolidPicker = ({ data, setData }) => {
     
     const [solids, setSolid] = useState([]);
 
-    const [colors, setColors] = useState({
+    const [, setColors] = useState({
         color: data.background.color1 ? data.background.color1 : "#ec008c",
     });
 

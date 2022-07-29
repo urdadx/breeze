@@ -10,7 +10,7 @@ export const ShotEditorStyled = styled.section`
 
     .gradients-div{
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;    
         grid-template-columns: 1fr 1fr 1fr ;
         flex-wrap: wrap;
         gap:2px;
