@@ -6,10 +6,11 @@ export const frames = [
         name:"MacOS"
     },
     {
-        name:"Chrome"
+        name:"MacOS Dark"
     }
 
 ]
+
 
 export const backgrounds = [
 
@@ -19,11 +20,8 @@ export const backgrounds = [
     {
         name:"Solid"
     },
-    {
-        name:"None"
-    }
+ 
 ]
-
 
 export const options = [
     {

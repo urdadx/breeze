@@ -6,6 +6,7 @@ import UploadMsg from "../atoms/UploadMsg";
 import { useFileUpload } from 'use-file-upload';
 import toast from "react-hot-toast";
 import html2canvas from "html2canvas";
+import Frame from "../atoms/Frame";
 
 
 const Editor = ({ data, darkMode, setDarkMode }) => {
@@ -112,9 +113,11 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                             isReady && 
                             <div 
                             style={{
+                              
                               transform: `scale(${data.position.scale})`
                             }}
                             className="screenshot_wrapper">
+                                  <Frame />
                                   <img
                                     style={{
                                       width:`${data.size.width}%`,

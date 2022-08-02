@@ -29,6 +29,7 @@ const ShotsEditor = ({ data, setData }) => {
     };
 
     const handleChangeScale = (e, newValue) => {
+        e.preventDefault()
         setScale(newValue);
         setData({
             ...data,
@@ -43,16 +44,13 @@ const ShotsEditor = ({ data, setData }) => {
     const [scale, setScale] = useState(
         data.position.scale  ? data.position.scale : 0.8 
     );
-
-    console.log(scale)
-
     
     return ( 
         <>
     <ShotEditorStyled>
 
         <div className="orientation">
-        <FormControl sx={{ p:2, minWidth: 120, maxWidth:120 }} size="small" >
+        <FormControl sx={{ p:2, minWidth: 140, maxWidth:140 }} size="small" >
  
             <InputLabel sx={{fontSize:"20px"}}>Frame</InputLabel>
             <Select
@@ -67,7 +65,7 @@ const ShotsEditor = ({ data, setData }) => {
             </Select>
         </FormControl>
 
-        <FormControl sx={{ p: 2, minWidth: 170, maxWidth: 170 }} size="small" >
+        <FormControl sx={{ p: 2, minWidth: 140, maxWidth: 140 }} size="small" >
             <InputLabel sx={{fontSize:"20px"}} >Background</InputLabel>
             <Select
                 value={bg}
@@ -105,7 +103,7 @@ const ShotsEditor = ({ data, setData }) => {
                         size="small"
                         label="Width"
                         value={125}
-                        sx={{width:"145px"}}s
+                        sx={{width:"145px"}}
                     />
                 </Box>
                 <Box sx={{display:"flex", alignItems:"center"}}>
@@ -144,6 +142,12 @@ const ShotsEditor = ({ data, setData }) => {
         <Label name="Rounded Corners" />
         <Box m={2} width={300}>
             <InputLabel>Border Radius</InputLabel>
+            <Slider defaultValue={30} aria-label="Default" valueLabelDisplay="auto" />
+        </Box>
+
+        <Label name="Shadow" />
+        <Box m={2} width={300}>
+            <InputLabel>Box Shadow</InputLabel>
             <Slider defaultValue={30} aria-label="Default" valueLabelDisplay="auto" />
         </Box>
 

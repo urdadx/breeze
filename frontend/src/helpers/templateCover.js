@@ -12,7 +12,7 @@ export const getTemplate = (id) => {
        type:"None",
     },
     position:{
-        x: 0,
+        x:0,
         y:0,
         scale:0.8
     },
