@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LeftBarStyled = styled.section`
-    width:465px;
+    width:450px;
     height:100vh;   
     display: flex;
     flex-direction: row;

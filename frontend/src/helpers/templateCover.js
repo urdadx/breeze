@@ -9,11 +9,11 @@ export const getTemplate = (id) => {
 
     },
     frame:{
-       type:"None",
+       type:"MacOS",
     },
     position:{
         x:0,
-        y:0,
+        y:-3,
         scale:0.8
     },
     size:{
@@ -26,7 +26,7 @@ export const getTemplate = (id) => {
         fontSize: 125,
     },
     borderRadius:{
-        curveness:30
+        curveness: 7
     }
     };
   

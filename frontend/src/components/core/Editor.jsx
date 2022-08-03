@@ -15,7 +15,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
     const [isReady, setIsReady] = useState(false);
     const [fileName, setFileName] = useState("breeze-shot");
 
-    // Resize cover image
     const resizeCoverImage = () => {
 
       const cover_image = document.querySelector(".cover-image-preview");
@@ -24,7 +23,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
 
     };
   
-    // useEffect to control window resize and all
     useEffect(() => {
       resizeCoverImage();
       window.addEventListener("resize", resizeCoverImage);
@@ -38,7 +36,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
       ).innerHTML;
     };
 
-    // download image as a .png
     const downloadAsPng = () => {
       addInnerHtml();
 
@@ -54,7 +51,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
           a.click();
       });
 
-      // toasting
       toast.promise(downloadImage, {
         loading: "Saving...",
         success: `Saved ${fileName}.png`,
@@ -113,18 +109,19 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                             isReady && 
                             <div 
                             style={{
-                              
-                              transform: `scale(${data.position.scale})`
+
+                              borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
+                              borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
+                              transform: `
+                                scale(${data.position.scale}) 
+                                translateX(${data.position.x}%) translateY(${data.position.y}%)`
                             }}
                             className="screenshot_wrapper">
                                   <Frame />
                                   <img
-                                    style={{
-                                      width:`${data.size.width}%`,
-                                      height:`${data.size.height}%`,
-                                    }}
+                                    
                                     src={files?.source} alt="Screenshot"
-                                    className="" 
+                                    className="screenshot" 
                                   />
                             </div>
                           }

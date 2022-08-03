@@ -1,13 +1,14 @@
 export const frames = [
-    {
-        name:"None"
-    },
+
     {
         name:"MacOS"
     },
     {
         name:"MacOS Dark"
-    }
+    },
+    {
+        name:"None"
+    },
 
 ]
 

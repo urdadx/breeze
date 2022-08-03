@@ -10,7 +10,7 @@ export const FrameStyled = styled.section`
 
     .window {
         height: 100%;
-        width: 100%;
+        width: 1800px;
         overflow: hidden;
         box-shadow: rgb(0 0 0 / 43%) 10px 10px 62px 3px;
     }

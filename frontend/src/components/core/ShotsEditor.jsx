@@ -9,7 +9,6 @@ import { backgrounds } from '../../utils';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Label from '../atoms/Label';
-import TextField from '@mui/material/TextField';
 import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
 
@@ -23,6 +22,45 @@ const ShotsEditor = ({ data, setData }) => {
     };
 
     const [bg, setBg] = useState(data.background.type)
+    const [borderRadius, setBorderRadius] = useState(
+        data.borderRadius.curveness ? data.borderRadius.curveness : 7
+    );
+
+    const [positionX, setPositionX] = useState(
+        data.position.x ? data.position.x : 0
+    )
+
+    const [positionY, setPositionY] = useState(
+        data.position.y ? data.position.y : -3
+    )
+
+    const handleXPosition = (e, newValue) => {
+        e.preventDefault();
+        setPositionX(newValue);
+        setData({
+            ...data,
+            position: {
+                x: positionX,
+                y: positionY,
+                scale: scale,
+            },
+        })
+
+    }
+
+    const handleYPosition = (e, newValue) => {
+        e.preventDefault();
+        setPositionY(newValue);
+        setData({
+            ...data,
+            position: {
+                x: positionX,
+                y: positionY,
+                scale: scale,
+            },
+        })
+
+    }
     
     const handleBgChange = (event) => {
         setBg(event.target.value);
@@ -38,6 +76,17 @@ const ShotsEditor = ({ data, setData }) => {
                 y: 50,
                 scale: scale,
             },
+        })
+    }
+
+    const handleBorderChange = (e, newValue) => {
+        e.preventDefault();
+        setBorderRadius(newValue);
+        setData({
+            ...data,
+            borderRadius:{
+                curveness: borderRadius
+            }
         })
     }
 
@@ -86,36 +135,21 @@ const ShotsEditor = ({ data, setData }) => {
             <Box m={2} width={300}>
 
                 <InputLabel>Position X</InputLabel>
-                <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto"/>
+                <Slider value={positionX}
+                    min={-80}
+                    max={80}
+                    aria-label="Default" valueLabelDisplay="auto"
+                    onChange={handleXPosition}
+                />
 
                 <InputLabel>Position Y</InputLabel>
-                <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto"/>
+                <Slider value={positionY} 
+                    min={-80}
+                    max={80}
+                    aria-label="Default" valueLabelDisplay="auto"
+                    onChange={handleYPosition}
+                />
 
-            </Box>
-
-            <Box sx={{m:2, spacing:2, display:"flex", justifyContent:"space-between"}}
-                 className="orientation" >
-                
-                <Box sx={{display:"flex", alignItems:"center"}}>
-                    <TextField
-                        id="outlined-number"
-                        type="number"
-                        size="small"
-                        label="Width"
-                        value={125}
-                        sx={{width:"145px"}}
-                    />
-                </Box>
-                <Box sx={{display:"flex", alignItems:"center"}}>
-                    <TextField
-                        id="outlined-number"
-                        type="number"
-                        label="Height"
-                        size="small"
-                        value={368}
-                        sx={{width:"145px"}}
-                    />
-                </Box>
             </Box>
         </div>
 
@@ -129,7 +163,7 @@ const ShotsEditor = ({ data, setData }) => {
 
         <Label name="Orientation" />
             <Box m={2} width={300}>
-                <InputLabel>Scale</InputLabel>
+                <InputLabel>Size</InputLabel>
                 <Slider value={scale}
                     min={0}
                     max={1}
@@ -142,14 +176,17 @@ const ShotsEditor = ({ data, setData }) => {
         <Label name="Rounded Corners" />
         <Box m={2} width={300}>
             <InputLabel>Border Radius</InputLabel>
-            <Slider defaultValue={30} aria-label="Default" valueLabelDisplay="auto" />
+            <Slider 
+                value={borderRadius} 
+                aria-label="Default" valueLabelDisplay="auto"
+                step={0.05}
+                min={0}
+                max={20}
+                onChange={handleBorderChange}
+            />
         </Box>
 
-        <Label name="Shadow" />
-        <Box m={2} width={300}>
-            <InputLabel>Box Shadow</InputLabel>
-            <Slider defaultValue={30} aria-label="Default" valueLabelDisplay="auto" />
-        </Box>
+
 
     </ShotEditorStyled>
         
