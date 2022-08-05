@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const CoverStyled = styled.section`
 
     #cover_image {
-        width: 810px;
-        height: 510px;
+        width: 820px;
+        height: 520px;
         max-width:1200px;
         max-height:630px;
         transform: scale(0.55);
@@ -17,7 +17,7 @@ export const CoverStyled = styled.section`
     } 
 
      .wrapper{
-        margin-top:2rem;
+        margin-top:1.5rem;
         width:100%;
         height: 100%;
         display: flex;
@@ -25,8 +25,8 @@ export const CoverStyled = styled.section`
     } 
 
     .image-icon{
-        width: 50px;
-        margin:auto;
+        display: flex;
+        justify-content: center;
     }
 
     .field-label{
@@ -56,6 +56,9 @@ export const CoverStyled = styled.section`
 
     .screenshot_wrapper{
         padding:0px;
+        transform: translateX(16%) translateY(20%); 
+        display:block;
+        justify-content: center;
         margin:0px;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
@@ -63,9 +66,8 @@ export const CoverStyled = styled.section`
     }
 
     .screenshot{
-        object-fit: cover cover;
-        width:100%;
-        height: 100%;
+        width:  100%;
+        height: auto;
         z-index: -1;
     }
 

@@ -17,10 +17,6 @@ const ShotsEditor = ({ data, setData }) => {
 
     const [frame, setFrame] = useState(data.frame.type)
 
-    const handleChange = (event) => {
-        setFrame(event.target.value);
-    };
-
     const [bg, setBg] = useState(data.background.type)
     const [borderRadius, setBorderRadius] = useState(
         data.borderRadius.curveness ? data.borderRadius.curveness : 7
@@ -104,7 +100,15 @@ const ShotsEditor = ({ data, setData }) => {
             <InputLabel sx={{fontSize:"20px"}}>Frame</InputLabel>
             <Select
                 value={frame}
-                onChange={handleChange}
+                onChange={(e) => {
+                    setFrame(e.target.value)
+                    setData({
+                        ...data,
+                        frame:{
+                            type: e.target.value
+                        }
+                    })
+                }}
             >
             {
                 frames && frames.map((frame,key) => {
@@ -181,7 +185,7 @@ const ShotsEditor = ({ data, setData }) => {
                 aria-label="Default" valueLabelDisplay="auto"
                 step={0.05}
                 min={0}
-                max={20}
+                max={50}
                 onChange={handleBorderChange}
             />
         </Box>

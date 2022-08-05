@@ -8,9 +8,14 @@ h3{
 }
 
 .loading-alert{
-    margin-top:21rem;
+    transform: translateY(-30%) translateX(49%);
+    margin-top:22rem;
     display: flex;
-    justify-content: center;
+  
+}
+
+.loading-alert > h2{
+  text-align: center;
 }
 
 .cs-loader {
@@ -22,90 +27,28 @@ h3{
 }
 
 
+h2{
+  margin-left:25px;
+  font-family: "Epilogue", sans-serif;
+  font-size: 30px;
+  color:black;
+}
+
+
 
 .cs-loader-inner {
   transform: translateY(-50%);
-  top: 50%;
+  top: 40%;
   position: absolute;
+  display: flex;
+  justify-content: center;
   width: calc(100% - 200px);
   color: #FFF;
+  align-items: center;
   padding: 0 100px;
   text-align: center;
 }
 
-.cs-loader-inner label {
-  font-size: 20px;
-  opacity: 0;
-  
-  display:inline-block;
-}
 
-@keyframes lol {
-  0% {
-    opacity: 0;
-    transform: translateX(-300px);
-  }
-  33% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  66% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(300px);
-  }
-}
-
-@-webkit-keyframes lol {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-300px);
-  }
-  33% {
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-  }
-  66% {
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translateX(300px);
-  }
-}
-
-.cs-loader-inner label:nth-child(6) {
-  -webkit-animation: lol 3s infinite ease-in-out;
-  animation: lol 3s infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(5) {
-  -webkit-animation: lol 3s 100ms infinite ease-in-out;
-  animation: lol 3s 100ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(4) {
-  -webkit-animation: lol 3s 200ms infinite ease-in-out;
-  animation: lol 3s 200ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(3) {
-  -webkit-animation: lol 3s 300ms infinite ease-in-out;
-  animation: lol 3s 300ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(2) {
-  -webkit-animation: lol 3s 400ms infinite ease-in-out;
-  animation: lol 3s 400ms infinite ease-in-out;
-}
-
-.cs-loader-inner label:nth-child(1) {
-  -webkit-animation: lol 3s 500ms infinite ease-in-out;
-  animation: lol 3s 500ms infinite ease-in-out;
-}
 
 `

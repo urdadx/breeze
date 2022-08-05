@@ -12,7 +12,7 @@ import Frame from "../atoms/Frame";
 const Editor = ({ data, darkMode, setDarkMode }) => {
 
     const [files, selectFiles] = useFileUpload();
-    const [isReady, setIsReady] = useState(false);
+    const [isReady, setIsReady] = useState(false);    
     const [fileName, setFileName] = useState("breeze-shot");
 
     const resizeCoverImage = () => {
@@ -22,11 +22,11 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
       cover_image.style.transform = `scale(${scale})`; 
 
     };
-  
+
     useEffect(() => {
       resizeCoverImage();
       window.addEventListener("resize", resizeCoverImage);
-    });
+    },[]);
 
     const coverImage = document.querySelector(".cover-image-preview");
 
@@ -97,13 +97,17 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                       <div id="cover_image"  className="cover-image-preview">
                           {
                               !isReady &&
-                              <label onClick={() =>
-                                  selectFiles({ accept: "image/*" }, () => {
-                                    setIsReady(true)
-                                  })
-                                } className="field-label"> 
-                                  <UploadMsg />
-                              </label>
+                              <div>
+                                  <label 
+                                  
+                                    onClick={() =>
+                                      selectFiles({ accept: "image/*" }, () => {
+                                        setIsReady(true)
+                                      })
+                                    } className="field-label"> 
+                                      <UploadMsg />
+                                  </label>
+                              </div>
                           }
                           {
                             isReady && 
@@ -117,9 +121,12 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                                 translateX(${data.position.x}%) translateY(${data.position.y}%)`
                             }}
                             className="screenshot_wrapper">
-                                  <Frame />
+                                  <Frame isEditor={false} data={data} />
                                   <img
-                                    
+                                    style={{
+                                        borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
+                                        borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
+                                    }}
                                     src={files?.source} alt="Screenshot"
                                     className="screenshot" 
                                   />

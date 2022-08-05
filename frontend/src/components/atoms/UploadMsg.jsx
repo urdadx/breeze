@@ -14,7 +14,7 @@ const UploadMsg = () => {
                     </div>
                     
                     <p>Click here to <b>upload</b> an image</p>
-                    <p>Or simply <b>Drag</b> and <b>Drop</b> the file</p>
+                    <p>File size <b>must</b> not exceed <b>10MB</b> </p>
                 </div>
             </CoverStyled>
         </>

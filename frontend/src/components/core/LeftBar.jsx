@@ -8,6 +8,7 @@ import { Typography } from "@mui/material";
 import CustomArea from "./CustomArea"
 import { AiOutlineCode } from "react-icons/ai";
 import { LOGO_IMG } from "../../assets/images/imageURL";
+import CodeEditor from "./CodeEditor";
 
 
 const TabItem = ({ tab }) => {
@@ -19,7 +20,7 @@ const TabItem = ({ tab }) => {
     );
 };
 
-const LeftBar = ({ data, setData, children, setChildren}) => {
+const LeftBar = ({ data, setData, children, setChildren }) => {
 
     const [value, setValue] = useState("home");
 
@@ -90,6 +91,7 @@ const LeftBar = ({ data, setData, children, setChildren}) => {
                 </div>
 
                 { value === "home" && <CustomArea data={data} {...props} /> }
+                { value === "codesnap" && <CodeEditor />}
         </LeftBarStyled>
         </>
      );

@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.3.0",
     "react-icons": "^4.4.0",
+    "react-loader-spinner": "^5.1.7-beta.1",
     "react-router-dom": "^6.3.0",
     "react-simple-code-editor": "^0.11.2",
     "styled-components": "^5.3.5",

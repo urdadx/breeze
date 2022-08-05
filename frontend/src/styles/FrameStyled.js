@@ -3,19 +3,28 @@ import styled from "styled-components";
 
 export const FrameStyled = styled.section`
 
-    background: white;
-    border-top-left-radius:5px;
-    border-top-right-radius: 5px;
-
-
-    .window {
+    .window-light {
         height: 100%;
-        width: 1800px;
+        width: 100%;
         overflow: hidden;
+        background: white; 
         box-shadow: rgb(0 0 0 / 43%) 10px 10px 62px 3px;
+        border-top-left-radius:5px;
+        border-top-right-radius: 5px;
     }
+
+    .window-dark{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: black; 
+        box-shadow: rgb(0 0 0 / 43%) 10px 10px 62px 3px;
+        border-top-left-radius:5px;
+        border-top-right-radius: 5px;
+    }
+
     .title-bar {
-        height: 40px;
+        height: 25px;
         background-color: rgb(231 231 231 / 6%);
         position: relative;
     }

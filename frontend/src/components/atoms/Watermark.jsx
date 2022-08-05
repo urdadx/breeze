@@ -6,10 +6,9 @@ import { useState } from "react";
 import Switch from '@mui/material/Switch';
 import Tooltip from '@mui/material/Tooltip';
 
-
-
 const WatermarkStyled = styled.div`
     
+    width: 95%;
     padding: 1rem;
 
     .wrapper{
@@ -32,7 +31,7 @@ const WatermarkStyled = styled.div`
 
 const Watermark = () => {
 
-    const [enabled, setEnabled] = useState(true)
+    const [enabled, ] = useState(true)
 
     return (
         <>
