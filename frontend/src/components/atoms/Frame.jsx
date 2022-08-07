@@ -1,6 +1,6 @@
 import { FrameStyled } from "../../styles/FrameStyled";
 
-const Frame = ({ data, isEditor, currentLang }) => {
+const Frame = ({ data, isEditor }) => {
 
     return ( 
         <>

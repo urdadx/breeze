@@ -6,7 +6,6 @@ const CustomArea = ({ data, setData }) => {
     return (  
         <>
             <CustomAreaStyled>
-                <Watermark/>
                 <ShotsEditor data={data} setData={setData} />
             </CustomAreaStyled>
         </>

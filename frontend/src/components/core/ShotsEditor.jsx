@@ -11,6 +11,8 @@ import Slider from '@mui/material/Slider';
 import Label from '../atoms/Label';
 import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
+import { Typography } from '@mui/material';
+import Switch from '@mui/material/Switch';
 
 
 const ShotsEditor = ({ data, setData }) => {
@@ -21,6 +23,18 @@ const ShotsEditor = ({ data, setData }) => {
     const [borderRadius, setBorderRadius] = useState(
         data.borderRadius.curveness ? data.borderRadius.curveness : 7
     );
+
+    const [color, setColor] = useState("#333");
+
+    const handleChangeColor = (event) => {
+        setColor(event.target.value)
+    }
+
+    const [showShadow, setShowShadow] = useState(false)
+
+    const handleShowShadow = (event) => {
+        setShowShadow(event.target.checked);
+    };
 
     const [positionX, setPositionX] = useState(
         data.position.x ? data.position.x : 0
@@ -93,7 +107,7 @@ const ShotsEditor = ({ data, setData }) => {
     return ( 
         <>
     <ShotEditorStyled>
-
+        <div className="shots-editor">
         <div className="orientation">
         <FormControl sx={{ p:2, minWidth: 140, maxWidth:140 }} size="small" >
  
@@ -167,7 +181,7 @@ const ShotsEditor = ({ data, setData }) => {
 
         <Label name="Orientation" />
             <Box m={2} width={300}>
-                <InputLabel>Size</InputLabel>
+                <InputLabel>Scale</InputLabel>
                 <Slider value={scale}
                     min={0}
                     max={1}
@@ -177,6 +191,60 @@ const ShotsEditor = ({ data, setData }) => {
                 />
             </Box>
         
+        <Box className="main" m={2} width={300}>
+            <Typography className="typo-bold">Shadow</Typography>
+            <Switch color="success" onChange={handleShowShadow} checked={showShadow} />
+        </Box>
+        {
+            showShadow && 
+                <Box className="" m={2} width={300}>
+                    <div className="main">
+                        <Typography>Shadow color</Typography>
+                        <div
+                            style={{ background: color }}
+                            className="color-ball"
+                        >
+                        <input onChange={handleChangeColor} 
+                            value={color} className="color" type="color"
+                        />
+                        </div>
+                    </div>
+                    <InputLabel>X axis</InputLabel>
+                    <Slider 
+                        aria-label="Default" valueLabelDisplay="auto"
+                        step={0.05}
+                        min={0}
+                        max={50}
+                    />
+
+                    <InputLabel>Y axis</InputLabel>
+                    <Slider 
+                        aria-label="Default" valueLabelDisplay="auto"
+                        step={0.05}
+                        min={0}
+                        max={50}
+                    />
+
+                    <InputLabel>Blur</InputLabel>
+                    <Slider 
+                        aria-label="Default" valueLabelDisplay="auto"
+                        step={0.05}
+                        min={0}
+                        max={50}
+                    />
+
+                    <InputLabel>Opacity</InputLabel>
+                    <Slider 
+                        aria-label="Default" valueLabelDisplay="auto"
+                        step={0.05}
+                        min={0}
+                        max={50}
+                    />
+
+                </Box>
+        }
+        
+
         <Label name="Rounded Corners" />
         <Box m={2} width={300}>
             <InputLabel>Border Radius</InputLabel>
@@ -191,7 +259,7 @@ const ShotsEditor = ({ data, setData }) => {
         </Box>
 
 
-
+        </div>
     </ShotEditorStyled>
         
         </>

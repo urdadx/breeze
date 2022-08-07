@@ -20,15 +20,15 @@ const TabItem = ({ tab }) => {
     );
 };
 
-const LeftBar = ({ data, setData, children, setChildren }) => {
+const LeftBar = ({ data, setData, children, setChildren, value, changeValue }) => {
 
-    const [value, setValue] = useState("home");
+    // const [value, setValue] = useState("home");
 
-    // handleChange of tabs
-    const handleChange = (e, newValue) => {
-      e.preventDefault()
-      setValue(newValue);
-    };
+    // // handleChange of tabs
+    // const handleChange = (e, newValue) => {
+    //   e.preventDefault()
+    //   setValue(newValue);
+    // };
 
     const props = {
       data: data,
@@ -73,7 +73,7 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
                     </div>
                     <Tabs
                         value={value}
-                        onChange={handleChange}
+                        onChange={changeValue}
                         indicatorColor="primary"
                         orientation="vertical"
                         variant="scrollable"
@@ -87,7 +87,7 @@ const LeftBar = ({ data, setData, children, setChildren }) => {
                     />
                         ))}
                     </Tabs>
-                   
+                        
                 </div>
 
                 { value === "home" && <CustomArea data={data} {...props} /> }

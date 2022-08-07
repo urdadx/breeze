@@ -5,7 +5,7 @@ export const getTemplate = (id) => {
         type: "Gradient",
         color1: "#cc2b5e",
         color2: "#753a88",
-        direction: 105,
+        direction: 302,
 
     },
     frame:{
@@ -13,7 +13,7 @@ export const getTemplate = (id) => {
     },
     position:{
         x:0,
-        y:-3,
+        y:3,
         scale:0.85
     },
     size:{

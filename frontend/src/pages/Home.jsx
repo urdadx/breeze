@@ -6,7 +6,7 @@ import { useState } from "react";
 import Loader from "../components/atoms/Loader";
 import { useEffect } from "react";
 
-const Home = (props) => {
+const Home = ({ currentState, changeState }, props) => {
 
     const [data, setData] = useState();
     const [children, setChildren] = useState([]);
@@ -25,12 +25,16 @@ const Home = (props) => {
                         <LeftBar
                             {...props}
                             data={data}
+                            value={currentState}
+                            changeValue={changeState}
                             setData={setData}
                             children={children}
                             setChildren={setChildren}
                         />
                     </div>
                     <div className="editor">
+                        {
+                            currentState === "home" &&
                         <Editor
                             {...props}
                             data={data}
@@ -38,6 +42,11 @@ const Home = (props) => {
                             children={children}
                             setChildren={setChildren}
                         />
+                        }
+                        {
+                            currentState === "codesnap" && 
+                            <div>Code Bitch</div>
+                        }
                     </div>
                 </>
             ): 

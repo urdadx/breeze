@@ -4,6 +4,8 @@ import { colorGradients } from "../../data/gradients";
 import Box from "@mui/material/Box";
 import { ShotEditorStyled } from "../../styles/ShotEditorStyled";
 import { InputLabel } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Switch from "@mui/material/Switch";
 
 const GradientsPicker = ({ data, setData }) => {
     
@@ -14,9 +16,16 @@ const GradientsPicker = ({ data, setData }) => {
         color2: data.background.color2 ? data.background.color2 : "#fc6767"
     });
 
+    const [editDirection, setEditDirection] = useState(false)
+
+    const handleChange = (event) => {
+        setEditDirection(event.target.checked);
+    };
+    
     const [direction, setDirection] = useState(
-        data.background.direction ? data.background.direction : 0
+        data.background.direction ? data.background.direction : 105
     );
+
 
     useEffect(() => {
         setGradients(colorGradients)
@@ -58,8 +67,16 @@ const GradientsPicker = ({ data, setData }) => {
         }
   
         </Box>
-        <Box m={2}>
-            <InputLabel sx={{marginBottom:"15px"}}>Direction</InputLabel>
+       
+        <Box className="shadow-wrapper" width={300}>
+            <Typography className="typo-bold">Gradients direction</Typography>
+            <Switch
+                onChange={handleChange}
+                color="success" checked={editDirection} />
+        </Box>
+        {
+            editDirection &&
+        <Box className="circular-slider">
             <CircularSlider
                 width={90}
                 valueFontSize="20px"
@@ -78,7 +95,9 @@ const GradientsPicker = ({ data, setData }) => {
                     });
                 }}
             />
-        </Box>
+        </Box> 
+         
+        }
         </>
      );
 }

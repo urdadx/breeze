@@ -4,12 +4,28 @@ import styled from "styled-components";
 export const CoverStyled = styled.section`
 
     #cover_image {
-        width: 820px;
-        height: 520px;
+        width: 800px;
+        height: 470px;
         max-width:1200px;
         max-height:630px;
-        transform: scale(0.55);
     } 
+
+    .watermark{
+        position: absolute;
+        z-index:10;
+        width:auto;
+        padding:7px;
+        text-align: center;
+        border-radius:5px;
+        height:auto;
+        font-weight: 600;
+        font-size:10px;
+        background-color: white;
+        color:grey;
+        margin-top:27.5rem;
+        margin-left:42rem;
+        cursor:pointer;
+    }
 
     .cover-image-download{
         position: absolute;
@@ -17,7 +33,7 @@ export const CoverStyled = styled.section`
     } 
 
      .wrapper{
-        margin-top:1.5rem;
+        margin-top:2.5rem;
         width:100%;
         height: 100%;
         display: flex;
@@ -56,7 +72,6 @@ export const CoverStyled = styled.section`
 
     .screenshot_wrapper{
         padding:0px;
-        transform: translateX(16%) translateY(20%); 
         display:block;
         justify-content: center;
         margin:0px;
@@ -85,49 +100,6 @@ export const CoverStyled = styled.section`
     .wrapper-two{
 
     } 
-
-
-    /* .container{
-        width:100%;
-        height:100%;
-        overflow:hidden;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-
-
-
-    .wrapper{
-        transform: scale(0.95);
-    }
-
-    #cover_image_preview{
-        background:blue;
-        position: relative;
-        overflow: hidden;
-        user-select: none;
-    }
-
-    .overlay {
-        height: 630px;
-        width: 1200px;
-        z-index: -1;
-        
-    }
-
-
-
-    @media (min-width:1024px){
-        .wrapper{
-            transform:scaleX(0.85) scaleY(0.35)
-        }
-    } */
-
-
-
 
 
 

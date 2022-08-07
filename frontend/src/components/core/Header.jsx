@@ -14,7 +14,7 @@ const Header = ({
         setFileName,
         darkMode,
         setDarkMode,
-        downloadAsPng,
+        onExport,
     }) => {
     
     const [format, setFormat] = useState(options[0].name)
@@ -55,7 +55,7 @@ const Header = ({
                         </div>
                         <div className="download-wrapper">
                             <Button 
-                                onClick={downloadAsPng}
+                                onClick={onExport}
                                 endIcon={<FileDownloadOutlinedIcon style={{fontSize:"27px"}} />}
                                 className="action-btn download"
                                 variant="contained">
