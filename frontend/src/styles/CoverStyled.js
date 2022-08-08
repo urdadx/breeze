@@ -27,18 +27,50 @@ export const CoverStyled = styled.section`
         cursor:pointer;
     }
 
+    .monaco-editor{
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-family:"Epilogue";
+        width:100%;
+        height:100%;
+        position: relative;
+    }
+
+    .editor_wrap{
+        overflow: hidden;
+        width:400px;
+        height:120px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-family:"Epilogue";
+     
+    }
+
+    .editor{
+        width:100%;
+        height:100%;
+    }
+
     .cover-image-download{
         position: absolute;
         z-index: -10;
     } 
 
-     .wrapper{
+    .wrapper{
         margin-top:2.5rem;
         width:100%;
         height: 100%;
         display: flex;
         justify-content: center;
     } 
+
+    .code-wrapper{
+        margin-top:6.5rem;
+        width:100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
     .image-icon{
         display: flex;
@@ -97,9 +129,9 @@ export const CoverStyled = styled.section`
         gap:3px;
     }
 
-    .wrapper-two{
 
-    } 
+
+
 
 
 

@@ -1,12 +1,10 @@
-export const getTemplate = (id) => {
-    const template = {
+
+export const codeTemplate = (id) => {
+    const codeSettings = {
 
     background: {
-        type: "Gradient",
-        color1: "#cc2b5e",
-        color2: "#753a88",
-        direction: 105,
-
+        color: "#112231",
+        bgColor: "#26a0da"
     },
     frame:{
        type:"MacOS",
@@ -30,9 +28,5 @@ export const getTemplate = (id) => {
     }
     };
   
-    return template;
-};
-
-  
-
-  
+    return codeSettings;
+  };

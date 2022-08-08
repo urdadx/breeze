@@ -181,7 +181,7 @@ const ShotsEditor = ({ data, setData }) => {
 
         <Label name="Orientation" />
             <Box m={2} width={300}>
-                <InputLabel>Scale</InputLabel>
+                <InputLabel>Size</InputLabel>
                 <Slider value={scale}
                     min={0}
                     max={1}

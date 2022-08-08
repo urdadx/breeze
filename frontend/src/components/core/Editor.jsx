@@ -51,7 +51,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
             downloadBlob(blobUrl, `${fileName}.png`);
           })
           .catch(error => {
-            console.log("Error: "+error);
+            console.log("Error: " + error);
           })
           .finally(() => setExporting(false));
           toast.promise(exportPng, {
@@ -81,6 +81,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
       onExport,
       darkMode,
       setDarkMode,
+  
     };
 
 
@@ -135,7 +136,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                                 translateX(${data.position.x}%) translateY(${data.position.y}%)`
                             }}
                             className="screenshot_wrapper">
-                                  <Frame isEditor={false} data={data} />
+                                  <Frame   data={data} />
                                   <img
                                     style={{
                                         borderBottomLeftRadius: `${data.borderRadius.curveness}px`,

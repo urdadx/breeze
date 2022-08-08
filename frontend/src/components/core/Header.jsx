@@ -15,6 +15,8 @@ const Header = ({
         darkMode,
         setDarkMode,
         onExport,
+        exporting,
+        setExporting
     }) => {
     
     const [format, setFormat] = useState(options[0].name)

@@ -1,18 +1,17 @@
 import { FrameStyled } from "../../styles/FrameStyled";
 
-const Frame = ({ data }) => {
+const CodeFrame = ({ code }) => {
 
     return ( 
         <>
         <FrameStyled>
-            <div  className={data.frame.type === "MacOS" ? "window-light" : "window-dark"}>
+            <div className="code-window" style={{background: code.background.color}} >
                 <div className="title-bar">
                     <div className="title-buttons">
                         <div className="title-button"></div>
                         <div className="title-button"></div>
                         <div className="title-button"></div>
-                </div>
-              
+                </div>  
                 </div>  
             </div>
       </FrameStyled>
@@ -20,4 +19,4 @@ const Frame = ({ data }) => {
      );
 }
  
-export default Frame;
+export default CodeFrame;

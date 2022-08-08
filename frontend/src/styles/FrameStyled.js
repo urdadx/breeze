@@ -7,8 +7,15 @@ export const FrameStyled = styled.section`
         height: 100%;
         width: 100%;
         overflow: hidden;
-        background: white; 
-        box-shadow: rgb(0 0 0 / 43%) 10px 10px 62px 3px;
+        background: #EDF2F7; 
+        border-top-left-radius:5px;
+        border-top-right-radius: 5px;
+    }
+
+    .code-window{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
         border-top-left-radius:5px;
         border-top-right-radius: 5px;
     }

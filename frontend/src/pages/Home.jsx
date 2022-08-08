@@ -5,14 +5,18 @@ import { getTemplate } from "../helpers/templateCover";
 import { useState } from "react";
 import Loader from "../components/atoms/Loader";
 import { useEffect } from "react";
+import PlayGround from "../components/core/PlayGround";
+import { codeTemplate } from "../helpers/CodeTemplate";
 
 const Home = ({ currentState, changeState }, props) => {
 
     const [data, setData] = useState();
     const [children, setChildren] = useState([]);
+    const [code, setCode] = useState()
 
     useEffect(() => {
         setData(getTemplate());
+        setCode(codeTemplate())
     }, []);
 
     return ( 
@@ -23,6 +27,8 @@ const Home = ({ currentState, changeState }, props) => {
                 <>
                     <div className="left-bar">
                         <LeftBar
+                            code={code}
+                            setCode={setCode}
                             {...props}
                             data={data}
                             value={currentState}
@@ -45,7 +51,16 @@ const Home = ({ currentState, changeState }, props) => {
                         }
                         {
                             currentState === "codesnap" && 
-                            <div>Code Bitch</div>
+                            <>
+                            {
+                                code &&
+                                <PlayGround
+                                    code={code}
+                                    setData={setCode}
+                                /> 
+                                
+                            }
+                            </>
                         }
                     </div>
                 </>

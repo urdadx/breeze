@@ -1,7 +1,6 @@
 import { LeftBarStyled } from "../../styles/LeftBarStyled";
 import { FiEdit, FiFolder, FiUploadCloud } from "react-icons/fi";
 import { IoShapesOutline } from "react-icons/io5";
-import { useState } from "react";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Typography } from "@mui/material";
@@ -20,18 +19,17 @@ const TabItem = ({ tab }) => {
     );
 };
 
-const LeftBar = ({ data, setData, children, setChildren, value, changeValue }) => {
-
-    // const [value, setValue] = useState("home");
-
-    // // handleChange of tabs
-    // const handleChange = (e, newValue) => {
-    //   e.preventDefault()
-    //   setValue(newValue);
-    // };
+const LeftBar = ({ 
+      data, setData, 
+      children,code,
+      setChildren, value,
+      changeValue,setCode
+     }) => {
 
     const props = {
       data: data,
+      code: code,
+      setCode: setCode,
       setData: setData,
       children: children,
       setChildren: setChildren,
@@ -91,7 +89,7 @@ const LeftBar = ({ data, setData, children, setChildren, value, changeValue }) =
                 </div>
 
                 { value === "home" && <CustomArea data={data} {...props} /> }
-                { value === "codesnap" && <CodeEditor />}
+                { value === "codesnap" && <CodeEditor setCode={setCode} code={code} {...props} />}
         </LeftBarStyled>
         </>
      );
