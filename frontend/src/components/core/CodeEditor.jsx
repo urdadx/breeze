@@ -6,13 +6,18 @@ import { MenuItem } from "@mui/material";
 import { themes, languages } from "../../utils";
 import { useState } from "react";
 import Box from "@mui/material/Box";
-import { Slider, InputLabel, Typography } from "@mui/material";
+import { Slider, InputLabel, Typography, Switch } from "@mui/material";
 import CodeFrame from "../atoms/CodeFrame";
 
 const CodeEditor = ({ code, setCode }) => {
 
     const [theme, setTheme] = useState(themes[0].name);
-    const [language, setLanguage] = useState(languages[0].name)
+    const [language, setLanguage] = useState(languages[0].name);
+    const [showAdvanced, setShowAdvanced] = useState(false)
+
+    const handleShowAdvanced = (event) => {
+        setShowAdvanced(event.target.checked);
+    };
 
     const [color, setColor] = useState(
         code.background.color ? code.background.color : "#112231"
@@ -69,7 +74,7 @@ const CodeEditor = ({ code, setCode }) => {
                 </Select>
             </FormControl> 
 
-            <Label name="Header color" />
+            <Label name="Editor color" />
             <Box mx={5}>       
                 <div 
                  style={{
@@ -89,17 +94,30 @@ const CodeEditor = ({ code, setCode }) => {
             <Label name="Background" />
             <Box m={2}>
                 <div className="main">
-                        <Typography>Background color</Typography>
-                        <div
-                            style={{ background: `${code.background.bgColor}`}}
-                            className="color-ball"
-                        >
-                        <input
-                            value={bg}
-                            onChange={handleChangeBgColor}
-                            className="color" type="color"
-                        />
+                        <Typography>Background gradient</Typography>
+                        <div className="bg-flex">
+                            <div
+                                style={{ background: `${code.background.bgColorOne}`}}
+                                className="color-ball"
+                            >
+                            <input
+                                value={bg}
+                                onChange={handleChangeBgColor}
+                                className="color" type="color"
+                            />
+                            </div>
+                            <div
+                                style={{ background: `${code.background.bgColorTwo}`}}
+                                className="color-ball"
+                            >
+                            <input
+                                value={bg}
+                                onChange={handleChangeBgColor}
+                                className="color" type="color"
+                            />
+                            </div>
                         </div>
+                       
                 </div>
             </Box>
 
@@ -123,6 +141,61 @@ const CodeEditor = ({ code, setCode }) => {
             </Box>
             
             <Label name="Advanced" />
+            <Box className="main" m={2} width={300}>
+                <Typography className="typo-bold">Advanced settings</Typography>
+                <Switch color="success" onChange={handleShowAdvanced} checked={showAdvanced} />
+            </Box>
+
+            {
+                showAdvanced &&
+                <Box className="" m={2} width={300}>
+       
+                <div className="flex-sliders">
+                    <div className="block-sliders">
+                        <InputLabel>Scale</InputLabel>
+                        <Slider 
+                            aria-label="Default" valueLabelDisplay="auto"
+                            step={0.05}
+                            min={0}
+                            max={50}
+                        />
+                    </div>
+
+                    <div className="block-sliders">
+                        <InputLabel>Rotate</InputLabel>
+                        <Slider 
+                            aria-label="Default" valueLabelDisplay="auto"
+                            step={0.05}
+                            min={0}
+                            max={50}
+                        />
+                    </div>
+                </div>
+  
+                <div className="flex-sliders">
+                    <div className="block-sliders">
+                        <InputLabel>Blur</InputLabel>
+                        <Slider 
+                            aria-label="Default" valueLabelDisplay="auto"
+                            step={0.05}
+                            min={0}
+                            max={50}
+                        />
+                    </div>
+
+                    <div className="block-sliders">
+                        <InputLabel>Opacity</InputLabel>
+                        <Slider 
+                            aria-label="Default" valueLabelDisplay="auto"
+                            step={0.05}
+                            min={0}
+                            max={50}
+                        />
+                    </div>
+                </div>
+
+            </Box>
+            }
             </div>
 
         </CodeEditorStyled>         

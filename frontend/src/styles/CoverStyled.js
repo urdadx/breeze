@@ -10,45 +10,29 @@ export const CoverStyled = styled.section`
         max-height:630px;
     } 
 
-    .watermark{
-        position: absolute;
-        z-index:10;
-        width:auto;
-        padding:7px;
-        text-align: center;
-        border-radius:5px;
-        height:auto;
-        font-weight: 600;
-        font-size:10px;
-        background-color: white;
-        color:grey;
-        margin-top:27.5rem;
-        margin-left:42rem;
-        cursor:pointer;
-    }
 
     .monaco-editor{
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         font-family:"Epilogue";
-        width:100%;
-        height:100%;
-        position: relative;
+        height:140px;
     }
 
     .editor_wrap{
         overflow: hidden;
         width:400px;
         height:120px;
+        max-width:100%;
+        max-height:100%;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        font-family:"Epilogue";
      
     }
 
     .editor{
         width:100%;
         height:100%;
+        position: absolute !important; 
     }
 
     .cover-image-download{

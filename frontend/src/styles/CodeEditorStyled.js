@@ -63,4 +63,22 @@ export const CodeEditorStyled = styled.section`
         margin-bottom:1rem;
     }
 
+    .bg-flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:65px;
+    }
+
+    .flex-sliders{
+        display:flex;
+        justify-content: space-between;
+    }
+
+    .block-sliders{
+        display:block;
+        width:120px;
+        padding:5px;
+    }
+
 `

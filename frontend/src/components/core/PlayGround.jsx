@@ -2,7 +2,9 @@ import Header from './Header';
 import { EditorStyled } from '../../styles/EditorStyled';
 import { CoverStyled } from '../../styles/CoverStyled';
 import CodeFrame from '../atoms/CodeFrame';
-import Editor, { useMonaco } from "@monaco-editor/react";
+import Editor from "@monaco-editor/react";
+import ReactResizeDetector from 'react-resize-detector';
+import { useRef } from 'react';
 
 import { useState } from 'react';
 
@@ -11,7 +13,11 @@ const PlayGround = ({ code }) => {
     const [fileName, setFileName] = useState("code-shot");
     const [exporting, setExporting] = useState(false);
 
-    const monaco = useMonaco();
+    const editorRef = useRef(null);
+    const handleEditorMount = (editor, monaco) => {
+        editorRef.current = editor; 
+        editor.focus()
+    }
 
     const HeaderProps = {
         exporting, 
@@ -19,6 +25,16 @@ const PlayGround = ({ code }) => {
         fileName,
         setFileName
     };
+
+    const options = {
+        minimap: {
+            enabled: false,
+        },
+        automaticLayout: true,
+        lineNumbers: false,
+        selectOnLineNumbers: true,
+    }
+
 
 
     
@@ -31,21 +47,17 @@ const PlayGround = ({ code }) => {
                     <div className="codeshot-wrapper">
                         <CodeFrame code={code}  />
                         <div className="editor_wrap">
+                    
                         <Editor
                             wrapperClassName="editor"
                             className="monaco-editor" 
-                            language="markdown"
-                            height="75vh"
-                            loading={'Loading Playground...'}
+                            language="javascript"
+                            loading="Loading Playground..."
                             theme="vs-dark"
                             aria-label="Markdown Editor"
-                            options={{
-                                minimap: {
-                                    enabled: false,
-                                },
-                                lineNumbers: false,
-                            }}
-                        />                      
+                            options={options}
+                            onMount={handleEditorMount}
+                        />  
                      </div>
                     </div>
                 </div>

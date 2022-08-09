@@ -4,7 +4,8 @@ export const codeTemplate = (id) => {
 
     background: {
         color: "#112231",
-        bgColor: "#26a0da"
+        bgColorOne: "#cc2b5e",
+        bgColorTwo: "#753a88"
     },
     frame:{
        type:"MacOS",

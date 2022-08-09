@@ -17,15 +17,15 @@ export const ShotEditorStyled = styled.section`
         grid-template-rows: 1fr 1fr 1fr;    
         grid-template-columns: 1fr 1fr 1fr ;
         flex-wrap: wrap;
-        gap:2px;
+        gap:1px;
         width:310px;
-        height:215px;
+        height:190px;
         z-index: 1000;
     }
 
     .single-div{
         width:5rem;
-        height:3rem;
+        height:2.5rem;
         border-radius:0.5rem;
         cursor: pointer;
         border:1px solid #eee
@@ -71,6 +71,17 @@ export const ShotEditorStyled = styled.section`
     .color{
         opacity: 0;
         cursor: pointer;
+    }
+
+    .flex-sliders{
+        display:flex;
+        justify-content: space-between;
+    }
+
+    .block-sliders{
+        display:block;
+        width:120px;
+        padding:5px;
     }
 
 

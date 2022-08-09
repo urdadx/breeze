@@ -209,37 +209,49 @@ const ShotsEditor = ({ data, setData }) => {
                         />
                         </div>
                     </div>
-                    <InputLabel>X axis</InputLabel>
-                    <Slider 
-                        aria-label="Default" valueLabelDisplay="auto"
-                        step={0.05}
-                        min={0}
-                        max={50}
-                    />
+                    <div className="flex-sliders">
+                        <div className="block-sliders">
+                            <InputLabel>X axis</InputLabel>
+                            <Slider 
+                                aria-label="Default" valueLabelDisplay="auto"
+                                step={0.05}
+                                min={0}
+                                max={50}
+                            />
+                        </div>
 
-                    <InputLabel>Y axis</InputLabel>
-                    <Slider 
-                        aria-label="Default" valueLabelDisplay="auto"
-                        step={0.05}
-                        min={0}
-                        max={50}
-                    />
+                        <div className="block-sliders">
+                            <InputLabel>Y axis</InputLabel>
+                            <Slider 
+                                aria-label="Default" valueLabelDisplay="auto"
+                                step={0.05}
+                                min={0}
+                                max={50}
+                            />
+                        </div>
+                    </div>
+      
+                    <div className="flex-sliders">
+                        <div className="block-sliders">
+                            <InputLabel>Blur</InputLabel>
+                            <Slider 
+                                aria-label="Default" valueLabelDisplay="auto"
+                                step={0.05}
+                                min={0}
+                                max={50}
+                            />
+                        </div>
 
-                    <InputLabel>Blur</InputLabel>
-                    <Slider 
-                        aria-label="Default" valueLabelDisplay="auto"
-                        step={0.05}
-                        min={0}
-                        max={50}
-                    />
-
-                    <InputLabel>Opacity</InputLabel>
-                    <Slider 
-                        aria-label="Default" valueLabelDisplay="auto"
-                        step={0.05}
-                        min={0}
-                        max={50}
-                    />
+                        <div className="block-sliders">
+                            <InputLabel>Opacity</InputLabel>
+                            <Slider 
+                                aria-label="Default" valueLabelDisplay="auto"
+                                step={0.05}
+                                min={0}
+                                max={50}
+                            />
+                        </div>
+                    </div>
 
                 </Box>
         }
