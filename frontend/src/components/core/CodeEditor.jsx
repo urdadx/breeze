@@ -1,12 +1,9 @@
 import { CodeEditorStyled } from "../../styles/CodeEditorStyled";
 import Label from "../atoms/Label";
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { MenuItem } from "@mui/material";
 import { themes, languages } from "../../utils";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import { Slider, InputLabel, Typography, Switch } from "@mui/material";
+import { Slider, InputLabel, Typography, Switch,
+ MenuItem, FormControl, Box, Select  } from "@mui/material";
 import CodeFrame from "../atoms/CodeFrame";
 
 const CodeEditor = ({ code, setCode }) => {
@@ -85,7 +82,8 @@ const CodeEditor = ({ code, setCode }) => {
                     <input
                         value={color} 
                         onChange={handleChangeColor}
-                        type="color" className="editor-color" />
+                        type="color" className="editor-color"
+                    />
                     <div className="small-bg">
                     </div>
                 </div>
@@ -148,7 +146,7 @@ const CodeEditor = ({ code, setCode }) => {
 
             {
                 showAdvanced &&
-                <Box className="" m={2} width={300}>
+                <Box m={2} width={300}>
        
                 <div className="flex-sliders">
                     <div className="block-sliders">

@@ -1,9 +1,7 @@
 import { LeftBarStyled } from "../../styles/LeftBarStyled";
 import { FiEdit, FiFolder, FiUploadCloud } from "react-icons/fi";
 import { IoShapesOutline } from "react-icons/io5";
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { Typography } from "@mui/material";
+import { Tabs, Tab, Typography} from '@mui/material';
 import CustomArea from "./CustomArea"
 import { AiOutlineCode } from "react-icons/ai";
 import { LOGO_IMG } from "../../assets/images/imageURL";

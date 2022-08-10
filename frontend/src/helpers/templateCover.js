@@ -26,13 +26,13 @@ export const getTemplate = (id) => {
         fontSize: 125,
     },
     borderRadius:{
-        curveness: 7
+        curveness: 14.2
     }
     };
   
     return template;
 };
-
+    
   
 
   

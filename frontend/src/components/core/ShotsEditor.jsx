@@ -1,17 +1,12 @@
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import { useState } from 'react';
 import { frames } from '../../utils';
 import { ShotEditorStyled } from '../../styles/ShotEditorStyled';
 import { backgrounds } from '../../utils';
-import Box from '@mui/material/Box';
-import Slider from '@mui/material/Slider';
 import Label from '../atoms/Label';
 import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
-import { Typography } from '@mui/material';
+import { Typography, InputLabel, MenuItem,
+    FormControl, Select, Box, Slider } from '@mui/material';
 import Switch from '@mui/material/Switch';
 
 

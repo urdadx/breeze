@@ -1,13 +1,10 @@
 import { EditorStyled } from "../../styles/EditorStyled";
-import Button from '@mui/material/Button';
-import { Select } from "@mui/material";
+import { Button, Select, FormControl, MenuItem} from '@mui/material';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import FormControl from "@mui/material/FormControl";
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { useState } from "react";
 import { options } from "../../utils";
-import MenuItem from '@mui/material/MenuItem';
 
 const Header = ({
         fileName,

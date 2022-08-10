@@ -12,27 +12,24 @@ export const CoverStyled = styled.section`
 
 
     .monaco-editor{
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
         font-family:"Epilogue";
-        height:140px;
     }
 
     .editor_wrap{
-        overflow: hidden;
-        width:400px;
-        height:120px;
+        height: calc(100% - 60px);
+        overflow-y: auto;
         max-width:100%;
         max-height:100%;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
      
     }
 
     .editor{
         width:100%;
         height:100%;
-        position: absolute !important; 
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .cover-image-download{
@@ -112,6 +109,83 @@ export const CoverStyled = styled.section`
         flex-direction: column;
         gap:3px;
     }
+
+
+    /* CODE SHOT */
+
+    .window {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        box-shadow: rgb(0 0 0 / 43%) 10px 10px 62px 3px;
+    }
+
+    .background {
+        width: 500px;
+        height: auto;
+        position: relative;
+        box-sizing: border-box;
+        z-index:2;
+        padding:45px;
+        
+        
+    }
+
+    .resize-handle-left {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        transform: translate(-50%, -50%);
+        cursor: col-resize;
+        transition-duration: 300ms;
+        z-index: 10;
+    }
+
+    .resize-handle-right {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        transform: translate(50%, -50%);
+        cursor: col-resize;
+        transition-duration: 300ms;
+        z-index:10;
+    }
+
+    .resize-handle-bottom {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        transform: translate(-50%, 50%);
+        cursor: row-resize;
+        transition-duration: 300ms;
+        z-index: 10;
+    }
+
+    .resize-handle-left:hover,
+    .resize-handle-right:hover,
+    .resize-handle-bottom:hover {
+        width: 15px;
+        height: 15px;
+    }
+
+    .editor_wrap {
+     
+    }
+
+
 
 
 

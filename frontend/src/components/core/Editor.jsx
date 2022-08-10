@@ -18,7 +18,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
     const [fileName, setFileName] = useState("breeze-shot");
     const [exporting, setExporting] = useState(false);
 
-
     const backgroudRef = useRef(null)
 
     const takeSnapshot = async () => {
@@ -61,27 +60,13 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
           });
     }
 
-
-    const resizeCoverImage = () => {
-
-      const cover_image = document.querySelector(".cover-image-preview");
-      let scale = window.devicePixelRatio;
-      cover_image.style.transform = `scale(${scale})`; 
-
-    };
-
-    useEffect(() => {
-      resizeCoverImage();
-      window.addEventListener("resize", resizeCoverImage);
-    },[]);
-
     const HeaderProps = {
-      fileName,
-      setFileName,
-      onExport,
-      darkMode,
-      setDarkMode,
-  
+        fileName,
+        setFileName,
+        onExport,
+        darkMode,
+        setDarkMode,
+    
     };
 
 
@@ -98,7 +83,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
         
       }
    
-      
   })
 
     return (
@@ -113,7 +97,6 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                               !isReady &&
                               <div>
                                   <label 
-                                  
                                     onClick={() =>
                                       selectFiles({ accept: "image/*" }, () => {
                                         setIsReady(true)
@@ -136,7 +119,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                                 translateX(${data.position.x}%) translateY(${data.position.y}%)`
                             }}
                             className="screenshot_wrapper">
-                                  <Frame   data={data} />
+                                  <Frame data={data} />
                                   <img
                                     style={{
                                         borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
