@@ -48,6 +48,7 @@ export const LeftBarStyled = styled.section`
     }
 
     .tab-name{
+        font-family: "Epilogue",sans-serif;
         color:grey;
         font-size:12px;
         text-transform: lowercase;

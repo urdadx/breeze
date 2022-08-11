@@ -7,9 +7,12 @@ export const codeTemplate = (id) => {
         bgColorOne: "#FC354C",
         bgColorTwo: "#0ABFBC"
     },
-    frame:{
-       type:"MacOS",
-    },
+    language:{
+       name:"Javascript",
+    },      
+    theme:{
+        name:"Monokai",
+    },  
     position:{
         x:0,
         y:3,
@@ -19,7 +22,7 @@ export const codeTemplate = (id) => {
         width:100,
         height:100
     },
-    icon:{
+    icon:{  
         name:"emoji",
         color: "#4A90E2",
         fontSize: 125,

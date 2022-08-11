@@ -39,19 +39,25 @@ export const options = [
 
 export const themes = [
     {
-        name:"Github"
+        name:"vs-dark"
+    },  
+    {
+        name:"Night Owl"
     },
     {
-        name:"Sublime"
+        name: "Dracula"
     },
     {
-        name:"VSCode"
+        name: "one-dark"
+    },
+    {
+        name:"Xcode_default"
     },
     {
         name:"Monokai"
     },
     {
-        name:"Solarized Dark"
+        name:"Cobalt"
     }
 ]
 

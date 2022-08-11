@@ -2,15 +2,34 @@ import { CodeEditorStyled } from "../../styles/CodeEditorStyled";
 import Label from "../atoms/Label";
 import { themes, languages } from "../../utils";
 import { useState } from "react";
-import { Slider, InputLabel, Typography, Switch,
- MenuItem, FormControl, Box, Select  } from "@mui/material";
+import { Slider, InputLabel, Typography, Switch, MenuItem, FormControl, Box, Select } from "@mui/material";
 import CodeFrame from "../atoms/CodeFrame";
 
 const CodeEditor = ({ code, setCode }) => {
 
-    const [theme, setTheme] = useState(themes[0].name);
-    const [language, setLanguage] = useState(languages[0].name);
-    const [showAdvanced, setShowAdvanced] = useState(false)
+    const [theme, setTheme] = useState(code.theme.name);
+    const [language, setLanguage] = useState(code.language.name);
+    const [showAdvanced, setShowAdvanced] = useState(false);
+
+    const handleChangeLanguage = (e) => {
+        setLanguage(e.target.value)
+            setCode({
+                ...code,
+                language:{
+                    name: e.target.value
+            }
+        })         
+    }
+
+    const handleChangeTheme = (e) => {
+        setTheme(e.target.value)
+            setCode({
+                ...code,
+                theme:{
+                    name: e.target.value
+            }
+        }) 
+    }
 
     const handleShowAdvanced = (event) => {
         setShowAdvanced(event.target.checked);
@@ -20,27 +39,49 @@ const CodeEditor = ({ code, setCode }) => {
         code.background.color ? code.background.color : "#112231"
     );
 
-    const [bg, setBg] = useState(
-        code.background.bgColor ? code.background.bgColor : "#26a0da"
-    );
+    const [bg, setBg] = useState({
+        bgOne: code.background.bgColorOne ? code.background.bgColorOne : "#FC354C",
+        bgTwo: code.background.bgColorTwo ? code.background.bgColorTwo : "#0ABFBC"
+    });
+
+    const handleChangeBgColorOne = (event) => {
+        setBg({
+            ...bg,
+            bgOne: event.target.value
+        })
+        setCode({
+            ...code,
+            background: {
+                color: color,
+                bgColorOne: bg.bgOne,
+                bgColorTwo: bg.bgTwo
+            }
+        })
+    }
+
+    const handleChangeBgColorTwo = (event) => {
+        setBg({
+            ...bg,
+            bgTwo: event.target.value
+        })
+        setCode({
+            ...code,
+            background: {
+                color: color,
+                bgColorOne: bg.bgOne,
+                bgColorTwo: bg.bgTwo
+            }
+        })
+    }
 
     const handleChangeColor = (event) => {
         setColor(event.target.value)
         setCode({
             ...code,
             background: {
-                color: event.target.value
-            }
-        })
-    }
-
-    const handleChangeBgColor = (event) => {
-        setBg(event.target.value)
-        setCode({
-            ...code,
-            background: {
                 color: color,
-                bgColor: event.target.value
+                bgColorOne: bg.bgOne,
+                bgColorTwo: bg.bgTwo
             }
         })
     }
@@ -51,7 +92,7 @@ const CodeEditor = ({ code, setCode }) => {
             <div className="code-editor">
             <Label name="Theme" />
             <FormControl sx={{ mx: 2, minWidth: 310, maxWidth: 350 }} size="small" >
-                <Select value={theme}>
+                <Select onChange={handleChangeTheme} value={theme}>
                 {
                     themes && themes.map((theme,key) => {
                         return <MenuItem key={key} value={theme.name}>{theme.name}</MenuItem>
@@ -62,7 +103,7 @@ const CodeEditor = ({ code, setCode }) => {
 
             <Label name="Language" />
             <FormControl sx={{ mx: 2, minWidth: 310, maxWidth: 350 }} size="small" >
-                <Select value={language}>
+                <Select onChange={handleChangeLanguage} value={language}>
                 {
                     languages && languages.map((language,key) => {
                         return <MenuItem key={key} value={language.name}>{language.name}</MenuItem>
@@ -76,7 +117,7 @@ const CodeEditor = ({ code, setCode }) => {
                 <div 
                  style={{
                     background: `${code.background.color}`
-                 }}
+                }}
                 className="small_editor">
                     <CodeFrame code={code} />
                     <input
@@ -99,8 +140,8 @@ const CodeEditor = ({ code, setCode }) => {
                                 className="color-ball"
                             >
                             <input
-                                value={bg}
-                                onChange={handleChangeBgColor}
+                                value={bg.bgOne}
+                                onChange={handleChangeBgColorOne}
                                 className="color" type="color"
                             />
                             </div>
@@ -109,8 +150,8 @@ const CodeEditor = ({ code, setCode }) => {
                                 className="color-ball"
                             >
                             <input
-                                value={bg}
-                                onChange={handleChangeBgColor}
+                                value={bg.bgTwo}
+                                onChange={handleChangeBgColorTwo}
                                 className="color" type="color"
                             />
                             </div>

@@ -5,19 +5,28 @@ import { backgrounds } from '../../utils';
 import Label from '../atoms/Label';
 import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
-import { Typography, InputLabel, MenuItem,
-    FormControl, Select, Box, Slider } from '@mui/material';
+import { Typography, InputLabel, MenuItem, FormControl, Select, Box, Slider } from '@mui/material';
 import Switch from '@mui/material/Switch';
 
 
 const ShotsEditor = ({ data, setData }) => {
 
     const [frame, setFrame] = useState(data.frame.type)
-
     const [bg, setBg] = useState(data.background.type)
+    
     const [borderRadius, setBorderRadius] = useState(
         data.borderRadius.curveness ? data.borderRadius.curveness : 7
     );
+
+    const handleChangeFrame = (e) => {
+        setFrame(e.target.value)
+            setData({
+                ...data,
+                frame:{
+                    type: e.target.value
+                }
+        })
+    }
 
     const [color, setColor] = useState("#333");
 
@@ -107,18 +116,7 @@ const ShotsEditor = ({ data, setData }) => {
         <FormControl sx={{ p:2, minWidth: 140, maxWidth:140 }} size="small" >
  
             <InputLabel sx={{fontSize:"20px"}}>Frame</InputLabel>
-            <Select
-                value={frame}
-                onChange={(e) => {
-                    setFrame(e.target.value)
-                    setData({
-                        ...data,
-                        frame:{
-                            type: e.target.value
-                        }
-                    })
-                }}
-            >
+            <Select value={frame} onChange={handleChangeFrame}>
             {
                 frames && frames.map((frame,key) => {
                     return <MenuItem key={key} value={frame.name}>{frame.name}</MenuItem>
@@ -129,10 +127,7 @@ const ShotsEditor = ({ data, setData }) => {
 
         <FormControl sx={{ p: 2, minWidth: 140, maxWidth: 140 }} size="small" >
             <InputLabel sx={{fontSize:"20px"}} >Background</InputLabel>
-            <Select
-                value={bg}
-                onChange={handleBgChange}
-            >
+            <Select value={bg} onChange={handleBgChange}>
             {
                 backgrounds && backgrounds.map((bg,key) => {
                     return <MenuItem key={key} value={bg.name}>{bg.name}</MenuItem>

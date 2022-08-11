@@ -10,11 +10,6 @@ export const CoverStyled = styled.section`
         max-height:630px;
     } 
 
-
-    .monaco-editor{
-        font-family:"Epilogue";
-    }
-
     .editor_wrap{
         height: calc(100% - 60px);
         overflow-y: auto;
@@ -28,8 +23,7 @@ export const CoverStyled = styled.section`
     .editor{
         width:100%;
         height:100%;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+
     }
 
     .cover-image-download{
@@ -102,6 +96,8 @@ export const CoverStyled = styled.section`
     p{
         color:white;
         font-weight: 500;
+        font-family: "Epilogue",sans-serif;
+
     }
 
     .file-area{
@@ -113,6 +109,10 @@ export const CoverStyled = styled.section`
 
     /* CODE SHOT */
 
+    .monaco-editor{
+        height:140px;
+    }
+
     .window {
         height: 100%;
         width: 100%;
@@ -122,13 +122,12 @@ export const CoverStyled = styled.section`
     }
 
     .background {
-        width: 500px;
+        width: 580px;
         height: auto;
         position: relative;
         box-sizing: border-box;
-        z-index:2;
-        padding:45px;
-        
+        padding:25px;
+        z-index: 10;
         
     }
 
@@ -140,7 +139,7 @@ export const CoverStyled = styled.section`
         width: 10px;
         height: 10px;
         border-radius: 50px;
-        transform: translate(-50%, -50%);
+        transform: translate(-10%, -50%);
         cursor: col-resize;
         transition-duration: 300ms;
         z-index: 10;
@@ -154,7 +153,7 @@ export const CoverStyled = styled.section`
         width: 10px;
         height: 10px;
         border-radius: 50px;
-        transform: translate(50%, -50%);
+        transform: translate(0%, -50%);
         cursor: col-resize;
         transition-duration: 300ms;
         z-index:10;
@@ -168,7 +167,21 @@ export const CoverStyled = styled.section`
         width: 10px;
         height: 10px;
         border-radius: 50px;
-        transform: translate(-50%, 50%);
+        transform: translate(-50%, 0%);
+        cursor: row-resize;
+        transition-duration: 300ms;
+        z-index: 10;
+    }
+
+    .resize-handle-top {
+        position: absolute;
+        left: 50%;
+        top:0;
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        transform: translate(-50%, 5%);
         cursor: row-resize;
         transition-duration: 300ms;
         z-index: 10;
@@ -180,17 +193,6 @@ export const CoverStyled = styled.section`
         width: 15px;
         height: 15px;
     }
-
-    .editor_wrap {
-     
-    }
-
-
-
-
-
-
-
 
 
 `
