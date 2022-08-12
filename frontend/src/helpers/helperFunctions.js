@@ -8,3 +8,9 @@ export const downloadBlob = (blob, filename) => {
     element.click();
     document.body.removeChild(element);
 }
+
+export const convertToSlug = (Text) => {
+    return Text.toLowerCase()
+               .replace(/ /g, '-')
+               .replace(/[^\w-]+/g, '');
+}

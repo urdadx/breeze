@@ -11,7 +11,7 @@ export const codeTemplate = (id) => {
        name:"Javascript",
     },      
     theme:{
-        name:"one-dark",
+        name:"Atom Dark",
     },  
     position:{
         x:0,

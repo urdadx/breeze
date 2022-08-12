@@ -15,7 +15,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
 
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);    
-    const [fileName, ] = useState("breeze-shot");
+    const [fileName, ] = useState("breeze-shot"); 
 
     const backgroundRef = useRef(null)
 

@@ -2,15 +2,14 @@ import { CodeEditorStyled } from "../../styles/CodeEditorStyled";
 import Label from "../atoms/Label";
 import { themes, languages } from "../../utils";
 import { useState } from "react";
-import { Slider, InputLabel, Typography, Switch, MenuItem, FormControl, Box, Select } from "@mui/material";
+import { Slider, InputLabel, Typography, MenuItem, FormControl, Box, Select } from "@mui/material";
 import CodeFrame from "../atoms/CodeFrame";
 
 const CodeEditor = ({ code, setCode }) => {
 
     const [theme, setTheme] = useState(code.theme.name);
     const [language, setLanguage] = useState(code.language.name);
-    const [showAdvanced, setShowAdvanced] = useState(false);
-
+    
     const handleChangeLanguage = (e) => {
         setLanguage(e.target.value)
             setCode({
@@ -30,10 +29,6 @@ const CodeEditor = ({ code, setCode }) => {
             }
         }) 
     }
-
-    const handleShowAdvanced = (event) => {
-        setShowAdvanced(event.target.checked);
-    };
 
     const [color, setColor] = useState(
         code.background.color ? code.background.color : "#112231"
@@ -112,7 +107,7 @@ const CodeEditor = ({ code, setCode }) => {
                 </Select>
             </FormControl> 
 
-            <Label name="Editor color" />
+            <Label name="Header color" />
             <Box mx={5}>       
                 <div 
                  style={{
@@ -159,34 +154,11 @@ const CodeEditor = ({ code, setCode }) => {
                        
                 </div>
             </Box>
-
-            <Label name="Position" />
-            <Box m={2} width={300}>
-
-                <InputLabel>Position X</InputLabel>
-                <Slider value={50}
-                    min={-80}
-                    max={80}
-                    aria-label="Default" valueLabelDisplay="auto"
-                />
-
-                <InputLabel>Position Y</InputLabel>
-                <Slider value={50} 
-                    min={-80}
-                    max={80}
-                    aria-label="Default" valueLabelDisplay="auto"
-                />
-
-            </Box>
             
             <Label name="Advanced" />
-            <Box className="main" m={2} width={300}>
-                <Typography className="typo-bold">Advanced settings</Typography>
-                <Switch color="success" onChange={handleShowAdvanced} checked={showAdvanced} />
-            </Box>
+  
 
-            {
-                showAdvanced &&
+       
                 <Box m={2} width={300}>
        
                 <div className="flex-sliders">
@@ -234,7 +206,7 @@ const CodeEditor = ({ code, setCode }) => {
                 </div>
 
             </Box>
-            }
+            
             </div>
 
         </CodeEditorStyled>         

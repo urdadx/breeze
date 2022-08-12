@@ -16,9 +16,6 @@ const App = () => {
     <div className="App">
       <Toaster
         position="bottom-right"
-        style={{
-          fontFamily:"Epilogue"
-        }}
         reverseOrder={false}
       />
       <Home currentState={value} changeState={handleChange} />

@@ -7,8 +7,6 @@ import { useState } from "react";
 import { options } from "../../utils";
 
 const Header = ({
-        fileName,
-        setFileName,
         darkMode,
         setDarkMode,
         onExportScreenshot,

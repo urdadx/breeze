@@ -15,7 +15,7 @@ const Frame = ({ data }) => {
               
                 </div>  
             </div>
-      </FrameStyled>
+      </FrameStyled>    
         </>
      );
 }

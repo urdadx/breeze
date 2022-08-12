@@ -11,7 +11,7 @@ export const CoverStyled = styled.section`
         max-height:630px;
     } 
 
-    .editor_wrap{
+    .editor_wrap-one{
         height: calc(100% - 60px);
         overflow-y: auto;
         max-width:100%;
@@ -21,10 +21,8 @@ export const CoverStyled = styled.section`
      
     }
 
-    .editor{
-        width:100%;
-        height:100%;
-
+    .editor_wrap-one textarea {
+        outline: none;
     }
 
     .cover-image-download{
@@ -41,11 +39,15 @@ export const CoverStyled = styled.section`
     } 
 
     .code-wrapper{
-        margin-top:6.5rem;
+        margin-top:3.5rem;
         width:100%;
         height: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    .window{
+        background-color: #1a1e22;
     }
 
     .image-icon{
@@ -109,10 +111,6 @@ export const CoverStyled = styled.section`
 
 
     /* CODE SHOT */
-
-    .monaco-editor{
-        
-    }
 
     .no-resizors{
         display: none;

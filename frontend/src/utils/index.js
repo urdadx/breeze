@@ -39,17 +39,29 @@ export const options = [
 
 export const themes = [
     {
-        name:"vs-dark"
-    },  
-    {
-        name: "one-dark"
+        name: "Atom Dark"
     },
     {
-        name:"github light"
+        name: 'VS Dark',
     },
-    
-  
+    {
+        name: "Monokai"
+    },
+    {
+        name: "Duotone Sea"
+    },
+    {
+        name: "Dracula"
+    },
+    {
+        name: "Gruvbox Dark"
+    },
+    {
+        name: "Solarized Dark Atom"
+    }
+
 ]
+  
 
 export const languages = [
     {
@@ -72,3 +84,18 @@ export const languages = [
     }
 ]
   
+
+export const codeSnippet = `for (let i = 1; i <= 20; i++){
+
+    if (i % 15 == 0) console.log("FizzBuzz");
+
+    else if (i % 3 == 0) console.log("Fizz");
+    
+    else if (i % 5 == 0) console.log("Buzz");
+    
+    else console.log(i);
+}
+
+// Write / paste your code here!🔥
+// Use the trackers to adjust the editor's size ✨
+`

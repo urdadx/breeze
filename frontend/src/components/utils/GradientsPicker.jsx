@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { colorGradients } from "../../data/gradients";
 import { ShotEditorStyled } from "../../styles/ShotEditorStyled";
-import { Switch, Typography, InputLabel, Box } from "@mui/material"
+import { Switch, Typography, Box } from "@mui/material"
 
 const GradientsPicker = ({ data, setData }) => {
     
