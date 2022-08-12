@@ -8,28 +8,18 @@ export const codeTemplate = (id) => {
         bgColorTwo: "#0ABFBC"
     },
     language:{
-       name:"Javascript",
+       name:"JavaScript",
     },      
     theme:{
         name:"Atom Dark",
     },  
-    position:{
-        x:0,
-        y:3,
-        scale:0.85
+    advanced:{
+        borderRadius:6,
+        opacity:1,
+        rotate:0,   
+        scale:1
     },
-    size:{
-        width:100,
-        height:100
-    },
-    icon:{  
-        name:"emoji",
-        color: "#4A90E2",
-        fontSize: 125,
-    },
-    borderRadius:{
-        curveness: 7
-    }
+    
     };
   
     return codeSettings;

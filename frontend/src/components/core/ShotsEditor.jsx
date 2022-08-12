@@ -13,6 +13,10 @@ const ShotsEditor = ({ data, setData }) => {
 
     const [frame, setFrame] = useState(data.frame.type)
     const [bg, setBg] = useState(data.background.type)
+
+    const [scale, setScale] = useState(
+        data.position.scale  ? data.position.scale : 0.8 
+    );
     
     const [borderRadius, setBorderRadius] = useState(
         data.borderRadius.curveness ? data.borderRadius.curveness : 7
@@ -86,8 +90,8 @@ const ShotsEditor = ({ data, setData }) => {
         setData({
             ...data,
             position: {
-                x: 50,
-                y: 50,
+                x: positionX,
+                y: positionY,
                 scale: scale,
             },
         })
@@ -103,10 +107,6 @@ const ShotsEditor = ({ data, setData }) => {
             }
         })
     }
-
-    const [scale, setScale] = useState(
-        data.position.scale  ? data.position.scale : 0.8 
-    );
     
     return ( 
         <>

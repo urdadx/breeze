@@ -7,19 +7,20 @@ import { useEffect, useState, useRef } from 'react';
 import domtoimage from 'dom-to-image-more';
 import { downloadBlob } from "../../helpers/helperFunctions";
 import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
 import { convertToSlug } from '../../helpers/helperFunctions';
 import toast from "react-hot-toast";
 import { codeSnippet } from '../../utils';
+import { LANGUAGE } from '../../utils';
 
 import '../../prism-vsc-dark-plus.css';
 import "../../editor.css";
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
 
 
 const MAX_WIDTH = 850;
 const MIN_WIDTH = 400;
-const MAX_HEIGHT = 2000;
+const MAX_HEIGHT = 1000;
 const MIN_HEIGHT = 140;
 
 const SCALE = 1;
@@ -28,8 +29,6 @@ const PlayGround = ({ code }) => {
 
     const [fileName, ] = useState("code-shot");
     const [exporting, setExporting] = useState(false); 
-
-
     const [codeValue, setCodeValue] = useState(codeSnippet)
 
     // Refs for trackers
@@ -99,7 +98,7 @@ const PlayGround = ({ code }) => {
         const resizeLeft = (e) => {
             e.preventDefault();
             backgroundEl.style.width = ((window.innerWidth - e.clientX)  - backgroundEl.offsetLeft) + 'px';
-            backgroundEl.style.padding = " 40px 40px 40px 40px";
+            backgroundEl.style.padding = "40px 40px 40px 40px";
 
       
             if (+(backgroundEl.style.width.replace('px', '')) < MIN_WIDTH) {
@@ -163,9 +162,17 @@ const PlayGround = ({ code }) => {
                                 `   
                             }}
                         className='background' ref={backgroundRef}>
-                            <div className={!exporting ? "resize-handle-left": "no-resizors"} ref={handleLeftRef}   />
+                            <div className={!exporting ? "resize-handle-left": "no-resizors"} ref={handleLeftRef} />
                             <div className={!exporting ? "resize-handle-bottom": "no-resizors"} ref={handleDownRef} />
-                        <div className='window'>
+                        <div 
+                             style={{
+                                borderRadius:code.advanced.borderRadius,
+                                opacity: code.advanced.opacity,
+                                transform: `
+                                    scale(${code.advanced.scale})
+                                    rotate(${code.advanced.rotate}deg)`
+                            }}
+                        className='window'>
 
                                 <link href={`/themes/${convertToSlug(code.theme.name)}.css`} rel="stylesheet" />
                                 <CodeFrame code={code} />
@@ -173,7 +180,7 @@ const PlayGround = ({ code }) => {
                                 <Editor
                                     value={codeValue}
                                     onValueChange={codeValue => setCodeValue(codeValue)}
-                                    highlight={codeValue => highlight(codeValue, languages.js)}
+                                    highlight={codeValue => highlight(codeValue, languages[LANGUAGE[code.language.name]] )}
                                     style={{
                                         fontFamily: '"Fira code", "Fira Mono", monospace',
                                         fontSize: 14,

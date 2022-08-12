@@ -1,3 +1,18 @@
+import 'prismjs/components/prism-core';
+import 'prismjs/components/prism-bash';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-c';
+import 'prismjs/components/prism-cpp';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-csharp';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-markup-templating';
+
+
 export const frames = [
 
     {
@@ -83,6 +98,21 @@ export const languages = [
         name: "HTML"
     }
 ]
+
+
+export const LANGUAGE = {
+    'C++': 'cpp',
+    'Java': 'java',
+    'Python': 'python',
+    'C#': 'csharp',
+    'JSON': 'json',
+    'HTML': 'html',
+    'CSS': 'css',
+    'JavaScript': 'javascript',
+    'TypeScript': 'typescript',
+    'Plain Text': 'plaintext',
+
+};
   
 
 export const codeSnippet = `for (let i = 1; i <= 20; i++){

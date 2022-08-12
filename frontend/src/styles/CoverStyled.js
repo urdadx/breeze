@@ -11,20 +11,6 @@ export const CoverStyled = styled.section`
         max-height:630px;
     } 
 
-    .editor_wrap-one{
-        height: calc(100% - 60px);
-        overflow-y: auto;
-        max-width:100%;
-        max-height:100%;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
-     
-    }
-
-    .editor_wrap-one textarea {
-        outline: none;
-    }
-
     .cover-image-download{
         position: absolute;
         z-index: -10;
@@ -46,10 +32,7 @@ export const CoverStyled = styled.section`
         justify-content: center;
     }
 
-    .window{
-        background-color: #1a1e22;
-    }
-
+ 
     .image-icon{
         display: flex;
         justify-content: center;
@@ -122,7 +105,7 @@ export const CoverStyled = styled.section`
         overflow: hidden;
         box-sizing: border-box;
         box-shadow: rgb(0 0 0 / 43%) 10px 10px 62px 3px;
-    }
+    }   
 
     .background {
         width: 580px;

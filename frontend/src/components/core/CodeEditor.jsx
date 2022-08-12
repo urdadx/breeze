@@ -1,23 +1,96 @@
 import { CodeEditorStyled } from "../../styles/CodeEditorStyled";
 import Label from "../atoms/Label";
-import { themes, languages } from "../../utils";
+import { themes } from "../../utils";
 import { useState } from "react";
 import { Slider, InputLabel, Typography, MenuItem, FormControl, Box, Select } from "@mui/material";
 import CodeFrame from "../atoms/CodeFrame";
+import { LANGUAGE } from "../../utils";
 
 const CodeEditor = ({ code, setCode }) => {
 
     const [theme, setTheme] = useState(code.theme.name);
-    const [language, setLanguage] = useState(code.language.name);
+    const [currentLang, setCurrentLang] = useState(code.language.name);
+    const [languages, ] = useState(Object.keys(LANGUAGE))
+
+    // Advanced settings
+    const [scale, setScale] = useState(
+        code.advanced.scale ? code.advanced.scale : 1
+    )
+    const [borderRadius, setBorderRadius] = useState(
+        code.advanced.borderRadius ? code.advanced.borderRadius : 6
+    )
+    const [opacity, setOpacity] = useState(
+        code.advanced.opacity ? code.advanced.opacity : 1
+    )
+    const [rotate, setRotate] = useState(
+        code.advanced.rotate ? code.advanced.rotate : 0
+    )
+
+    const handleChangeScale = (e, newValue) => {
+        e.preventDefault()
+        setScale(newValue);
+        setCode({
+            ...code,
+            advanced: {
+                borderRadius: borderRadius,
+                opacity: opacity,
+                scale: scale,
+                rotate: rotate
+            },
+        })
+    }
+
+    const handleChangeRotate = (e, newValue) => {
+        e.preventDefault()
+        setRotate(newValue);
+        setCode({
+            ...code,
+            advanced: {
+                borderRadius: borderRadius,
+                opacity: opacity,
+                scale: scale,
+                rotate: rotate
+            },
+        })
+    }
+
+    const handleChangeBorderRadius = (e, newValue) => {
+        e.preventDefault()
+        setBorderRadius(newValue);
+        setCode({
+            ...code,
+            advanced: {
+                borderRadius: borderRadius,
+                opacity: opacity,
+                scale: scale,
+                rotate: rotate
+            },
+        })
+    }
+
+    const handleChangeOpacity = (e, newValue) => {
+        e.preventDefault()
+        setOpacity(newValue);
+        setCode({
+            ...code,
+            advanced: {
+                borderRadius: borderRadius,
+                opacity: opacity,
+                scale: scale,
+                rotate: rotate
+            },
+        })
+    }
     
     const handleChangeLanguage = (e) => {
-        setLanguage(e.target.value)
+        setCurrentLang(e.target.value)
             setCode({
                 ...code,
                 language:{
                     name: e.target.value
             }
-        })         
+        })  
+        
     }
 
     const handleChangeTheme = (e) => {
@@ -98,10 +171,10 @@ const CodeEditor = ({ code, setCode }) => {
 
             <Label name="Language" />
             <FormControl sx={{ mx: 2, minWidth: 310, maxWidth: 350 }} size="small" >
-                <Select onChange={handleChangeLanguage} value={language}>
+                <Select onChange={handleChangeLanguage} value={currentLang}>
                 {
                     languages && languages.map((language,key) => {
-                        return <MenuItem key={key} value={language.name}>{language.name}</MenuItem>
+                        return <MenuItem key={key} value={language}>{language}</MenuItem>
                     })
                 }
                 </Select>
@@ -156,51 +229,52 @@ const CodeEditor = ({ code, setCode }) => {
             </Box>
             
             <Label name="Advanced" />
-  
-
-       
-                <Box m={2} width={300}>
-       
+            
+                <Box m={2} width={300}>    
                 <div className="flex-sliders">
                     <div className="block-sliders">
                         <InputLabel>Scale</InputLabel>
-                        <Slider 
+                        <Slider value={scale}
+                            onChange={handleChangeScale}
                             aria-label="Default" valueLabelDisplay="auto"
-                            step={0.05}
+                            step={0.0001}
                             min={0}
-                            max={50}
+                            max={3}
                         />
                     </div>
 
                     <div className="block-sliders">
                         <InputLabel>Rotate</InputLabel>
-                        <Slider 
+                        <Slider value={rotate}
+                            onChange={handleChangeRotate}
                             aria-label="Default" valueLabelDisplay="auto"
-                            step={0.05}
+                            step={1}
                             min={0}
-                            max={50}
+                            max={180}
                         />
                     </div>
                 </div>
   
                 <div className="flex-sliders">
                     <div className="block-sliders">
-                        <InputLabel>Blur</InputLabel>
-                        <Slider 
+                        <InputLabel>Border Radius</InputLabel>
+                        <Slider value={borderRadius}
+                            onChange={handleChangeBorderRadius}
                             aria-label="Default" valueLabelDisplay="auto"
-                            step={0.05}
+                            step={0.001}
                             min={0}
-                            max={50}
+                            max={20}
                         />
                     </div>
 
                     <div className="block-sliders">
                         <InputLabel>Opacity</InputLabel>
-                        <Slider 
+                        <Slider value={opacity}
+                            onChange={handleChangeOpacity}
                             aria-label="Default" valueLabelDisplay="auto"
-                            step={0.05}
+                            step={0.0001}
                             min={0}
-                            max={50}
+                            max={1.1}
                         />
                     </div>
                 </div>
