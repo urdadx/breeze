@@ -7,6 +7,15 @@ import Loader from "../components/atoms/Loader";
 import { useEffect } from "react";
 import PlayGround from "../components/core/PlayGround";
 import { codeTemplate } from "../helpers/CodeTemplate";
+import styled from "styled-components";
+
+
+const EnableScroll = styled.section`
+    overflow-y: auto;
+    height:100vh;
+
+`
+
 
 const Home = ({ currentState, changeState }, props) => {
 
@@ -54,10 +63,14 @@ const Home = ({ currentState, changeState }, props) => {
                             <>
                             {
                                 code &&
-                                <PlayGround
-                                    code={code}
-                                    setData={setCode}
-                                /> 
+                                <>
+                                <EnableScroll>
+                                    <PlayGround
+                                        code={code}
+                                        setData={setCode}
+                                    /> 
+                                </EnableScroll>
+                                </>
                                 
                             }
                             </>

@@ -42,23 +42,13 @@ export const themes = [
         name:"vs-dark"
     },  
     {
-        name:"Night Owl"
-    },
-    {
-        name: "Dracula"
-    },
-    {
         name: "one-dark"
     },
     {
-        name:"Xcode_default"
+        name:"github light"
     },
-    {
-        name:"Monokai"
-    },
-    {
-        name:"Cobalt"
-    }
+    
+  
 ]
 
 export const languages = [

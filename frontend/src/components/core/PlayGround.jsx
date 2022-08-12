@@ -4,22 +4,23 @@ import { CoverStyled } from '../../styles/CoverStyled';
 import CodeFrame from '../atoms/CodeFrame';
 import Editor from "@monaco-editor/react";
 import { useEffect, useState, useRef } from 'react';
+import domtoimage from 'dom-to-image-more';
+import { downloadBlob } from "../../helpers/helperFunctions";
 
 const MAX_WIDTH = 900;
 const MIN_WIDTH = 400;
 const MAX_HEIGHT = 1000;
 const MIN_HEIGHT = 140;
 
+const SCALE = 1;
+
 const PlayGround = ({ code }) => {
 
-    const [fileName, setFileName] = useState("code-shot");
-    const [exporting, setExporting] = useState(false);
- 
-    const editorRef = useRef(null);
-    const handleEditorMount = (editor, monaco) => {
-        editorRef.current = editor; 
-        editor.focus()        
-        fetch(`./public/themes/${code.theme.name}.json`)
+    const [fileName, ] = useState("code-shot");
+    const [exporting, setExporting] = useState(false); 
+    
+    const handleEditorMount = (monaco) => {
+        fetch(`./themes/${code.theme.name}.json`)
             .then(data => data.json())
             .then(data => {
                 monaco.editor.defineTheme(code.theme.name.toLowerCase(), data);
@@ -29,16 +30,51 @@ const PlayGround = ({ code }) => {
 
     // Refs for trackers
     const backgroundRef = useRef(null);
-    const handleRightRef = useRef(null);
     const handleLeftRef = useRef(null);
     const handleDownRef = useRef(null);
-    const handleUpRef = useRef(null);
+
+    const takeSnapshot = async () => {
+        const node = backgroundRef.current;
+    
+        const style = {
+          transform: 'scale('+SCALE+')',
+          transformOrigin: 'top left',
+          width: node.offsetWidth + "px",
+          height: node.offsetHeight + "px",
+        }
+    
+        const param = {
+          height: node.offsetHeight * SCALE,
+          width: node.offsetWidth * SCALE,
+          quality: 1,
+          style
+        }
+    
+        const base64Image = await domtoimage.toPng(node, param)
+        return base64Image;
+      }
+  
+      // Exporting Image to PNG
+      const onExportCodeShot = () => {
+        setExporting(true);
+        
+        const exportPng = takeSnapshot()
+            .then(blobUrl => {
+              downloadBlob(blobUrl, `${fileName}.png`);
+            })
+            .catch(error => {
+              console.log("Error: " + error);
+            })
+            .finally(() => setExporting(false));
+            toast.promise(exportPng, {
+              loading: "Saving...",
+              success: `Saved ${fileName}.png`,
+              error: "Error Saving File",
+            });
+        }
 
     const HeaderProps = {
-        exporting, 
-        setExporting,
-        fileName,
-        setFileName
+        onExportCodeShot,
     };
 
     const options = {
@@ -53,49 +89,29 @@ const PlayGround = ({ code }) => {
         parameterHints: {
             enabled: false
         },
+        guides: {
+            indentation: false,
+            lineHightlight: false
+        },     
         automaticLayout: true,
         lineNumbers: false,
         selectOnLineNumbers: true,
     }
 
-    const userCode = `// Write or paste your code here \n// Use the trackers to adjust the size of the editor`
+    const codeValue = `// Write or paste your code here \n// Use the trackers to adjust the size of the editor`
 
     // Resize editor in-relation to content
     useEffect(() => {
 
         // Refs for re-sizing
         const backgroundEl = backgroundRef.current;
-        const handleRightEl = handleRightRef.current;
         const handleLeftEl = handleLeftRef.current;
         const handleDownEl = handleDownRef.current;
-        const handleUpEl = handleUpRef.current;
 
         const monacoEditor = document.querySelector(".monaco-editor");
         monacoEditor.style.height = MIN_HEIGHT + "px";
 
-        const initResizeRight = () => {
-            window.addEventListener('mousemove', resizeRight, false);
-            window.addEventListener('mouseup', stopResizeRight, false);
-        }
-
-        const resizeRight = (e) => {
-            e.preventDefault(); 
-      
-            backgroundEl.style.width = (e.clientX - backgroundEl.offsetLeft) + 'px';
-      
-            if (+(backgroundEl.style.width.replace('px', '')) < MIN_WIDTH) {
-              backgroundEl.style.width = MIN_WIDTH + 'px';
-            }
-            if (+(backgroundEl.style.width.replace('px', '')) > MAX_WIDTH) {
-              backgroundEl.style.width = MAX_WIDTH + 'px';
-            }
-        }
-
-        const stopResizeRight = () => {
-            window.removeEventListener('mousemove', resizeRight, false);
-            window.removeEventListener('mouseup', stopResizeRight, false);
-        }
-
+        backgroundEl.style.padding = "25px"
       
         const initResizeLeft = () => {
             window.addEventListener('mousemove', resizeLeft, false);
@@ -105,6 +121,8 @@ const PlayGround = ({ code }) => {
         const resizeLeft = (e) => {
             e.preventDefault();
             backgroundEl.style.width = ((window.innerWidth - e.clientX)  - backgroundEl.offsetLeft) + 'px';
+            backgroundEl.style.padding = " 40px 40px 40px 40px";
+
       
             if (+(backgroundEl.style.width.replace('px', '')) < MIN_WIDTH) {
               backgroundEl.style.width = MIN_WIDTH + 'px';
@@ -128,7 +146,8 @@ const PlayGround = ({ code }) => {
             e.preventDefault(); 
       
             backgroundEl.style.height = (e.clientY - backgroundEl.offsetTop) + 'px';
-            monacoEditor.style.height = "auto"
+            monacoEditor.style.height = "auto";
+            backgroundEl.style.padding = " 40px 40px 1px 40px";
       
             if (+(backgroundEl.style.height.replace('px', '')) < MIN_HEIGHT) {
               backgroundEl.style.height = MIN_HEIGHT + 'px';
@@ -142,42 +161,13 @@ const PlayGround = ({ code }) => {
             window.removeEventListener('mousemove', resizeDown, false);
             window.removeEventListener('mouseup', stopResizeDown, false);
         }
-
-        const initResizeUp = () => {
-            window.addEventListener('mousemove', resizeUp, false);
-            window.addEventListener('mouseup', stopResizeUp, false);
-        }
-
-        const resizeUp = (e) => {
-            e.preventDefault(); 
-      
-            backgroundEl.style.height = (e.clientY - backgroundEl.offsetTop) + 'px';
-            monacoEditor.style.height = "auto"
-      
-            if (+(backgroundEl.style.height.replace('px', '')) < MIN_HEIGHT) {
-              backgroundEl.style.height = MIN_HEIGHT + 'px';
-            }
-            if (+(backgroundEl.style.height.replace('px', '')) > MAX_HEIGHT) {
-              backgroundEl.style.height = MAX_HEIGHT + 'px';
-            }
-        }
-
-        const stopResizeUp = () => {
-            window.removeEventListener('mousemove', resizeUp, false);
-            window.removeEventListener('mouseup', stopResizeUp, false);
-        }
-      
-        handleRightEl.addEventListener('mousedown', initResizeRight, false);
+       
         handleLeftEl.addEventListener('mousedown', initResizeLeft, false);
         handleDownEl.addEventListener('mousedown', initResizeDown, false)
-        handleUpEl.addEventListener('mousedown', initResizeUp, false)
-
       
         return () => {
-            handleRightEl.removeEventListener('mousedown', initResizeRight, false);
             handleLeftEl.removeEventListener('mousedown', initResizeLeft, false);
             handleDownEl.removeEventListener('mousedown',initResizeDown, false )
-            handleUpEl.removeEventListener("mousedown", initResizeUp, false)
         }
 
     }, [ backgroundRef ])
@@ -199,22 +189,21 @@ const PlayGround = ({ code }) => {
                                     `
                                 }}
                                 className="background">
-                                    <div className="resize-handle-left" ref={handleLeftRef}  />
-                                    <div className="resize-handle-right" ref={handleRightRef}  />
-                                    <div className="resize-handle-bottom" ref={handleDownRef}   />
-                                    <div className="resize-handle-top" ref={handleUpRef}  />
+                                    <div className={!exporting ? "resize-handle-left": "no-resizors"} ref={handleLeftRef}   />
+                                    <div className={!exporting ? "resize-handle-bottom": "no-resizors"} ref={handleDownRef} />
 
                                 <CodeFrame code={code}  />
                                 <div className="editor_wrap">
                                     <Editor 
-                                        value={userCode}
+                                        value={codeValue}
                                         wrapperClassName="editor"
+                                        beforeMount={handleEditorMount}
+                                        theme={code.theme.name}
                                         className="monaco-editor" 
                                         language={code.language.name.toLowerCase()}
                                         loading="Loading Playground..."
                                         aria-label="Markdown Editor"
                                         options={options}
-                                        onMount={handleEditorMount}
                                     />  
                                 </div>
                             </div>

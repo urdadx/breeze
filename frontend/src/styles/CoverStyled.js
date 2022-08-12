@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const CoverStyled = styled.section`
 
+
     #cover_image {
         width: 800px;
         height: 470px;
@@ -110,7 +111,11 @@ export const CoverStyled = styled.section`
     /* CODE SHOT */
 
     .monaco-editor{
-        height:140px;
+        
+    }
+
+    .no-resizors{
+        display: none;
     }
 
     .window {
@@ -126,7 +131,7 @@ export const CoverStyled = styled.section`
         height: auto;
         position: relative;
         box-sizing: border-box;
-        padding:25px;
+        /* padding:25px; */
         z-index: 10;
         
     }

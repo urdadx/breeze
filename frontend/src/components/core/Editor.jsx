@@ -15,13 +15,12 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
 
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);    
-    const [fileName, setFileName] = useState("breeze-shot");
-    const [exporting, setExporting] = useState(false);
+    const [fileName, ] = useState("breeze-shot");
 
-    const backgroudRef = useRef(null)
+    const backgroundRef = useRef(null)
 
     const takeSnapshot = async () => {
-      const node = backgroudRef.current;
+      const node = backgroundRef.current;
   
       const style = {
         transform: 'scale('+SCALE+')',
@@ -42,8 +41,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
     }
 
     // Exporting Image to PNG
-    const onExport = () => {
-      setExporting(true);
+    const onExportScreenshot = () => {
       
       const exportPng = takeSnapshot()
           .then(blobUrl => {
@@ -52,24 +50,18 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
           .catch(error => {
             console.log("Error: " + error);
           })
-          .finally(() => setExporting(false));
           toast.promise(exportPng, {
             loading: "Saving...",
             success: `Saved ${fileName}.png`,
             error: "Error Saving File",
           });
-    }
-
+      }
+    
     const HeaderProps = {
-        fileName,
-        setFileName,
-        onExport,
+        onExportScreenshot,
         darkMode,
         setDarkMode,
-    
-    };
-
-
+    };    
 
     useEffect(() => {
       const coverImagePreview = document.querySelector(".cover-image-preview");
@@ -92,7 +84,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
             <CoverStyled>
                 <div className="wrapper">
                   <div className="wrapper-two">
-                      <div id="cover_image" ref={backgroudRef}  className="cover-image-preview">
+                      <div id="cover_image" ref={backgroundRef}  className="cover-image-preview">
                           {
                               !isReady &&
                               <div>
