@@ -10,6 +10,7 @@ export const EditorStyled = styled.section`
         height:70px;
         border-bottom: 1.5px solid #eee;
         background-color: #F1F5FB;
+        position: sticky;
     }
 
     .header-items{

@@ -23,7 +23,7 @@ const MIN_WIDTH = 400;
 const MAX_HEIGHT = 1000;
 const MIN_HEIGHT = 140;
 
-const SCALE = 1;
+const SCALE = 1.5;
 
 const PlayGround = ({ code }) => {
 
@@ -64,7 +64,7 @@ const PlayGround = ({ code }) => {
         const exportPng = takeSnapshot()
             .then(blobUrl => {
               downloadBlob(blobUrl, `${fileName}.png`);
-            })
+            })  
             .catch(error => {
               console.log("Error: " + error);
             })
@@ -88,7 +88,7 @@ const PlayGround = ({ code }) => {
         const handleLeftEl = handleLeftRef.current;
         const handleDownEl = handleDownRef.current;
         
-        backgroundEl.style.padding = "25px"
+        backgroundEl.style.padding = "35px"
       
         const initResizeLeft = () => {
             window.addEventListener('mousemove', resizeLeft, false);
@@ -161,18 +161,18 @@ const PlayGround = ({ code }) => {
                                     ${code.background.bgColorOne}, ${code.background.bgColorTwo})
                                 `   
                             }}
-                        className='background' ref={backgroundRef}>
+                            className='background' ref={backgroundRef}>
                             <div className={!exporting ? "resize-handle-left": "no-resizors"} ref={handleLeftRef} />
                             <div className={!exporting ? "resize-handle-bottom": "no-resizors"} ref={handleDownRef} />
                         <div 
-                             style={{
+                            style={{
                                 borderRadius:code.advanced.borderRadius,
                                 opacity: code.advanced.opacity,
                                 transform: `
                                     scale(${code.advanced.scale})
                                     rotate(${code.advanced.rotate}deg)`
                             }}
-                        className='window'>
+                            className='window'>
 
                                 <link href={`/themes/${convertToSlug(code.theme.name)}.css`} rel="stylesheet" />
                                 <CodeFrame code={code} />

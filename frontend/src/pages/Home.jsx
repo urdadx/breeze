@@ -13,9 +13,7 @@ import styled from "styled-components";
 const EnableScroll = styled.section`
     overflow-y: auto;
     height:100vh;
-
 `
-
 
 const Home = ({ currentState, changeState }, props) => {
 

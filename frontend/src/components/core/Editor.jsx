@@ -125,7 +125,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                       
                       </div>
                   </div>
-              </div>
+                  </div>
             </CoverStyled>
 
         </EditorStyled>

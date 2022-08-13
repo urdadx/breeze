@@ -228,8 +228,8 @@ const CodeEditor = ({ code, setCode }) => {
                 </div>
             </Box>
             
-            <Label name="Advanced" />
-            
+            <Label name="Advanced" />   
+
                 <Box m={2} width={300}>    
                 <div className="flex-sliders">
                     <div className="block-sliders">
@@ -239,7 +239,7 @@ const CodeEditor = ({ code, setCode }) => {
                             aria-label="Default" valueLabelDisplay="auto"
                             step={0.0001}
                             min={0}
-                            max={3}
+                            max={1.2}
                         />
                     </div>
 
@@ -249,7 +249,7 @@ const CodeEditor = ({ code, setCode }) => {
                             onChange={handleChangeRotate}
                             aria-label="Default" valueLabelDisplay="auto"
                             step={1}
-                            min={0}
+                            min={-180}
                             max={180}
                         />
                     </div>
