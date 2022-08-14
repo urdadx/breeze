@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import Frame from "../atoms/Frame";
 import domtoimage from 'dom-to-image-more';
 import { downloadBlob } from "../../helpers/helperFunctions";
+import { hexToRGB } from "../../utils";
 
 const SCALE = 4.0
 
@@ -16,8 +17,9 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);    
     const [fileName, ] = useState("breeze-shot"); 
-
-    const backgroundRef = useRef(null)
+    const rgbValue = hexToRGB(data.shadow.color)
+    
+    const backgroundRef = useRef(null);
 
     const takeSnapshot = async () => {
       const node = backgroundRef.current;
@@ -101,14 +103,19 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                           }
                           {
                             isReady && 
+                            <>
+                            <div className="main_wrapper">
                             <div 
-                            style={{
-
-                              borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
-                              borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
-                              transform: `
-                                scale(${data.position.scale}) 
-                                translateX(${data.position.x}%) translateY(${data.position.y}%)`
+                              style={{
+                                boxShadow: `
+                                  ${data.shadow.offsetX}px ${data.shadow.offsetY}px 
+                                  ${data.shadow.blur}px 0px 
+                                  rgba(${rgbValue.r},${rgbValue.g},${rgbValue.b},${data.shadow.opacity})`,
+                                borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
+                                borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
+                                transform: `
+                                  scale(${data.position.scale}) 
+                                  translateX(${data.position.x}%) translateY(${data.position.y}%)`
                             }}
                             className="screenshot_wrapper">
                                   <Frame data={data} />
@@ -121,6 +128,8 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                                     className="screenshot" 
                                   />
                             </div>
+                            </div>
+                            </>
                           }
                       
                       </div>

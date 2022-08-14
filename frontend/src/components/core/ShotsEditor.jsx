@@ -16,11 +16,87 @@ const ShotsEditor = ({ data, setData }) => {
 
     const [scale, setScale] = useState(
         data.position.scale  ? data.position.scale : 0.8 
-    );
-    
+    )
     const [borderRadius, setBorderRadius] = useState(
         data.borderRadius.curveness ? data.borderRadius.curveness : 7
-    );
+    )
+
+    // Default settings for screenshot shadow
+    const [offsetX, setOffsetX] = useState(
+        data.shadow.offsetX ? data.shadow.offsetX : 6
+    )
+    const [offsetY, setOffsetY] = useState(
+        data.shadow.offsetY ? data.shadow.offsetY : 10
+    )
+    const [blur, setBlur] = useState(
+        data.shadow.blur ? data.shadow.blur : 15 
+    )
+    const [opacity, setOpacity] = useState(
+        data.shadow.opacity ? data.shadow.opacity : 0.2 
+    )
+    const [color, setColor] = useState(
+        data.shadow.color ? data.shadow.color : "#000000"
+    )
+
+    const handleOffsetX = (e, newValue) => {
+        e.preventDefault();
+        setOffsetX(newValue)
+        setData({
+           ...data,
+           shadow:{
+              offsetX: offsetX,
+              offsetY: offsetY,
+              blur: blur,
+              opacity: opacity,
+              color: color
+           }
+        })
+    }
+
+    const handleOffsetY = (e, newValue) => {
+        e.preventDefault();
+        setOffsetY(newValue)
+        setData({
+           ...data,
+           shadow:{
+              offsetX: offsetX,
+              offsetY: offsetY,
+              blur: blur,
+              opacity: opacity,
+              color: color
+           }
+        })
+    }
+
+    const handleBlur = (e, newValue) => {
+        e.preventDefault();
+        setBlur(newValue)
+        setData({
+           ...data,
+           shadow:{
+                offsetX: offsetX,
+                offsetY: offsetY,
+                blur: blur,
+                opacity: opacity,
+                color: color 
+           }
+        })
+    }
+
+    const handleOpacity = (e, newValue) => {
+        e.preventDefault();
+        setOpacity(newValue)
+        setData({
+           ...data,
+           shadow:{
+                offsetX: offsetX,
+                offsetY: offsetY,
+                blur: blur,
+                opacity: opacity,
+                color: color 
+           }
+        })
+    }
 
     const handleChangeFrame = (e) => {
         setFrame(e.target.value)
@@ -32,10 +108,19 @@ const ShotsEditor = ({ data, setData }) => {
         })
     }
 
-    const [color, setColor] = useState("#333");
 
-    const handleChangeColor = (event) => {
-        setColor(event.target.value)
+    const handleChangeColor = (e) => {
+        setColor(e.target.value)
+        setData({
+            ...data,
+            shadow:{
+              offsetX: offsetX,
+              offsetY: offsetY,
+              blur: blur,
+              opacity: opacity,
+              color: color 
+            }
+        })
     }
 
     const [showShadow, setShowShadow] = useState(false)
@@ -63,7 +148,6 @@ const ShotsEditor = ({ data, setData }) => {
                 scale: scale,
             },
         })
-
     }
 
     const handleYPosition = (e, newValue) => {
@@ -77,7 +161,6 @@ const ShotsEditor = ({ data, setData }) => {
                 scale: scale,
             },
         })
-
     }
     
     const handleBgChange = (event) => {
@@ -187,7 +270,7 @@ const ShotsEditor = ({ data, setData }) => {
         </Box>
         {
             showShadow && 
-                <Box className="" m={2} width={300}>
+                <Box m={2} width={300}>
                     <div className="main">
                         <Typography>Shadow color</Typography>
                         <div
@@ -201,8 +284,9 @@ const ShotsEditor = ({ data, setData }) => {
                     </div>
                     <div className="flex-sliders">
                         <div className="block-sliders">
-                            <InputLabel>X axis</InputLabel>
-                            <Slider 
+                            <InputLabel>OffsetX</InputLabel>
+                            <Slider value={offsetX}
+                                onChange={handleOffsetX}
                                 aria-label="Default" valueLabelDisplay="auto"
                                 step={0.05}
                                 min={0}
@@ -211,8 +295,9 @@ const ShotsEditor = ({ data, setData }) => {
                         </div>
 
                         <div className="block-sliders">
-                            <InputLabel>Y axis</InputLabel>
-                            <Slider 
+                            <InputLabel>OffsetY</InputLabel>
+                            <Slider value={offsetY}
+                                onChange={handleOffsetY}
                                 aria-label="Default" valueLabelDisplay="auto"
                                 step={0.05}
                                 min={0}
@@ -224,7 +309,8 @@ const ShotsEditor = ({ data, setData }) => {
                     <div className="flex-sliders">
                         <div className="block-sliders">
                             <InputLabel>Blur</InputLabel>
-                            <Slider 
+                            <Slider value={blur}
+                                onChange={handleBlur}
                                 aria-label="Default" valueLabelDisplay="auto"
                                 step={0.05}
                                 min={0}
@@ -234,7 +320,8 @@ const ShotsEditor = ({ data, setData }) => {
 
                         <div className="block-sliders">
                             <InputLabel>Opacity</InputLabel>
-                            <Slider 
+                            <Slider value={opacity}
+                                onChange={handleOpacity}
                                 aria-label="Default" valueLabelDisplay="auto"
                                 step={0.05}
                                 min={0}

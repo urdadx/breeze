@@ -1,5 +1,5 @@
 import { EditorStyled } from "../../styles/EditorStyled";
-import { Button, Select, FormControl, MenuItem} from '@mui/material';
+import { Button, Select, FormControl, MenuItem, Tooltip} from '@mui/material';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -40,9 +40,11 @@ const Header = ({
                 </FormControl>
                     </div>
                     <div className="utils">
-                        <div className="dark-mode">
-                            <LightModeOutlinedIcon />
-                        </div>
+                        <Tooltip arrow title="Dark mode">
+                            <div className="dark-mode">
+                                <LightModeOutlinedIcon />
+                            </div>
+                        </Tooltip>
                         <div className="templates-btn">
                             <Button 
                                 endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}

@@ -24,7 +24,7 @@ export const CoverStyled = styled.section`
     } 
 
     .code-wrapper{
-        margin-top:3.5rem;
+        margin-top:4.5rem;
         margin-bottom: 3.5rem;
         width:100%;
         height: 100%;
@@ -32,7 +32,6 @@ export const CoverStyled = styled.section`
         justify-content: center;
     }
 
- 
     .image-icon{
         display: flex;
         justify-content: center;
@@ -62,14 +61,14 @@ export const CoverStyled = styled.section`
         overflow: hidden;
     }
 
+    .main_wrapper{
+        width: 100%;
+        height:100%;
+    }
 
     .screenshot_wrapper{
-        padding:0px;
         display:block;
         justify-content: center;
-        margin:0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
         overflow: hidden;
     }
 

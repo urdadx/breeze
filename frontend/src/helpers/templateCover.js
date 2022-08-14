@@ -9,16 +9,16 @@ export const getTemplate = (id) => {
 
     },
     frame:{
-       type:"MacOS",
+       type: "MacOS",
     },
     position:{
-        x:0,
-        y:3,
-        scale:0.85
+        x: 0,
+        y: -2,
+        scale: 0.75     
     },
     size:{
-        width:100,
-        height:100
+        width: 100,
+        height: 100
     },
     icon:{
         name:"emoji",
@@ -27,6 +27,13 @@ export const getTemplate = (id) => {
     },
     borderRadius:{
         curveness: 14.2
+    },
+    shadow:{
+        offsetX: 6,
+        offsetY: 10,
+        blur: 15,
+        opacity: 0.2,
+        color: "#000"
     }
     };
   

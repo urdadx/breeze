@@ -1,11 +1,12 @@
 import { LeftBarStyled } from "../../styles/LeftBarStyled";
-import { FiEdit, FiFolder, FiUploadCloud } from "react-icons/fi";
+import { FiEdit, FiFolder } from "react-icons/fi";
 import { IoShapesOutline } from "react-icons/io5";
+import { BiText } from "react-icons/bi";
 import { Tabs, Tab, Typography} from '@mui/material';
 import CustomArea from "./CustomArea"
 import { AiOutlineCode } from "react-icons/ai";
 import { LOGO_IMG } from "../../assets/images/imageURL";
-import CodeEditor from "./CodeEditor";
+import CodeEditor from "./CodeEditor";      
 
 
 const TabItem = ({ tab }) => {
@@ -47,8 +48,8 @@ const LeftBar = ({
           icon: <IoShapesOutline style={{fontSize:"20px"}} />,
         },
         {
-          name: "uploads",
-          icon: <FiUploadCloud style={{fontSize:"20px"}} />,
+          name: "text",
+          icon: <BiText style={{fontSize:"20px"}} />,
         },
         {
           name: "saved",

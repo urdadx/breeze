@@ -25,6 +25,13 @@ const CodeEditor = ({ code, setCode }) => {
     const [rotate, setRotate] = useState(
         code.advanced.rotate ? code.advanced.rotate : 0
     )
+    const [color, setColor] = useState(
+        code.background.color ? code.background.color : "#112231"
+    )
+    const [bg, setBg] = useState({
+        bgOne: code.background.bgColorOne ? code.background.bgColorOne : "#FC354C",
+        bgTwo: code.background.bgColorTwo ? code.background.bgColorTwo : "#0ABFBC"
+    })
 
     const handleChangeScale = (e, newValue) => {
         e.preventDefault()
@@ -103,15 +110,6 @@ const CodeEditor = ({ code, setCode }) => {
         }) 
     }
 
-    const [color, setColor] = useState(
-        code.background.color ? code.background.color : "#112231"
-    );
-
-    const [bg, setBg] = useState({
-        bgOne: code.background.bgColorOne ? code.background.bgColorOne : "#FC354C",
-        bgTwo: code.background.bgColorTwo ? code.background.bgColorTwo : "#0ABFBC"
-    });
-
     const handleChangeBgColorOne = (event) => {
         setBg({
             ...bg,
@@ -123,7 +121,7 @@ const CodeEditor = ({ code, setCode }) => {
                 color: color,
                 bgColorOne: bg.bgOne,
                 bgColorTwo: bg.bgTwo
-            }
+            }   
         })
     }
 
@@ -184,7 +182,7 @@ const CodeEditor = ({ code, setCode }) => {
             <Box mx={5}>       
                 <div 
                  style={{
-                    background: `${code.background.color}`
+                    background: color
                 }}
                 className="small_editor">
                     <CodeFrame code={code} />
@@ -204,7 +202,7 @@ const CodeEditor = ({ code, setCode }) => {
                         <Typography>Background gradient</Typography>
                         <div className="bg-flex">
                             <div
-                                style={{ background: `${code.background.bgColorOne}`}}
+                                style={{ background: bg.bgOne}}
                                 className="color-ball"
                             >
                             <input
@@ -214,7 +212,7 @@ const CodeEditor = ({ code, setCode }) => {
                             />
                             </div>
                             <div
-                                style={{ background: `${code.background.bgColorTwo}`}}
+                                style={{ background: bg.bgTwo}}
                                 className="color-ball"
                             >
                             <input
