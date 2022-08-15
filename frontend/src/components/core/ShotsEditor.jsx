@@ -323,9 +323,9 @@ const ShotsEditor = ({ data, setData }) => {
                             <Slider value={opacity}
                                 onChange={handleOpacity}
                                 aria-label="Default" valueLabelDisplay="auto"
-                                step={0.05}
+                                step={0.005}
                                 min={0}
-                                max={50}
+                                max={1}
                             />
                         </div>
                     </div>

@@ -4,12 +4,15 @@ import { useState } from "react";
 
 const App = () => {
 
-  const [value, setValue] = useState("home");
+  const activeSection = localStorage.getItem("active-section") || "home"
+  const [value, setValue] = useState(activeSection);
 
   // handleChange of tabs in leftbar
   const handleChange = (e, newValue) => {
     e.preventDefault()
     setValue(newValue);
+    localStorage.setItem("active-section", newValue)
+    
   };
 
   return (
