@@ -7,6 +7,7 @@ import CustomArea from "./CustomArea"
 import { AiOutlineCode } from "react-icons/ai";
 import { LOGO_IMG } from "../../assets/images/imageURL";
 import CodeEditor from "./CodeEditor";      
+import TextEditor from "./TextEditor";
 
 
 const TabItem = ({ tab }) => {
@@ -44,12 +45,12 @@ const LeftBar = ({
           icon: <AiOutlineCode style={{fontSize:"20px"}} />,
         },
         {
-          name: "assets",
-          icon: <IoShapesOutline style={{fontSize:"20px"}} />,
+          name: "header",
+          icon: <BiText style={{fontSize:"20px"}} />,
         },
         {
-          name: "text",
-          icon: <BiText style={{fontSize:"20px"}} />,
+          name: "assets",
+          icon: <IoShapesOutline style={{fontSize:"20px"}} />,
         },
         {
           name: "saved",
@@ -88,7 +89,9 @@ const LeftBar = ({
                 </div>
 
                 { value === "home" && <CustomArea data={data} {...props} /> }
-                { value === "codesnap" && <CodeEditor setCode={setCode} code={code} {...props} />}
+                { value === "codesnap" && <CodeEditor setCode={setCode} code={code} {...props} />}  
+                { value === "header" && <TextEditor data={data} code={code} {...props} />}  
+
         </LeftBarStyled>
         </>
      );

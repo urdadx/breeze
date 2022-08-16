@@ -17,14 +17,26 @@ const EnableScroll = styled.section`
 
 const Home = ({ currentState, changeState }, props) => {
 
-    const [data, setData] = useState();
-    const [children, setChildren] = useState([]);
+    const [data, setData] = useState()
+    const [children, setChildren] = useState([])
     const [code, setCode] = useState()
+
+    const currentArea = localStorage.getItem("current-area") || false;
+
+    if(currentState === "codesnap"){
+        localStorage.setItem("current-area", true)
+    }
+    if(currentState === "home"){
+        localStorage.setItem("current-area", false)
+    }
+    
 
     useEffect(() => {
         setData(getTemplate());
-        setCode(codeTemplate())
+        setCode(codeTemplate());
+        
     }, []);
+
 
     return ( 
         <>
@@ -47,7 +59,7 @@ const Home = ({ currentState, changeState }, props) => {
                     </div>
                     <div className="editor">
                         {
-                            currentState === "home" &&
+                            currentArea === "false" &&
                         <Editor
                             {...props}
                             data={data}
@@ -57,7 +69,7 @@ const Home = ({ currentState, changeState }, props) => {
                         />
                         }
                         {
-                            currentState === "codesnap" && 
+                            currentArea === "true" && 
                             <>
                             {
                                 code &&

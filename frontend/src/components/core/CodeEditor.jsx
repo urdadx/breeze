@@ -176,7 +176,7 @@ const CodeEditor = ({ code, setCode }) => {
                     })
                 }
                 </Select>
-            </FormControl> 
+            </FormControl>      
 
             <Label name="Header color" />
             <Box mx={5}>       
