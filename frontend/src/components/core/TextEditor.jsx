@@ -6,8 +6,17 @@ import { AiOutlineVerticalAlignTop } from "react-icons/ai";
 import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import { RiBold } from "react-icons/ri";
 import { FiItalic } from "react-icons/fi";
+import { fonts } from "../../utils";
+import { useState } from "react";
 
 const TextEditor = ({ code, data }) => {
+
+    const [font, setFont] = useState(fonts[0].name)
+
+    const handleChangeFont = (e) => {
+        setFont(e.target.value)
+    }
+
     return ( 
         <>
             <TextEditorStyled>
@@ -50,9 +59,13 @@ const TextEditor = ({ code, data }) => {
                     <div className="select">
                         <InputLabel>Font Family</InputLabel>
                         <FormControl size="small" sx={{ minWidth: 190, mt:1, maxWidth: 250 }}>
-                            <Select value="Epilogue">
-                                <MenuItem>Raleway</MenuItem>
-                            </Select>
+                        <Select value={font} onChange={handleChangeFont}>
+                            {
+                                fonts && fonts.map((font,key) => {
+                                    return <MenuItem key={key} value={font.name}>{font.name}</MenuItem>
+                                })
+                            }
+                        </Select>
                         </FormControl>
                     </div>
                     <div className="direction_wrapper two">

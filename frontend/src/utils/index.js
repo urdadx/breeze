@@ -113,6 +113,28 @@ export const LANGUAGE = {
     'Plain Text': 'plaintext',
 
 };
+
+
+export const fonts = [
+    {
+        name:"Epilogue"
+    },
+    {
+        name:"Poppins"
+    },
+    {
+       name: "Inter"
+    },
+    {
+       name: "Roboto"
+    },
+    {
+        name: "Open-Sans"
+    },
+    {
+        name: "Raleway"
+    },
+]
   
 
 // Sample code snippet
