@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import PlayGround from "../components/core/PlayGround";
 import { codeTemplate } from "../helpers/CodeTemplate";
 import styled from "styled-components";
-
+import { textTemplate } from "../helpers/textTemplate";
 
 const EnableScroll = styled.section`
     overflow-y: auto;
@@ -20,20 +20,22 @@ const Home = ({ currentState, changeState }, props) => {
     const [data, setData] = useState()
     const [children, setChildren] = useState([])
     const [code, setCode] = useState()
+    const [header, setHeader] = useState()
 
     const currentArea = localStorage.getItem("current-area") || false;
 
     if(currentState === "codesnap"){
         localStorage.setItem("current-area", true)
     }
+
     if(currentState === "home"){
         localStorage.setItem("current-area", false)
     }
     
-
     useEffect(() => {
         setData(getTemplate());
         setCode(codeTemplate());
+        setHeader(textTemplate());
         
     }, []);
 
@@ -55,6 +57,8 @@ const Home = ({ currentState, changeState }, props) => {
                             setData={setData}
                             children={children}
                             setChildren={setChildren}
+                            header={header}
+                            setHeader={setHeader}
                         />
                     </div>
                     <div className="editor">
@@ -66,6 +70,8 @@ const Home = ({ currentState, changeState }, props) => {
                             setData={setData}
                             children={children}
                             setChildren={setChildren}
+                            header={header}
+                            setHeader={setHeader}
                         />
                         }
                         {
@@ -78,6 +84,8 @@ const Home = ({ currentState, changeState }, props) => {
                                     <PlayGround
                                         code={code}
                                         setData={setCode}
+                                        header={header}
+                                        setHeader={setHeader}
                                     /> 
                                 </EnableScroll>
                                 </>

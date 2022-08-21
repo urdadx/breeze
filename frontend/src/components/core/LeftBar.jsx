@@ -23,7 +23,8 @@ const LeftBar = ({
       data, setData, 
       children,code,
       setChildren, value,
-      changeValue,setCode
+      changeValue,setCode,
+      header, setHeader
      }) => {
 
     const props = {
@@ -31,6 +32,8 @@ const LeftBar = ({
       code: code,
       setCode: setCode,
       setData: setData,
+      header: header,
+      setHeader: setHeader,
       children: children,
       setChildren: setChildren,
     };
@@ -74,6 +77,7 @@ const LeftBar = ({
                         onChange={changeValue}
                         indicatorColor="primary"
                         orientation="vertical"
+                        aria-label="wrapped label tabs example"
                         variant="scrollable"
                     >
                      {allTabs.map((tab, key) => (
@@ -82,7 +86,7 @@ const LeftBar = ({
                         value={tab.name}
                         key={key}
                         className="tab"
-                    />
+                    />  
                         ))}
                     </Tabs>
                         
@@ -90,7 +94,7 @@ const LeftBar = ({
 
                 { value === "home" && <CustomArea data={data} {...props} /> }
                 { value === "codesnap" && <CodeEditor setCode={setCode} code={code} {...props} />}  
-                { value === "header" && <TextEditor data={data} code={code} {...props} />}  
+                { value === "header" && <TextEditor setHeader={setHeader} header={header} {...props} />}  
 
         </LeftBarStyled>
         </>

@@ -12,7 +12,7 @@ import { hexToRGB } from "../../utils";
 
 const SCALE = 4.0
 
-const Editor = ({ data, darkMode, setDarkMode }) => {
+const Editor = ({ data, darkMode, setDarkMode, header }) => {
 
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);    
@@ -20,6 +20,17 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
     const rgbValue = hexToRGB(data.shadow.color)
     
     const backgroundRef = useRef(null);
+
+    const textStyles = {
+
+      fontSize: `${header.style.size}px`,
+      color: header.color,
+      fontFamily: header.style.fontFamily,
+      fontWeight: !header.style.bold ? "bold" : "300",
+      textAlign: "center",
+      padding: `${header.style.spacing}px`
+
+    }
 
     const takeSnapshot = async () => {
       const node = backgroundRef.current;
@@ -82,7 +93,7 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
     return (
         <>
         <EditorStyled>
-            <Header {...HeaderProps} darkMode={darkMode}  />
+            <Header {...HeaderProps} darkMode={darkMode} />
             <CoverStyled>
                 <div className="wrapper">
                   <div className="wrapper-two">
@@ -105,6 +116,9 @@ const Editor = ({ data, darkMode, setDarkMode }) => {
                             isReady && 
                             <>
                             <div className="main_wrapper">
+                              <p style={textStyles}>
+                                {header.text.title}
+                              </p>
                             <div 
                               style={{
                                 boxShadow: `

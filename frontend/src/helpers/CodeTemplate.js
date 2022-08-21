@@ -19,8 +19,22 @@ export const codeTemplate = (id) => {
         rotate:0,   
         scale:0.9
     },
+    header:{
+        direction: "top-down",
+        title: "The best editing tool for developers",
+        subtitle: "Create engaging assets for your project"
+    },
+
+    style:{
+        fontFamily: "Epilogue",
+        bold: false,
+        italic: false,
+        color: "#fff",
+        size: 14,
+        spacing: 10
+    },
     
-    };
+};
   
     return codeSettings;
   };
