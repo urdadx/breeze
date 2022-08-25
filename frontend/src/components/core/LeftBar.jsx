@@ -44,16 +44,16 @@ const LeftBar = ({
           icon: <FiEdit style={{fontSize:"20px"}} />
         },
         {
-          name: "codesnap",
-          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
-        },
-        {
           name: "header",
           icon: <BiText style={{fontSize:"20px"}} />,
         },
         {
           name: "assets",
           icon: <IoShapesOutline style={{fontSize:"20px"}} />,
+        },
+        {
+          name: "codesnap",
+          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
         },
         {
           name: "saved",

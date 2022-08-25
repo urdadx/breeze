@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const CoverStyled = styled.section`
  
     #cover_image {
-        width: 800px;
-        height: 470px;
+        width: calc(100vw - 40vw);
+        height: calc(100vh - 25vh);
         max-width:1200px;
         max-height:630px;
     } 
@@ -16,7 +16,7 @@ export const CoverStyled = styled.section`
     } 
 
     .wrapper{
-        margin-top:2.5rem;
+        margin-top:7vh;
         width:100%;
         height: 100%;
         display: flex;
@@ -41,7 +41,7 @@ export const CoverStyled = styled.section`
         cursor: pointer;
         display: flex;
         justify-content: center;
-        margin:9rem auto;
+        margin:22vh auto;
         width:400px;
         padding:30px 20px;
         border:1px solid white;

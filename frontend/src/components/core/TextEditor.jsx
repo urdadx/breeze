@@ -33,7 +33,7 @@ const TextEditor = ({ header, setHeader }) => {
     )
 
     const [color, setColor] = useState(
-        header.style.color ? header.style.color : "#fff"
+        header.style.color ? header.style.color : "#ffff"
     )
 
     const [title, setTitle] = useState(header.text.title)
@@ -56,7 +56,7 @@ const TextEditor = ({ header, setHeader }) => {
         setHeader({
             ...header,
             text:{
-                title: title,
+                title: e.target.value,
                 subtitle: subtitle
             }
         })
@@ -68,7 +68,34 @@ const TextEditor = ({ header, setHeader }) => {
             ...header,
             text:{
                 title: title,
-                subtitle: subtitle
+                subtitle: e.target.value
+            }
+        })
+    }
+
+    const handleChangeBoldness = (value) => {
+        setIsBold(value)
+        setHeader({
+            ...header,
+            style:{
+                fontFamily: font,
+                bold: value,
+                italic: isItalic,
+                size: size,
+                spacing: spacing
+            }
+        })
+    }
+    const handleChangeItalic = (value) => {
+        setIsItalic(value)
+        setHeader({
+            ...header,
+            style:{
+                fontFamily: font,
+                bold: isBold,
+                italic: value,
+                size: size,
+                spacing: spacing
             }
         })
     }
@@ -180,10 +207,10 @@ const TextEditor = ({ header, setHeader }) => {
                     <div className="direction_wrapper two">
                         <div>
                             <InputLabel>Bold</InputLabel>
-                            <div className="icons label">
+                            <div onClick={() => handleChangeBoldness(true)} className="icons label">
                                 <RiBold  style={{fontSize:"25px"}} />
                             </div>
-                        </div>
+                        </div>          
 
                         <div>
                             <InputLabel>Italic</InputLabel>

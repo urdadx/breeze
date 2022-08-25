@@ -12,7 +12,7 @@ const CodeEditor = ({ code, setCode }) => {
     const [currentLang, setCurrentLang] = useState(code.language.name);
     const [languages, ] = useState(Object.keys(LANGUAGE))
 
-    // Advanced settings
+    // Advanced settings    
     const [scale, setScale] = useState(
         code.advanced.scale ? code.advanced.scale : 1
     )
@@ -23,7 +23,7 @@ const CodeEditor = ({ code, setCode }) => {
         code.advanced.opacity ? code.advanced.opacity : 1
     )
     const [rotate, setRotate] = useState(
-        code.advanced.rotate ? code.advanced.rotate : 0
+        code.advanced.rotate ? code.advanced.rotate : 0 
     )
     const [color, setColor] = useState(
         code.background.color ? code.background.color : "#112231"

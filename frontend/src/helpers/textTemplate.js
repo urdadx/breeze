@@ -9,17 +9,17 @@ export const textTemplate = (id) => {
     direction: "top-down",
 
     text:{
-        title: "The best editing tool for developers",
+        title: "The best editing tool for developers and designers",
         subtitle: "Create engaging assets for your project"
     },
 
     color:{
-        color: "#fff",
+        color: "#ffff",
         
     },      
 
     style:{
-        fontFamily: "Epilogue",
+        fontFamily: '"Epilogue", sans-serif',
         bold: false,
         italic: false,
         size: 15,

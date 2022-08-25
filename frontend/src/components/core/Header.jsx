@@ -31,8 +31,7 @@ const Header = ({
                     <Select onChange={handleChange} value={format}>
                         {
                             options && options.map((option,key) => {
-                                return <MenuItem key={key} value={option.name}>{option.name}</MenuItem>
-                                
+                                return <MenuItem key={key} value={option.name}>{option.name}</MenuItem>    
                             })
                         }
 

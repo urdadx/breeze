@@ -45,7 +45,7 @@ const GradientsPicker = ({ data, setData }) => {
                                     ...data,
                                     background: {
                                         type:"Gradient",
-                                        color1:gradient.colors[0],
+                                        color1: gradient.colors[0],
                                         color2: gradient.colors[1],
                                         direction: direction
                                     }

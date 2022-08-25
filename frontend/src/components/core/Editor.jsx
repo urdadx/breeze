@@ -7,10 +7,10 @@ import { useFileUpload } from 'use-file-upload';
 import toast from "react-hot-toast";
 import Frame from "../atoms/Frame";
 import domtoimage from 'dom-to-image-more';
-import { downloadBlob } from "../../helpers/helperFunctions";
+import { downloadBlob } from "../../helpers/helperFunctions"; 
 import { hexToRGB } from "../../utils";
 
-const SCALE = 4.0
+const SCALE = 4.5
 
 const Editor = ({ data, darkMode, setDarkMode, header }) => {
 
@@ -26,10 +26,19 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
       fontSize: `${header.style.size}px`,
       color: header.color,
       fontFamily: header.style.fontFamily,
-      fontWeight: !header.style.bold ? "bold" : "300",
+      fontWeight: header.style.bold ? "bold" : "300",
       textAlign: "center",
-      padding: `${header.style.spacing}px`
+      paddingTop: `${header.style.spacing}px`
 
+    }
+
+    const subStyles = {
+      fontSize: `${header.style.size - 5}px`,
+      color: header.color,
+      fontFamily: header.style.fontFamily,
+      fontWeight: header.style.bold ? "bold" : "300",
+      textAlign: "center",
+      paddingBottom:  `${header.style.spacing}px`
     }
 
     const takeSnapshot = async () => {
@@ -50,7 +59,19 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
       }
   
       const base64Image = await domtoimage.toPng(node, param)
-      return base64Image;
+        return base64Image;
+    }
+
+    const screenshotStyles = {
+      boxShadow: `
+        ${data.shadow.offsetX}px ${data.shadow.offsetY}px 
+        ${data.shadow.blur}px 0px 
+        rgba(${rgbValue.r},${rgbValue.g},${rgbValue.b},${data.shadow.opacity})`,
+      borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
+      borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
+      transform: `
+        scale(${data.position.scale}) 
+        translateX(${data.position.x}%) translateY(${data.position.y}%)`
     }
 
     // Exporting Image to PNG
@@ -116,21 +137,10 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
                             isReady && 
                             <>
                             <div className="main_wrapper">
-                              <p style={textStyles}>
-                                {header.text.title}
-                              </p>
+                              <p style={textStyles}>{header.text.title}</p>
+                              <p style={subStyles}>{header.text.subtitle}</p>
                             <div 
-                              style={{
-                                boxShadow: `
-                                  ${data.shadow.offsetX}px ${data.shadow.offsetY}px 
-                                  ${data.shadow.blur}px 0px 
-                                  rgba(${rgbValue.r},${rgbValue.g},${rgbValue.b},${data.shadow.opacity})`,
-                                borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
-                                borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
-                                transform: `
-                                  scale(${data.position.scale}) 
-                                  translateX(${data.position.x}%) translateY(${data.position.y}%)`
-                            }}
+                              style={screenshotStyles}
                             className="screenshot_wrapper">
                                   <Frame data={data} />
                                   <img
