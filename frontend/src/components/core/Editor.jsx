@@ -17,14 +17,18 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);    
     const [fileName, ] = useState("breeze-shot"); 
-    const rgbValue = hexToRGB(data.shadow.color)
+    const rgbValue = hexToRGB(data.shadow.color);
+    const [isVisible, setIsVisible] = useState(header.visible.status)
     
     const backgroundRef = useRef(null);
+
+    // console.log(header.visible.status)
 
     const textStyles = {
 
       fontSize: `${header.style.size}px`,
       color: header.color,
+      fontStyle: header.style.italic ? "italic" : "normal",
       fontFamily: header.style.fontFamily,
       fontWeight: header.style.bold ? "bold" : "300",
       textAlign: "center",
@@ -35,6 +39,7 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
     const subStyles = {
       fontSize: `${header.style.size - 5}px`,
       color: header.color,
+      fontStyle: header.style.italic ? "italic" : "normal",
       fontFamily: header.style.fontFamily,
       fontWeight: header.style.bold ? "bold" : "300",
       textAlign: "center",
@@ -66,7 +71,7 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
       boxShadow: `
         ${data.shadow.offsetX}px ${data.shadow.offsetY}px 
         ${data.shadow.blur}px 0px 
-        rgba(${rgbValue.r},${rgbValue.g},${rgbValue.b},${data.shadow.opacity})`,
+        rgba(${rgbValue.r},${rgbValue.g},${rgbValue.b},${data.shadow.opacity})`,  
       borderBottomLeftRadius: `${data.borderRadius.curveness}px`,
       borderBottomRightRadius: `${data.borderRadius.curveness}px`, 
       transform: `
@@ -137,11 +142,17 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
                             isReady && 
                             <>
                             <div className="main_wrapper">
-                              <p style={textStyles}>{header.text.title}</p>
-                              <p style={subStyles}>{header.text.subtitle}</p>
+                              {
+                                header.visible.status ? 
+                                <>
+                                  <p style={textStyles}>{header.text.title}</p>
+                                  <p style={subStyles}>{header.text.subtitle}</p>
+                                </> : ""
+                              }
+                              
                             <div 
                               style={screenshotStyles}
-                            className="screenshot_wrapper">
+                              className="screenshot_wrapper">
                                   <Frame data={data} />
                                   <img
                                     style={{

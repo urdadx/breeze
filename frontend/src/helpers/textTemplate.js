@@ -6,6 +6,10 @@ export const textTemplate = (id) => {
         type: "home"
     },
 
+    visible:{
+        status:false
+    },
+
     direction: "top-down",
 
     text:{
@@ -13,17 +17,17 @@ export const textTemplate = (id) => {
         subtitle: "Create engaging assets for your project"
     },
 
-    color:{
-        color: "#ffff",
+    color:{ 
+        color: "#ffffff",
         
     },      
 
     style:{
         fontFamily: '"Epilogue", sans-serif',
-        bold: false,
+        bold: false,    
         italic: false,
         size: 15,
-        spacing: 20
+        spacing: 7
     },
     
 };

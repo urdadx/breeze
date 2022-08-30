@@ -1,7 +1,5 @@
 import { TextEditorStyled } from "../../styles/TextEditorStyled";
-import { 
-    Box, Switch, Typography, TextField, Select,
-    FormControl, MenuItem, InputLabel, Slider 
+import { Box, Switch, Typography, TextField, Select,FormControl, MenuItem, InputLabel, Slider 
 } from "@mui/material";
 import Label from "../atoms/Label";
 import { AiOutlineVerticalAlignTop } from "react-icons/ai";
@@ -16,9 +14,16 @@ const TextEditor = ({ header, setHeader }) => {
     const [font, setFont] = useState(fonts[0].name)
 
     // Header is VISIBLE..?
-    const [showHeader, setShowHeader] = useState(true)
+    const [showHeader, setShowHeader] = useState(header.visible.status)
     const handleShowHeader = (event) => {
         setShowHeader(event.target.checked);
+        console.log(event.target.checked)
+        setHeader({
+            ...header,
+            visible:{
+                status: event.target.checked
+            }
+        })
     }
 
     // Header settings
@@ -35,12 +40,11 @@ const TextEditor = ({ header, setHeader }) => {
     const [color, setColor] = useState(
         header.style.color ? header.style.color : "#ffff"
     )
-
+        
     const [title, setTitle] = useState(header.text.title)
     const [subtitle, setSubTitle] = useState(header.text.subtitle)
     const [isBold, setIsBold] = useState(false)
     const [isItalic, setIsItalic] = useState(false)
-
 
     const handleChangeDirection = (e, value) => {
         e.preventDefault()
@@ -73,27 +77,27 @@ const TextEditor = ({ header, setHeader }) => {
         })
     }
 
-    const handleChangeBoldness = (value) => {
-        setIsBold(value)
+    const handleChangeBoldness = () => {
+        setIsBold(!isBold)
         setHeader({
             ...header,
             style:{
                 fontFamily: font,
-                bold: value,
+                bold: !isBold,
                 italic: isItalic,
                 size: size,
                 spacing: spacing
             }
         })
     }
-    const handleChangeItalic = (value) => {
-        setIsItalic(value)
+    const handleChangeItalic = () => {
+        setIsItalic(!isItalic)
         setHeader({
             ...header,
             style:{
                 fontFamily: font,
                 bold: isBold,
-                italic: value,
+                italic: !isItalic,
                 size: size,
                 spacing: spacing
             }
@@ -105,7 +109,7 @@ const TextEditor = ({ header, setHeader }) => {
         setHeader({
             ...header,
             style:{
-                fontFamily: font,
+                fontFamily: e.target.value,
                 bold: isBold,
                 italic: isItalic,
                 size: size,
@@ -207,14 +211,14 @@ const TextEditor = ({ header, setHeader }) => {
                     <div className="direction_wrapper two">
                         <div>
                             <InputLabel>Bold</InputLabel>
-                            <div onClick={() => handleChangeBoldness(true)} className="icons label">
+                            <div onClick={handleChangeBoldness} className={ isBold ? "highlight label" : "icons label"}>
                                 <RiBold  style={{fontSize:"25px"}} />
                             </div>
                         </div>          
 
                         <div>
                             <InputLabel>Italic</InputLabel>
-                            <div className="icons label" style={{marginLeft:'7px'}}>
+                            <div onClick={handleChangeItalic} className={ isItalic ? "highlight label" : "icons label"} style={{marginLeft:'7px'}}>
                                 <FiItalic style={{fontSize:"25px"}} />
                             </div>
                         </div>

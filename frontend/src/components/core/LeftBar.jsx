@@ -8,6 +8,7 @@ import { AiOutlineCode } from "react-icons/ai";
 import { LOGO_IMG } from "../../assets/images/imageURL";
 import CodeEditor from "./CodeEditor";      
 import TextEditor from "./TextEditor";
+import AssetsArea from "./AssetsArea";
 
 
 const TabItem = ({ tab }) => {
@@ -95,6 +96,7 @@ const LeftBar = ({
                 { value === "home" && <CustomArea data={data} {...props} /> }
                 { value === "codesnap" && <CodeEditor setCode={setCode} code={code} {...props} />}  
                 { value === "header" && <TextEditor setHeader={setHeader} header={header} {...props} />}  
+                { value === "assets" && <AssetsArea children={children} setChildren={setChildren} />}
 
         </LeftBarStyled>
         </>

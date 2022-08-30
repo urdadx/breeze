@@ -52,6 +52,18 @@ export const TextEditorStyled = styled.section`
         height: 30px;
         border-radius:5px;
         cursor: pointer;
+    }   
+
+    .highlight{
+        border: 2px solid #42a5f5;
+        display: flex;
+        justify-content: center;
+        padding:5px;
+        height: 30px;
+        border-radius:5px;
+        cursor: pointer;
+        width:30px; 
+
     }
 
     .color{

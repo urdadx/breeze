@@ -30,8 +30,8 @@ export const getTemplate = (id) => {
 
     position:{
         x: 0,
-        y: -28,
-        scale: 0.67    
+        y: 8,
+        scale: 0.85
     },
 
     size:{

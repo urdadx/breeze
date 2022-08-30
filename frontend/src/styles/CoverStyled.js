@@ -63,18 +63,25 @@ export const CoverStyled = styled.section`
 
     .main_wrapper{
         width: 100%;
-        height:100%;
+        height:auto;
+        padding:0px;
+        margin: 0px;
     }
 
     .screenshot_wrapper{
+        height:auto;
+        object-fit: cover;
         display:block;
         justify-content: center;
         overflow: hidden;
+        padding:0px;
+        margin: 0px;
     }
 
     .screenshot{
         width:  100%;
-        height: auto;
+        height: 100%;
+        background-size: cover;
         z-index: -1;
     }
 

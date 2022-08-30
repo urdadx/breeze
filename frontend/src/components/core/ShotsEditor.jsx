@@ -118,7 +118,7 @@ const ShotsEditor = ({ data, setData }) => {
               offsetY: offsetY,
               blur: blur,
               opacity: opacity,
-              color: color 
+              color: e.target.value 
             }
         })
     }
