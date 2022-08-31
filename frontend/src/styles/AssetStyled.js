@@ -59,8 +59,8 @@ export const AssetStyled = styled.section`
     }
     
     .image{
-        height:85px;
-        width:85px;
+        height:60px;
+        width:60px;
     }
 
     .bookmarked{

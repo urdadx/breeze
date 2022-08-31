@@ -9,6 +9,7 @@ import PlayGround from "../components/core/PlayGround";
 import { codeTemplate } from "../helpers/CodeTemplate";
 import styled from "styled-components";
 import { textTemplate } from "../helpers/textTemplate";
+import Dnd from "../components/utils/Dnd";
 
 const EnableScroll = styled.section`
     overflow-y: auto;
@@ -38,6 +39,23 @@ const Home = ({ currentState, changeState }, props) => {
         setHeader(textTemplate());
         
     }, []);
+
+
+    const Code  = () => {
+        return(
+            <>
+                <Dnd width="auto" x={900} y={400}>
+                    <i
+                        class={`devicon-${data.icon.name}-plain`}
+                        style={{
+                            fontSize: `${data.icon.fontSize}px`,
+                            color: data.icon.color,
+                        }}
+                    />
+                </Dnd>
+            </>
+        )
+    }
 
 
     return ( 
@@ -72,6 +90,7 @@ const Home = ({ currentState, changeState }, props) => {
                             setChildren={setChildren}
                             header={header}
                             setHeader={setHeader}
+                            Code={Code}
                         />
                         }
                         {

@@ -9,10 +9,11 @@ import Frame from "../atoms/Frame";
 import domtoimage from 'dom-to-image-more';
 import { downloadBlob } from "../../helpers/helperFunctions"; 
 import { hexToRGB } from "../../utils";
+import Dnd from "../utils/Dnd";
 
 const SCALE = 4.5
 
-const Editor = ({ data, darkMode, setDarkMode, header }) => {
+const Editor = ({ data, darkMode, setDarkMode, header, Code, children }) => {
 
     const [files, selectFiles] = useFileUpload();
     const [isReady, setIsReady] = useState(false);    
@@ -149,7 +150,16 @@ const Editor = ({ data, darkMode, setDarkMode, header }) => {
                                   <p style={subStyles}>{header.text.subtitle}</p>
                                 </> : ""
                               }
-                              
+
+                              {
+                                children.map((child, key) => (
+                                  <div style={{zIndex:-1, overflow:"hidden"}}>
+
+                                   <Dnd key={key}>{child.component}</Dnd>  
+                                  </div>
+                                ))
+                              }
+                              {Code()}
                             <div 
                               style={screenshotStyles}
                               className="screenshot_wrapper">

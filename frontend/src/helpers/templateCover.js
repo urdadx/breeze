@@ -55,7 +55,12 @@ export const getTemplate = (id) => {
         blur: 15,
         opacity: 0.2,
         color: "#000"
-    }
+    },
+    icon: {
+        name: "react",
+        color: "#4A90E2",
+        fontSize: 50,
+    },
 };
   
     return template;
