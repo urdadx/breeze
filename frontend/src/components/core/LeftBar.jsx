@@ -2,13 +2,15 @@ import { LeftBarStyled } from "../../styles/LeftBarStyled";
 import { FiEdit, FiFolder } from "react-icons/fi";
 import { IoShapesOutline } from "react-icons/io5";
 import { BiText } from "react-icons/bi";
-import { Tabs, Tab, Typography} from '@mui/material';
+import { Tabs, Tab, Typography, Badge } from '@mui/material';
 import CustomArea from "./CustomArea"
 import { AiOutlineCode } from "react-icons/ai";
 import { LOGO_IMG } from "../../assets/images/imageURL";
 import CodeEditor from "./CodeEditor";      
 import TextEditor from "./TextEditor";
 import AssetsArea from "./AssetsArea";
+import Bookmarks from "./Bookmarks";
+
 
 
 const TabItem = ({ tab }) => {
@@ -50,7 +52,8 @@ const LeftBar = ({
         },
         {
           name: "assets",
-          icon: <IoShapesOutline style={{fontSize:"20px"}} />,
+          icon: <IoShapesOutline style={{fontSize:"20px"}} />
+          ,
         },
         {
           name: "codesnap",
@@ -70,6 +73,7 @@ const LeftBar = ({
                     <div className="logo">
                       <img src={LOGO_IMG}/>
                     </div>
+
                     <div className="title-wrapper">
                       <Typography className="logo-title ">breeze.</Typography>
                     </div>
@@ -97,6 +101,8 @@ const LeftBar = ({
                 { value === "codesnap" && <CodeEditor setCode={setCode} code={code} {...props} />}  
                 { value === "header" && <TextEditor setHeader={setHeader} header={header} {...props} />}  
                 { value === "assets" && <AssetsArea children={children} setChildren={setChildren} />}
+                { value === "saved" && <Bookmarks/>}
+
 
         </LeftBarStyled>
         </>

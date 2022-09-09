@@ -89,6 +89,7 @@ export const AssetStyled = styled.section`
 
     .wrapper{
         margin-top:0.5rem;
+     
     }
 
     .change_btn{

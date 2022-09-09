@@ -39,7 +39,7 @@ const Header = ({
                 </FormControl>
                     </div>
                     <div className="utils">
-                        <Tooltip arrow title="Dark mode">
+                        <Tooltip arrow title="Dark mode (disabled)  ">
                             <div className="dark-mode">
                                 <LightModeOutlinedIcon />
                             </div>

@@ -84,7 +84,7 @@ const CodeEditor = ({ code, setCode }) => {
                 borderRadius: borderRadius,
                 opacity: opacity,
                 scale: scale,
-                rotate: rotate
+                rotate: rotatee
             },
         })
     }
