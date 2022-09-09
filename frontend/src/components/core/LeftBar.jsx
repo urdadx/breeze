@@ -56,14 +56,14 @@ const LeftBar = ({
           ,
         },
         {
-          name: "codesnap",
-          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
-        },
-        {
           name: "saved",
           icon: <FiFolder style={{fontSize:"20px"}} />,
         },
-    ];
+        {
+          name: "codesnap",
+          icon: <AiOutlineCode style={{fontSize:"20px"}} />,
+        },
+      ];
 
     return ( 
         <>

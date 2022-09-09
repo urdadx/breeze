@@ -1,5 +1,5 @@
 import { EditorStyled } from "../../styles/EditorStyled";
-import { Button, Select, FormControl, MenuItem, Tooltip} from '@mui/material';
+import { Button, Select, FormControl, MenuItem, Tooltip, Typography} from '@mui/material';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -27,8 +27,8 @@ const Header = ({
             <nav>
                 <div className="header-items">
                 <div className="file-formats">
-                <FormControl sx={{ p:1.5, minWidth: 250, maxWidth:250 }} size="small" >
-                    <Select onChange={handleChange} value={format}>
+                <FormControl  sx={{ p:1.5, minWidth: 250, maxWidth:250 }} size="small" >
+                    <Select disabled onChange={handleChange} value={format}>
                         {
                             options && options.map((option,key) => {
                                 return <MenuItem key={key} value={option.name}>{option.name}</MenuItem>    
@@ -45,8 +45,8 @@ const Header = ({
                             </div>
                         </Tooltip>
                         <div className="templates-btn">
-                            <Tooltip arrow title="Coming soon 🎉">     
-                                <Button 
+                            <Tooltip arrow title="Coming soon">     
+                                    <Button 
                                     endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}
                                     className="action-btn templates"
                                     variant="text">
