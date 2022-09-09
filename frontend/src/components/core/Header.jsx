@@ -45,12 +45,15 @@ const Header = ({
                             </div>
                         </Tooltip>
                         <div className="templates-btn">
-                            <Button 
-                                endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}
-                                className="action-btn templates"
-                                variant="text">
-                                Templates
-                            </Button>
+                            <Tooltip arrow title="Coming soon 🎉">     
+                                <Button 
+                                    endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}
+                                    className="action-btn templates"
+                                    variant="text">
+                                    Templates
+                                </Button>
+                            </Tooltip>
+
                         </div>
                         <div className="download-wrapper">
                             <Button 

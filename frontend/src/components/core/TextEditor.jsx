@@ -165,7 +165,7 @@ const TextEditor = ({ header, setHeader }) => {
                     </div>
                 </Box>
                 
-                <Label name="Direction" />
+                {/* <Label name="Direction" />
                 <Box m={2}>
                     <div className="direction_wrapper">
                         <div onClick={() => handleChangeDirection("top-down")} className="icons">
@@ -176,7 +176,7 @@ const TextEditor = ({ header, setHeader }) => {
                             <AlignHorizontalLeftIcon style={{fontSize:"25px"}} />
                         </div>
                     </div>
-                </Box>
+                </Box> */}
                 <Label name="Text" />
                 <Box m={2}>
                     <TextField 
