@@ -45,7 +45,7 @@ const Dnd = ({ children, width, x, y }) => {
             >
                 {children}
 
-                <div className={`wrapper resizer  ${!isEditing && "hidden"}`}>
+                <div className={!isEditing ? "wrapper resizer" : "hidden" }>
                     <div className="point top-left"></div>
                     <div className="point top-right "></div>
                     <div className="point bottom-left"></div>

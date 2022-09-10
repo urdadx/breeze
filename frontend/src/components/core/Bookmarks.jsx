@@ -93,25 +93,25 @@ const Bookmarks = () => {
                 {bookmarks.map((data, key) => {
                 return (
                     <Button
-                    className="button"
-                    key={key}
-                    >
-                    <img
-                        src={data.src}
-                        className="image"
-                        alt="An Image"
-                        onClick={() => addImage(data.src)}
-                    />
-                    <div
-                        className="book_img"
-                        onClick={() => bookmarkImage(data.src)}
-                    >
-                        {fetchBookmarked(data.src) ? (
-                        <BsFillBookmarkFill className="icon" />
-                        ) : (
-                        <FiBookmark className="icon" />
-                        )}
-                    </div>
+                        className="button"
+                        key={key}
+                        >
+                        <img
+                            src={data.src}
+                            className="image"
+                            alt="An Image"
+                            onClick={() => addImage(data.src)}
+                        />
+                        <div
+                            className="book_img"
+                            onClick={() => bookmarkImage(data.src)}
+                        >
+                            {fetchBookmarked(data.src) ? (
+                            <BsFillBookmarkFill className="icon" />
+                            ) : (
+                            <FiBookmark className="icon" />
+                            )}
+                        </div>
                     </Button>
                 );
                 })}
