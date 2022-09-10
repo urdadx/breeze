@@ -1,7 +1,7 @@
 
 # Breeze 🍎
 
-A tool made for designers and developers to build engaging assets easily for use on social media 📸
+A tool made for designers and developers to build engaging assets easily 📸
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
@@ -24,6 +24,18 @@ Live Demo: https://breeze-app.vercel.app
 - Over 30,000 icons powered by icons finder 😄
 - Create and edit code snippets and share on Twitter 🐦
 
+
+## Screenshots
+
+### Edit background ✏️
+![Edit background](/github/main_cap.gif)
+
+### Add Text to screenshot 🗨
+![Add text](/github/add_text.gif)
+
+### Add emojis🥰
+![Add emojis](/github/add_emoji.gif)
+
 ## Project Layout
 
 ### Frontend
@@ -32,6 +44,7 @@ Live Demo: https://breeze-app.vercel.app
 - styles
 - assets
 - utils
+- helpers
 
 ## Getting Started
 ### Installation
@@ -53,23 +66,12 @@ cd breeze
 ```
 cd frontend
 npm install
-npm start
+npm run dev
 
 ```
 
 View app on [localhost://5173](localhost://5173)
 
-
-## Screenshots
-
-### Edit background ✏️
-![Edit background](/github/main_cap.gif)
-
-### Add Text to screenshot 🗨
-![Add text](/github/add_text.gif)
-
-### Add emojis🥰
-![Add emojis](/github/add_emoji.gif)
 
 ## &copy; Copyright
 
