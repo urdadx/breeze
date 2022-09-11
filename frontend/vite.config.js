@@ -6,6 +6,9 @@ export default defineConfig({
   define: {
     "global": '({})',
   },
-  plugins: [react()] 
+  plugins: [react()],
+  build: {
+    minify: false,
+  }
 
 })
