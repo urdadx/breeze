@@ -23,14 +23,14 @@ const Home = ({ currentState, changeState }, props) => {
     const [code, setCode] = useState()
     const [header, setHeader] = useState()
 
-    const currentArea = localStorage.getItem("current-area") || false;
+    const currentArea = localStorage.getItem("current-area") || "false";
 
     if(currentState === "codesnap"){
-        localStorage.setItem("current-area", true)
+        localStorage.setItem("current-area", "true")
     }
 
     if(currentState === "home"){
-        localStorage.setItem("current-area", false)
+        localStorage.setItem("current-area", "false")
     }
     
     useEffect(() => {
