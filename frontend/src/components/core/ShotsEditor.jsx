@@ -6,7 +6,7 @@ import Label from '../atoms/Label';
 import GradientsPicker from '../utils/GradientsPicker';
 import SolidPicker from '../utils/SolidPicker';
 import { Typography, InputLabel, MenuItem, FormControl, Select, Box, Slider } from '@mui/material';
-import Switch from '@mui/material/Switch';
+import { Switch } from '@mui/material';
 
 
 const ShotsEditor = ({ data, setData }) => {

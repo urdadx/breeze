@@ -17,7 +17,7 @@ const GradientsPicker = ({ data, setData }) => {
 
     const handleChange = (event) => {
         setEditDirection(event.target.checked);
-    };
+    };      
     
     const [direction, setDirection] = useState(
         data.background.direction ? data.background.direction : 105
@@ -65,12 +65,12 @@ const GradientsPicker = ({ data, setData }) => {
   
         </Box>
        
-        <Box className="shadow-wrapper" width={300}>
+        {/* <Box className="shadow-wrapper" width={300}>
             <Typography className="typo-bold">Gradients direction</Typography>
             <Switch
                 onChange={handleChange}
                 color="success" checked={editDirection} />
-        </Box>
+        </Box> */}
         {
             editDirection &&
         <Box className="circular-slider">
