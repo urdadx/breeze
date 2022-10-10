@@ -1,10 +1,11 @@
 import { EditorStyled } from "../../styles/EditorStyled";
-import { Button, Select, FormControl, MenuItem, Tooltip, Typography} from '@mui/material';
+import { Button, Select, FormControl, MenuItem, Tooltip } from '@mui/material';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { useState } from "react";
 import { options } from "../../utils";
+import PopUpModal from "../utils/PopUpModal";
 
 const Header = ({
         darkMode,
@@ -20,6 +21,10 @@ const Header = ({
     const handleChange = (event) => {
         setFormat(event.target.value);
     };
+
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     
     return ( 
         <>
@@ -39,7 +44,7 @@ const Header = ({
                 </FormControl>
                     </div>
                     <div className="utils">
-                        <Tooltip arrow title="Dark mode (disabled)  ">
+                        <Tooltip arrow title="Dark mode (coming soon)  ">
                             <div className="dark-mode">
                                 <LightModeOutlinedIcon />
                             </div>
@@ -47,12 +52,15 @@ const Header = ({
                         <div className="templates-btn">
                             <Tooltip arrow title="Coming soon">     
                                     <Button 
-                                    endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}
-                                    className="action-btn templates"
-                                    variant="text">
-                                    Templates
-                                </Button>
+                                        onClick={handleOpen}
+                                        endIcon={<AutoFixHighIcon style={{fontSize:"27px"}} />}
+                                        className="action-btn templates"
+                                        variant="text"
+                                    >
+                                        Templates
+                                    </Button>
                             </Tooltip>
+                            <PopUpModal open={open} handleClose={handleClose} handleOpen={handleOpen} />
 
                         </div>
                         <div className="download-wrapper">

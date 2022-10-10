@@ -2,8 +2,6 @@ import { TextEditorStyled } from "../../styles/TextEditorStyled";
 import { Box, Switch, Typography, TextField, Select,FormControl, MenuItem, InputLabel, Slider } 
 from "@mui/material";
 import Label from "../atoms/Label";
-import { AiOutlineVerticalAlignTop } from "react-icons/ai";
-import AlignHorizontalLeftIcon from '@mui/icons-material/AlignHorizontalLeft';
 import { RiBold } from "react-icons/ri";
 import { FiItalic } from "react-icons/fi";
 import { fonts } from "../../utils";
