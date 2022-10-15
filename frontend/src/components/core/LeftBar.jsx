@@ -93,7 +93,7 @@ const LeftBar = ({
                         className="tab"
                     />  
                         ))}
-                    </Tabs>
+                </Tabs>
                         
                 </div>
 
