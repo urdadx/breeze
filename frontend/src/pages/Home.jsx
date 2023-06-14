@@ -24,7 +24,6 @@ const Home = ({ currentState, changeState }, props) => {
     const [header, setHeader] = useState()
 
     const currentArea = localStorage.getItem("current-area") || false;
-    console.log(typeof(currentArea))
 
     if(currentState === "codesnap"){
         localStorage.setItem("current-area", true)

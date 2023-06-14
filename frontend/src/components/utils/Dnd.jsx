@@ -17,21 +17,24 @@ const Dnd = ({ children, width, x, y }) => {
 
     const onDragStop = () => {
         setIsEditing(false);
+        setIsHiddening(true)
     };
 
     // default styles
-    const style = {
+    const styles = {
         position: "absolute",
         top: 0,
         left: 0,
         display: isHiddening ? "none" : "block",
     };  
 
+
+
     return (  
         <>
         <DndStyled>
             <Rnd
-                style={style}
+                style={styles}
                 default={{
                     x: x || 0,
                     y: y || 0,
@@ -43,9 +46,9 @@ const Dnd = ({ children, width, x, y }) => {
                 onResizeStop={onDragStop}
                 className="resizerComp" 
             >
-                {children}
+                    {children}
 
-                <div className={!isEditing ? "wrapper resizer" : "hidden" }>
+                <div className={!isEditing ? "wrapper resizer" : "dont-show" }>
                     <div className="point top-left"></div>
                     <div className="point top-right "></div>
                     <div className="point bottom-left"></div>

@@ -4,8 +4,9 @@ import { useState } from "react";
 
 const App = () => {
 
-  const activeSection = localStorage.getItem("active-section") || "home"
-  const [value, setValue] = useState(activeSection);
+  const [value, setValue] = useState(
+    localStorage.getItem("active-section") || "home"
+  );
 
   // handle change and persistence of tabs in leftbar
   const handleChange = (e, newValue) => {

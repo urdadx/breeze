@@ -8,7 +8,7 @@ export const DndStyled = styled.section`
     }
 
     .resizer{
-        display: block !important;
+        display: block ;
 
     }
 
@@ -20,12 +20,13 @@ export const DndStyled = styled.section`
         left:0px;
         border-radius: 3px;
         border: 3px solid #4286f4;  
+        object-fit: content;
 
         
     }
 
-    .hidden{
-        display: none;
+    .dont-show{
+        display: none !important;
     }
 
     .point{

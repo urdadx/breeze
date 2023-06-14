@@ -15,6 +15,7 @@ export const EditorStyled = styled.section`
 
     .header-items{
         display:flex;
+        align-items:center;
         justify-content: space-between;
     }
 
@@ -27,6 +28,7 @@ export const EditorStyled = styled.section`
     }
 
     .utils{
+        margin-top:10px;
         display: flex;
         justify-content: space-around;
         align-items:center;

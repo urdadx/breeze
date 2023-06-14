@@ -32,7 +32,7 @@ const Header = ({
             <nav>
                 <div className="header-items">
                 <div className="file-formats">
-                <FormControl  sx={{ p:1.5, minWidth: 250, maxWidth:250 }} size="small" >
+                <FormControl style={{display: "none"}}  sx={{ p:1.5, minWidth: 250, maxWidth:250 }} size="small" >
                     <Select disabled onChange={handleChange} value={format}>
                         {
                             options && options.map((option,key) => {
@@ -44,11 +44,7 @@ const Header = ({
                 </FormControl>
                     </div>
                     <div className="utils">
-                        <Tooltip arrow title="Dark mode (coming soon)  ">
-                            <div className="dark-mode">
-                                <LightModeOutlinedIcon />
-                            </div>
-                        </Tooltip>
+                
                         <div className="templates-btn">
                             <Tooltip arrow title="Coming soon">     
                                     <Button 
