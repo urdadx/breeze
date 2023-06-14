@@ -20,7 +20,7 @@ export const DndStyled = styled.section`
         left:0px;
         border-radius: 3px;
         border: 3px solid #4286f4;  
-        object-fit: content;
+        object-fit: cover;
 
         
     }
