@@ -3,7 +3,9 @@ import { TabsContent } from "@/components/ui/tabs";
 import CircularSlider from "@fseehawer/react-circular-slider";
 import { gradientColors } from "./bg-utils";
 import { Watermark } from "../watermark";
+
 export const GradientsPicker = () => {
+
 	return (
 		<>
 			<TabsContent value="gradient">
@@ -18,7 +20,7 @@ export const GradientsPicker = () => {
 											background: `linear-gradient(140deg, ${colors[0]}, ${colors[1]})`,
 										}}
 										key={name}
-										className="w-20 h-14 rounded-md"
+										className="w-20 h-14 rounded-md cursor-pointer"
 									/>
 								);
 							})}

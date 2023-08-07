@@ -21,7 +21,7 @@ export const gradientColors = [
 		colors: ["#c84e89", "#F15F79"],
 	},
 	{
-		name: "Purple Love",
+		name: "Purple Heart",
 		colors: ["#ec008c", "#fc6767"],
 	},
 	{
@@ -37,11 +37,11 @@ export const gradientColors = [
 		colors: ["#22c1c3", "#fdbb2d"],
 	},
 	{
-		name: "Purple",
+		name: "Purpler",
 		colors: ["#FEAC5E", "#C779D0"],
 	},
 	{
-		name: "Martini",
+		name: "Martinir",
 		colors: ["#fc00ff", "#00dbde"],
 	},
 	{

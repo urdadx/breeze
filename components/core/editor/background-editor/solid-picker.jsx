@@ -30,7 +30,7 @@ export const SolidPicker = () => {
 											background: `${color}`,
 										}}
 										key={color}
-										className="w-10 h-10 rounded-full border-zinc-300"
+										className="w-10 h-10 rounded-full border-zinc-300 cursor-pointer shadow"
 									/>
 								);
 							})}
